@@ -1,0 +1,990 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/panels/InfoPanel.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=973aff50"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$(), _s2 = $RefreshSig$(), _s3 = $RefreshSig$();
+import { BellRing, Bot, CheckCircle2, CirclePower, MapPin, Settings2 } from "/node_modules/.vite/deps/lucide-react.js?v=68727f2b";
+import {
+  alarms,
+  controlDevices,
+  energyDevices,
+  greenhouseInfo,
+  harvestVehicle,
+  personnels,
+  sensors,
+  strawberryRows
+} from "/src/data/mockData.ts";
+import { useAppStore } from "/src/store/useAppStore.ts";
+import { statusClass, statusText } from "/src/utils/format.ts";
+import { TrendChart } from "/src/components/charts/TrendChart.tsx";
+import { ModulePanel } from "/src/components/panels/ModulePanel.tsx?t=1777080556439";
+export function InfoPanel() {
+  _s();
+  const selectedTarget = useAppStore((state) => state.selectedTarget);
+  return /* @__PURE__ */ jsxDEV("aside", { className: "glass-panel min-h-0 overflow-hidden rounded-lg", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "border-b border-white/10 p-4", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "small-label", children: "Object Detail" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 44,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-1 flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxDEV("h2", { className: "text-lg font-bold", children: "对象详情面板" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 46,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "tech-chip", children: selectedTarget.category }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 47,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 45,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 43,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "scrollbar-thin h-[calc(100%-74px)] overflow-y-auto p-4", children: [
+      /* @__PURE__ */ jsxDEV("div", { children: [
+        selectedTarget.category === "greenhouse" ? /* @__PURE__ */ jsxDEV(GreenhouseDetail, {}, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 52,
+          columnNumber: 55
+        }, this) : null,
+        selectedTarget.category === "row" ? /* @__PURE__ */ jsxDEV(RowDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 53,
+          columnNumber: 48
+        }, this) : null,
+        selectedTarget.category === "sensor" ? /* @__PURE__ */ jsxDEV(SensorDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 54,
+          columnNumber: 51
+        }, this) : null,
+        selectedTarget.category === "device" ? /* @__PURE__ */ jsxDEV(DeviceDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 55,
+          columnNumber: 51
+        }, this) : null,
+        selectedTarget.category === "energy" ? /* @__PURE__ */ jsxDEV(EnergyDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 56,
+          columnNumber: 51
+        }, this) : null,
+        selectedTarget.category === "personnel" ? /* @__PURE__ */ jsxDEV(PersonnelDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 57,
+          columnNumber: 54
+        }, this) : null,
+        selectedTarget.category === "vehicle" ? /* @__PURE__ */ jsxDEV(VehicleDetail, {}, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 58,
+          columnNumber: 52
+        }, this) : null,
+        selectedTarget.category === "alarm" ? /* @__PURE__ */ jsxDEV(AlarmDetail, { id: selectedTarget.id }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 59,
+          columnNumber: 50
+        }, this) : null
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 51,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "my-4 h-px bg-white/10" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 61,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ModulePanel, {}, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 62,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 50,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 42,
+    columnNumber: 5
+  }, this);
+}
+_s(InfoPanel, "Td3FmrynpBWdRoJJ9E2qmb+eGlk=", false, function() {
+  return [useAppStore];
+});
+_c = InfoPanel;
+function GreenhouseDetail() {
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "soft-panel rounded-md p-4", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "text-xl font-black text-white", children: greenhouseInfo.name }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 72,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("p", { className: "mt-2 text-sm leading-6 text-slate-400", children: greenhouseInfo.description }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 73,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 71,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      DetailGrid,
+      {
+        items: [
+          ["建设时间", greenhouseInfo.builtAt],
+          ["建筑面积", greenhouseInfo.area],
+          ["温室结构", greenhouseInfo.structure],
+          ["种植排数", `${greenhouseInfo.rows} 排`],
+          ["边缘网关", greenhouseInfo.gateway],
+          ["网络预留", greenhouseInfo.network]
+        ]
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 75,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 70,
+    columnNumber: 5
+  }, this);
+}
+_c2 = GreenhouseDetail;
+function RowDetail({ id }) {
+  const row = strawberryRows.find((item) => item.id === id) ?? strawberryRows[0];
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "soft-panel rounded-md p-4", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex items-start justify-between gap-3", children: [
+        /* @__PURE__ */ jsxDEV("div", { children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "text-xl font-black text-white", children: [
+            row.code,
+            " 草莓排"
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+            lineNumber: 97,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("div", { className: "mt-1 text-sm text-slate-400", children: [
+            row.variety,
+            " · ",
+            row.growthStage
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+            lineNumber: 98,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 96,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(Badge, { status: row.abnormal ? "warning" : "normal", label: row.abnormal ? "异常" : "健康" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 100,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 95,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-4 grid grid-cols-3 gap-2", children: [
+        /* @__PURE__ */ jsxDEV(Kpi, { label: "株数", value: row.plantCount, unit: "株" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 103,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(Kpi, { label: "健康评分", value: row.healthScore, unit: "分" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 104,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV(Kpi, { label: "种植日期", value: row.plantedAt }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 105,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 102,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 94,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      DetailGrid,
+      {
+        items: [
+          ["空气温度", `${row.env.temperature} °C / ${row.bounds.temperature.join(" - ")}`],
+          ["空气湿度", `${row.env.airHumidity}%RH / ${row.bounds.airHumidity.join(" - ")}`],
+          ["土壤湿度", `${row.env.soilHumidity}% / ${row.bounds.soilHumidity.join(" - ")}`],
+          ["光照强度", `${row.env.light} lux / ${row.bounds.light.join(" - ")}`],
+          ["CO₂", `${row.env.co2} ppm / ${row.bounds.co2.join(" - ")}`]
+        ]
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 108,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "近 24 小时趋势", children: /* @__PURE__ */ jsxDEV(TrendChart, { data: row.trend, compact: true }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 118,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 117,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "设备联动建议", children: /* @__PURE__ */ jsxDEV(Bullets, { items: row.deviceAdvice }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 121,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 120,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "AI 种植建议", children: /* @__PURE__ */ jsxDEV(Bullets, { items: row.aiAdvice, icon: /* @__PURE__ */ jsxDEV(Bot, { className: "h-3.5 w-3.5 text-leaf-300" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 124,
+      columnNumber: 45
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 124,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 123,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 93,
+    columnNumber: 5
+  }, this);
+}
+_c3 = RowDetail;
+function SensorDetail({ id }) {
+  const sensor = sensors.find((item) => item.id === id) ?? sensors[0];
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV(
+      HeaderCard,
+      {
+        title: sensor.name,
+        subtitle: "实时传感器点位",
+        status: sensor.status
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 135,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-2 gap-2", children: [
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "实时数值", value: sensor.value, unit: sensor.unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 141,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "状态", value: statusText[sensor.status] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 142,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "下限", value: sensor.min, unit: sensor.unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 143,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "上限", value: sensor.max, unit: sensor.unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 144,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 140,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "点位说明", children: /* @__PURE__ */ jsxDEV("p", { className: "text-sm leading-6 text-slate-400", children: "该点位后续可接入真实传感器遥测，支持 MQTT topic、设备影子和告警阈值联动。" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 147,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 146,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 134,
+    columnNumber: 5
+  }, this);
+}
+_c4 = SensorDetail;
+function DeviceDetail({ id }) {
+  _s2();
+  const baseDevice = controlDevices.find((item) => item.id === id) ?? controlDevices[0];
+  const overrides = useAppStore((state) => state.deviceOverrides[id]);
+  const updateDevice = useAppStore((state) => state.updateDevice);
+  const device = { ...baseDevice, ...overrides };
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV(HeaderCard, { title: device.name, subtitle: "控制设备", status: device.status }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 163,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-2 gap-2", children: [
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "开关状态", value: device.enabled ? "开启" : "关闭" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 165,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "运行模式", value: device.mode === "auto" ? "自动" : "手动" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 166,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "实时功率", value: device.power, unit: "kW" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 167,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "目标值", value: device.targetValue, unit: device.unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 168,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 164,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "模拟控制", children: /* @__PURE__ */ jsxDEV("div", { className: "space-y-3", children: [
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          className: "flex w-full items-center justify-between rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm transition hover:border-leaf-300/40",
+          onClick: () => updateDevice(device.id, { enabled: !device.enabled }),
+          children: [
+            /* @__PURE__ */ jsxDEV("span", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxDEV(CirclePower, { className: "h-4 w-4 text-leaf-300" }, void 0, false, {
+                fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+                lineNumber: 177,
+                columnNumber: 15
+              }, this),
+              "手动开关"
+            ] }, void 0, true, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+              lineNumber: 176,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { className: device.enabled ? "text-leaf-300" : "text-slate-500", children: device.enabled ? "ON" : "OFF" }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+              lineNumber: 180,
+              columnNumber: 13
+            }, this)
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 172,
+          columnNumber: 11
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV(
+        "button",
+        {
+          className: "flex w-full items-center justify-between rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-sm transition hover:border-leaf-300/40",
+          onClick: () => updateDevice(device.id, { mode: device.mode === "auto" ? "manual" : "auto" }),
+          children: [
+            /* @__PURE__ */ jsxDEV("span", { className: "flex items-center gap-2", children: [
+              /* @__PURE__ */ jsxDEV(Settings2, { className: "h-4 w-4 text-skytech-400" }, void 0, false, {
+                fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+                lineNumber: 189,
+                columnNumber: 15
+              }, this),
+              "自动 / 手动模式"
+            ] }, void 0, true, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+              lineNumber: 188,
+              columnNumber: 13
+            }, this),
+            /* @__PURE__ */ jsxDEV("span", { className: "text-skytech-400", children: device.mode === "auto" ? "AUTO" : "MANUAL" }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+              lineNumber: 192,
+              columnNumber: 13
+            }, this)
+          ]
+        },
+        void 0,
+        true,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 184,
+          columnNumber: 11
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV(
+        NumberControl,
+        {
+          label: "目标值",
+          unit: device.unit,
+          value: device.targetValue,
+          onChange: (value) => updateDevice(device.id, { targetValue: value })
+        },
+        void 0,
+        false,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 194,
+          columnNumber: 11
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV(
+        NumberControl,
+        {
+          label: "下限",
+          unit: device.unit,
+          value: device.lowerLimit,
+          onChange: (value) => updateDevice(device.id, { lowerLimit: value })
+        },
+        void 0,
+        false,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 200,
+          columnNumber: 11
+        },
+        this
+      ),
+      /* @__PURE__ */ jsxDEV(
+        NumberControl,
+        {
+          label: "上限",
+          unit: device.unit,
+          value: device.upperLimit,
+          onChange: (value) => updateDevice(device.id, { upperLimit: value })
+        },
+        void 0,
+        false,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 206,
+          columnNumber: 11
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 171,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 170,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(PanelBlock, { title: "联动规则", children: /* @__PURE__ */ jsxDEV("p", { className: "text-sm leading-6 text-slate-400", children: device.linkedRule }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 215,
+      columnNumber: 9
+    }, this) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 214,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 162,
+    columnNumber: 5
+  }, this);
+}
+_s2(DeviceDetail, "GB9jQb+ani+1PH6LTelcZ0uyXMw=", false, function() {
+  return [useAppStore, useAppStore];
+});
+_c5 = DeviceDetail;
+function EnergyDetail({ id }) {
+  const device = energyDevices.find((item) => item.id === id) ?? energyDevices[0];
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV(HeaderCard, { title: device.name, subtitle: "能源设备", status: device.status }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 226,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-2 gap-2", children: [
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "实时发电量", value: device.generationKw, unit: "kW" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 228,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "今日能耗/流转", value: device.todayEnergyKwh, unit: "kWh" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 229,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "储能状态", value: device.storagePercent ?? "--", unit: device.storagePercent ? "%" : "" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 230,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Kpi, { label: "设备状态", value: statusText[device.status] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 231,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 227,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 225,
+    columnNumber: 5
+  }, this);
+}
+_c6 = EnergyDetail;
+function PersonnelDetail({ id }) {
+  const person = personnels.find((item) => item.id === id) ?? personnels[0];
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV(HeaderCard, { title: person.name, subtitle: person.role, status: person.online ? "normal" : "offline" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 242,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      DetailGrid,
+      {
+        items: [
+          ["姓名", person.name],
+          ["角色", person.role],
+          ["当前位置", person.positionName],
+          ["任务状态", person.taskStatus],
+          ["在线状态", person.online ? "在线" : "离线"]
+        ]
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 243,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 241,
+    columnNumber: 5
+  }, this);
+}
+_c7 = PersonnelDetail;
+function VehicleDetail() {
+  const vehicle = harvestVehicle;
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV(HeaderCard, { title: vehicle.name, subtitle: "机械臂草莓采摘小车", status: "normal" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 261,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      DetailGrid,
+      {
+        items: [
+          ["SLAM 定位", vehicle.slamStatus],
+          ["路径规划", vehicle.pathPlan],
+          ["识别准确率", `${vehicle.recognitionAccuracy}%`],
+          ["采摘效率", `${vehicle.pickingEfficiency} 颗/小时`],
+          ["机械臂状态", vehicle.armStatus]
+        ]
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 262,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 260,
+    columnNumber: 5
+  }, this);
+}
+_c8 = VehicleDetail;
+function AlarmDetail({ id }) {
+  _s3();
+  const alarm = alarms.find((item) => item.id === id) ?? alarms[0];
+  const resolved = useAppStore((state) => state.resolvedAlarms[id]);
+  const resolveAlarm = useAppStore((state) => state.resolveAlarm);
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-4", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "soft-panel rounded-md p-4", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-2 text-berry-400", children: [
+        /* @__PURE__ */ jsxDEV(BellRing, { className: "h-4 w-4" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 284,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "text-sm font-semibold", children: [
+          alarm.level,
+          " · ",
+          alarm.type
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 285,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 283,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-2 text-xl font-black text-white", children: alarm.target }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 287,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 282,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      DetailGrid,
+      {
+        items: [
+          ["告警位置", alarm.location],
+          ["当前值", alarm.currentValue],
+          ["阈值范围", alarm.threshold],
+          ["发生时间", alarm.occurredAt],
+          ["处理状态", resolved || alarm.handled ? "已处理" : "待处理"]
+        ]
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 289,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV(
+      "button",
+      {
+        className: "flex w-full items-center justify-center gap-2 rounded-md border border-leaf-300/30 bg-leaf-400/10 px-3 py-2 text-sm font-semibold text-leaf-300 transition hover:bg-leaf-400/20",
+        onClick: () => resolveAlarm(alarm.id),
+        children: [
+          /* @__PURE__ */ jsxDEV(CheckCircle2, { className: "h-4 w-4" }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+            lineNumber: 302,
+            columnNumber: 9
+          }, this),
+          "标记为已处理"
+        ]
+      },
+      void 0,
+      true,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 298,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 281,
+    columnNumber: 5
+  }, this);
+}
+_s3(AlarmDetail, "nabOwd4iKU6Cn6KvSFmFXrTtRy0=", false, function() {
+  return [useAppStore, useAppStore];
+});
+_c9 = AlarmDetail;
+function HeaderCard({
+  title,
+  subtitle,
+  status
+}) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "soft-panel rounded-md p-4", children: /* @__PURE__ */ jsxDEV("div", { className: "flex items-start justify-between gap-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "text-xl font-black text-white", children: title }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 322,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-1 flex items-center gap-1.5 text-sm text-slate-400", children: [
+        /* @__PURE__ */ jsxDEV(MapPin, { className: "h-3.5 w-3.5" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+          lineNumber: 324,
+          columnNumber: 13
+        }, this),
+        subtitle
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 323,
+        columnNumber: 11
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 321,
+      columnNumber: 9
+    }, this),
+    /* @__PURE__ */ jsxDEV(Badge, { status, label: statusText[status] }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 328,
+      columnNumber: 9
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 320,
+    columnNumber: 7
+  }, this) }, void 0, false, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 319,
+    columnNumber: 5
+  }, this);
+}
+_c0 = HeaderCard;
+function Badge({ status, label }) {
+  return /* @__PURE__ */ jsxDEV("span", { className: `rounded border px-2 py-1 text-[11px] ${statusClass[status]}`, children: label }, void 0, false, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 335,
+    columnNumber: 10
+  }, this);
+}
+_c1 = Badge;
+function Kpi({ label, value, unit }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-white/10 bg-white/[0.035] p-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "text-[11px] text-slate-500", children: label }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 341,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mt-1 flex items-end gap-1", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "text-lg font-black text-white", children: value }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 343,
+        columnNumber: 9
+      }, this),
+      unit ? /* @__PURE__ */ jsxDEV("span", { className: "text-[11px] text-slate-500", children: unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 344,
+        columnNumber: 17
+      }, this) : null
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 342,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 340,
+    columnNumber: 5
+  }, this);
+}
+_c10 = Kpi;
+function DetailGrid({ items }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-2", children: items.map(
+    ([label, value]) => /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-white/10 bg-white/[0.035] px-3 py-2", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "text-[11px] text-slate-500", children: label }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 355,
+        columnNumber: 11
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "mt-1 text-sm leading-5 text-slate-200", children: value }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 356,
+        columnNumber: 11
+      }, this)
+    ] }, label, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 354,
+      columnNumber: 7
+    }, this)
+  ) }, void 0, false, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 352,
+    columnNumber: 5
+  }, this);
+}
+_c11 = DetailGrid;
+function PanelBlock({
+  title,
+  children
+}) {
+  return /* @__PURE__ */ jsxDEV("section", { className: "rounded-md border border-white/10 bg-white/[0.035] p-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "mb-2 text-sm font-semibold text-slate-100", children: title }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 372,
+      columnNumber: 7
+    }, this),
+    children
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 371,
+    columnNumber: 5
+  }, this);
+}
+_c12 = PanelBlock;
+function Bullets({ items, icon }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-2", children: items.map(
+    (item) => /* @__PURE__ */ jsxDEV("div", { className: "flex gap-2 text-sm leading-6 text-slate-400", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-leaf-300" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 383,
+        columnNumber: 11
+      }, this),
+      icon,
+      /* @__PURE__ */ jsxDEV("span", { children: item }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 385,
+        columnNumber: 11
+      }, this)
+    ] }, item, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 382,
+      columnNumber: 7
+    }, this)
+  ) }, void 0, false, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 380,
+    columnNumber: 5
+  }, this);
+}
+_c13 = Bullets;
+function NumberControl({
+  label,
+  value,
+  unit,
+  onChange
+}) {
+  return /* @__PURE__ */ jsxDEV("label", { className: "block rounded-md border border-white/10 bg-white/[0.03] p-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "mb-2 flex items-center justify-between text-xs", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "text-slate-400", children: label }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 406,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "text-leaf-300", children: [
+        value,
+        " ",
+        unit
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 407,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+      lineNumber: 405,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(
+      "input",
+      {
+        className: "w-full accent-emerald-300",
+        type: "range",
+        min: 0,
+        max: unit === "lux" ? 5e4 : 100,
+        step: unit === "lux" ? 500 : 1,
+        value,
+        onChange: (event) => onChange(Number(event.target.value))
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+        lineNumber: 411,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx",
+    lineNumber: 404,
+    columnNumber: 5
+  }, this);
+}
+_c14 = NumberControl;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c0, _c1, _c10, _c11, _c12, _c13, _c14;
+$RefreshReg$(_c, "InfoPanel");
+$RefreshReg$(_c2, "GreenhouseDetail");
+$RefreshReg$(_c3, "RowDetail");
+$RefreshReg$(_c4, "SensorDetail");
+$RefreshReg$(_c5, "DeviceDetail");
+$RefreshReg$(_c6, "EnergyDetail");
+$RefreshReg$(_c7, "PersonnelDetail");
+$RefreshReg$(_c8, "VehicleDetail");
+$RefreshReg$(_c9, "AlarmDetail");
+$RefreshReg$(_c0, "HeaderCard");
+$RefreshReg$(_c1, "Badge");
+$RefreshReg$(_c10, "Kpi");
+$RefreshReg$(_c11, "DetailGrid");
+$RefreshReg$(_c12, "PanelBlock");
+$RefreshReg$(_c13, "Bullets");
+$RefreshReg$(_c14, "NumberControl");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/InfoPanel.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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QUEsTUFQMUQ7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBLElBTzREO0FBQUEsT0FkOUQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQWdCQTtBQUVKO0FBQUM0RSxPQTlCUUo7QUFBYSxJQUFBSyxJQUFBeEcsS0FBQXVCLEtBQUFRLEtBQUEwRSxLQUFBdkQsS0FBQU8sS0FBQVEsS0FBQXlDLEtBQUF2QixLQUFBRyxLQUFBRSxNQUFBSSxNQUFBRyxNQUFBRyxNQUFBSztBQUFBLGFBQUFDLElBQUE7QUFBQSxhQUFBeEcsS0FBQTtBQUFBLGFBQUF1QixLQUFBO0FBQUEsYUFBQVEsS0FBQTtBQUFBLGFBQUEwRSxLQUFBO0FBQUEsYUFBQXZELEtBQUE7QUFBQSxhQUFBTyxLQUFBO0FBQUEsYUFBQVEsS0FBQTtBQUFBLGFBQUF5QyxLQUFBO0FBQUEsYUFBQXZCLEtBQUE7QUFBQSxhQUFBRyxLQUFBO0FBQUEsYUFBQUUsTUFBQTtBQUFBLGFBQUFJLE1BQUE7QUFBQSxhQUFBRyxNQUFBO0FBQUEsYUFBQUcsTUFBQTtBQUFBLGFBQUFLLE1BQUEiLCJuYW1lcyI6WyJCZWxsUmluZyIsIkJvdCIsIkNoZWNrQ2lyY2xlMiIsIkNpcmNsZVBvd2VyIiwiTWFwUGluIiwiU2V0dGluZ3MyIiwiYWxhcm1zIiwiY29udHJvbERldmljZXMiLCJlbmVyZ3lEZXZpY2VzIiwiZ3JlZW5ob3VzZUluZm8iLCJoYXJ2ZXN0VmVoaWNsZSIsInBlcnNvbm5lbHMiLCJzZW5zb3JzIiwic3RyYXdiZXJyeVJvd3MiLCJ1c2VBcHBTdG9yZSIsInN0YXR1c0NsYXNzIiwic3RhdHVzVGV4dCIsIlRyZW5kQ2hhcnQiLCJNb2R1bGVQYW5lbCIsIkluZm9QYW5lbCIsIl9zIiwic2VsZWN0ZWRUYXJnZXQiLCJzdGF0ZSIsImNhdGVnb3J5IiwiaWQiLCJHcmVlbmhvdXNlRGV0YWlsIiwibmFtZSIsImRlc2NyaXB0aW9uIiwiYnVpbHRBdCIsImFyZWEiLCJzdHJ1Y3R1cmUiLCJyb3dzIiwiZ2F0ZXdheSIsIm5ldHdvcmsiLCJfYzIiLCJSb3dEZXRhaWwiLCJyb3ciLCJmaW5kIiwiaXRlbSIsImNvZGUiLCJ2YXJpZXR5IiwiZ3Jvd3RoU3RhZ2UiLCJhYm5vcm1hbCIsInBsYW50Q291bnQiLCJoZWFsdGhTY29yZSIsInBsYW50ZWRBdCIsImVudiIsInRlbXBlcmF0dXJlIiwiYm91bmRzIiwiam9pbiIsImFpckh1bWlkaXR5Iiwic29pbEh1bWlkaXR5IiwibGlnaHQiLCJjbzIiLCJ0cmVuZCIsImRldmljZUFkdmljZSIsImFpQWR2aWNlIiwiX2MzIiwiU2Vuc29yRGV0YWlsIiwic2Vuc29yIiwic3RhdHVzIiwidmFsdWUiLCJ1bml0IiwibWluIiwibWF4IiwiX2M0IiwiRGV2aWNlRGV0YWlsIiwiX3MyIiwiYmFzZURldmljZSIsIm92ZXJyaWRlcyIsImRldmljZU92ZXJyaWRlcyIsInVwZGF0ZURldmljZSIsImRldmljZSIsImVuYWJsZWQiLCJtb2RlIiwicG93ZXIiLCJ0YXJnZXRWYWx1ZSIsImxvd2VyTGltaXQiLCJ1cHBlckxpbWl0IiwibGlua2VkUnVsZSIsIkVuZXJneURldGFpbCIsImdlbmVyYXRpb25LdyIsInRvZGF5RW5lcmd5S3doIiwic3RvcmFnZVBlcmNlbnQiLCJfYzYiLCJQZXJzb25uZWxEZXRhaWwiLCJwZXJzb24iLCJyb2xlIiwib25saW5lIiwicG9zaXRpb25OYW1lIiwidGFza1N0YXR1cyIsIl9jNyIsIlZlaGljbGVEZXRhaWwiLCJ2ZWhpY2xlIiwic2xhbVN0YXR1cyIsInBhdGhQbGFuIiwicmVjb2duaXRpb25BY2N1cmFjeSIsInBpY2tpbmdFZmZpY2llbmN5IiwiYXJtU3RhdHVzIiwiX2M4IiwiQWxhcm1EZXRhaWwiLCJfczMiLCJhbGFybSIsInJlc29sdmVkIiwicmVzb2x2ZWRBbGFybXMiLCJyZXNvbHZlQWxhcm0iLCJsZXZlbCIsInR5cGUiLCJ0YXJnZXQiLCJsb2NhdGlvbiIsImN1cnJlbnRWYWx1ZSIsInRocmVzaG9sZCIsIm9jY3VycmVkQXQiLCJoYW5kbGVkIiwiSGVhZGVyQ2FyZCIsInRpdGxlIiwic3VidGl0bGUiLCJfYzAiLCJCYWRnZSIsImxhYmVsIiwiX2MxIiwiS3BpIiwiX2MxMCIsIkRldGFpbEdyaWQiLCJpdGVtcyIsIm1hcCIsIl9jMTEiLCJQYW5lbEJsb2NrIiwiY2hpbGRyZW4iLCJfYzEyIiwiQnVsbGV0cyIsImljb24iLCJfYzEzIiwiTnVtYmVyQ29udHJvbCIsIm9uQ2hhbmdlIiwiZXZlbnQiLCJOdW1iZXIiLCJfYzE0IiwiX2MiLCJfYzUiLCJfYzkiXSwiaWdub3JlTGlzdCI6W10sInNvdXJjZXMiOlsiSW5mb1BhbmVsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgdHlwZSB7IFJlYWN0Tm9kZSB9IGZyb20gJ3JlYWN0JztcbmltcG9ydCB7IEJlbGxSaW5nLCBCb3QsIENoZWNrQ2lyY2xlMiwgQ2lyY2xlUG93ZXIsIE1hcFBpbiwgU2V0dGluZ3MyIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7XG4gIGFsYXJtcyxcbiAgY29udHJvbERldmljZXMsXG4gIGVuZXJneURldmljZXMsXG4gIGdyZWVuaG91c2VJbmZvLFxuICBoYXJ2ZXN0VmVoaWNsZSxcbiAgcGVyc29ubmVscyxcbiAgc2Vuc29ycyxcbiAgc3RyYXdiZXJyeVJvd3Ncbn0gZnJvbSAnLi4vLi4vZGF0YS9tb2NrRGF0YSc7XG5pbXBvcnQgeyB1c2VBcHBTdG9yZSB9IGZyb20gJy4uLy4uL3N0b3JlL3VzZUFwcFN0b3JlJztcbmltcG9ydCB0eXBlIHsgQ29udHJvbERldmljZSwgU3RhdHVzTGV2ZWwgfSBmcm9tICcuLi8uLi90eXBlcyc7XG5pbXBvcnQgeyBzdGF0dXNDbGFzcywgc3RhdHVzVGV4dCB9IGZyb20gJy4uLy4uL3V0aWxzL2Zvcm1hdCc7XG5pbXBvcnQgeyBUcmVuZENoYXJ0IH0gZnJvbSAnLi4vY2hhcnRzL1RyZW5kQ2hhcnQnO1xuaW1wb3J0IHsgTW9kdWxlUGFuZWwgfSBmcm9tICcuL01vZHVsZVBhbmVsJztcblxuZXhwb3J0IGZ1bmN0aW9uIEluZm9QYW5lbCgpIHtcbiAgY29uc3Qgc2VsZWN0ZWRUYXJnZXQgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLnNlbGVjdGVkVGFyZ2V0KTtcblxuICByZXR1cm4gKFxuICAgIDxhc2lkZSBjbGFzc05hbWU9XCJnbGFzcy1wYW5lbCBtaW4taC0wIG92ZXJmbG93LWhpZGRlbiByb3VuZGVkLWxnXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImJvcmRlci1iIGJvcmRlci13aGl0ZS8xMCBwLTRcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzbWFsbC1sYWJlbFwiPk9iamVjdCBEZXRhaWw8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgIDxoMiBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtYm9sZFwiPuWvueixoeivpuaDhemdouadvzwvaDI+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGVjaC1jaGlwXCI+e3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5fTwvc3Bhbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2Nyb2xsYmFyLXRoaW4gaC1bY2FsYygxMDAlLTc0cHgpXSBvdmVyZmxvdy15LWF1dG8gcC00XCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAnZ3JlZW5ob3VzZScgPyA8R3JlZW5ob3VzZURldGFpbCAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAncm93JyA/IDxSb3dEZXRhaWwgaWQ9e3NlbGVjdGVkVGFyZ2V0LmlkfSAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAnc2Vuc29yJyA/IDxTZW5zb3JEZXRhaWwgaWQ9e3NlbGVjdGVkVGFyZ2V0LmlkfSAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAnZGV2aWNlJyA/IDxEZXZpY2VEZXRhaWwgaWQ9e3NlbGVjdGVkVGFyZ2V0LmlkfSAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAnZW5lcmd5JyA/IDxFbmVyZ3lEZXRhaWwgaWQ9e3NlbGVjdGVkVGFyZ2V0LmlkfSAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAncGVyc29ubmVsJyA/IDxQZXJzb25uZWxEZXRhaWwgaWQ9e3NlbGVjdGVkVGFyZ2V0LmlkfSAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAndmVoaWNsZScgPyA8VmVoaWNsZURldGFpbCAvPiA6IG51bGx9XG4gICAgICAgICAge3NlbGVjdGVkVGFyZ2V0LmNhdGVnb3J5ID09PSAnYWxhcm0nID8gPEFsYXJtRGV0YWlsIGlkPXtzZWxlY3RlZFRhcmdldC5pZH0gLz4gOiBudWxsfVxuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJteS00IGgtcHggYmctd2hpdGUvMTBcIiAvPlxuICAgICAgICA8TW9kdWxlUGFuZWwgLz5cbiAgICAgIDwvZGl2PlxuICAgIDwvYXNpZGU+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEdyZWVuaG91c2VEZXRhaWwoKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTRcIj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic29mdC1wYW5lbCByb3VuZGVkLW1kIHAtNFwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ibGFjayB0ZXh0LXdoaXRlXCI+e2dyZWVuaG91c2VJbmZvLm5hbWV9PC9kaXY+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTIgdGV4dC1zbSBsZWFkaW5nLTYgdGV4dC1zbGF0ZS00MDBcIj57Z3JlZW5ob3VzZUluZm8uZGVzY3JpcHRpb259PC9wPlxuICAgICAgPC9kaXY+XG4gICAgICA8RGV0YWlsR3JpZFxuICAgICAgICBpdGVtcz17W1xuICAgICAgICAgIFsn5bu66K6+5pe26Ze0JywgZ3JlZW5ob3VzZUluZm8uYnVpbHRBdF0sXG4gICAgICAgICAgWyflu7rnrZHpnaLnp68nLCBncmVlbmhvdXNlSW5mby5hcmVhXSxcbiAgICAgICAgICBbJ+a4qeWupOe7k+aehCcsIGdyZWVuaG91c2VJbmZvLnN0cnVjdHVyZV0sXG4gICAgICAgICAgWyfnp43mpI3mjpLmlbAnLCBgJHtncmVlbmhvdXNlSW5mby5yb3dzfSDmjpJgXSxcbiAgICAgICAgICBbJ+i+uee8mOe9keWFsycsIGdyZWVuaG91c2VJbmZvLmdhdGV3YXldLFxuICAgICAgICAgIFsn572R57uc6aKE55WZJywgZ3JlZW5ob3VzZUluZm8ubmV0d29ya11cbiAgICAgICAgXX1cbiAgICAgIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFJvd0RldGFpbCh7IGlkIH06IHsgaWQ6IHN0cmluZyB9KSB7XG4gIGNvbnN0IHJvdyA9IHN0cmF3YmVycnlSb3dzLmZpbmQoKGl0ZW0pID0+IGl0ZW0uaWQgPT09IGlkKSA/PyBzdHJhd2JlcnJ5Um93c1swXTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInNvZnQtcGFuZWwgcm91bmRlZC1tZCBwLTRcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlbiBnYXAtM1wiPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInRleHQteGwgZm9udC1ibGFjayB0ZXh0LXdoaXRlXCI+e3Jvdy5jb2RlfSDojYnojpPmjpI8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMSB0ZXh0LXNtIHRleHQtc2xhdGUtNDAwXCI+e3Jvdy52YXJpZXR5fSDCtyB7cm93Lmdyb3d0aFN0YWdlfTwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxCYWRnZSBzdGF0dXM9e3Jvdy5hYm5vcm1hbCA/ICd3YXJuaW5nJyA6ICdub3JtYWwnfSBsYWJlbD17cm93LmFibm9ybWFsID8gJ+W8guW4uCcgOiAn5YGl5bq3J30gLz5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtNCBncmlkIGdyaWQtY29scy0zIGdhcC0yXCI+XG4gICAgICAgICAgPEtwaSBsYWJlbD1cIuagquaVsFwiIHZhbHVlPXtyb3cucGxhbnRDb3VudH0gdW5pdD1cIuagqlwiIC8+XG4gICAgICAgICAgPEtwaSBsYWJlbD1cIuWBpeW6t+ivhOWIhlwiIHZhbHVlPXtyb3cuaGVhbHRoU2NvcmV9IHVuaXQ9XCLliIZcIiAvPlxuICAgICAgICAgIDxLcGkgbGFiZWw9XCLnp43mpI3ml6XmnJ9cIiB2YWx1ZT17cm93LnBsYW50ZWRBdH0gLz5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxEZXRhaWxHcmlkXG4gICAgICAgIGl0ZW1zPXtbXG4gICAgICAgICAgWyfnqbrmsJTmuKnluqYnLCBgJHtyb3cuZW52LnRlbXBlcmF0dXJlfSDCsEMgLyAke3Jvdy5ib3VuZHMudGVtcGVyYXR1cmUuam9pbignIC0gJyl9YF0sXG4gICAgICAgICAgWyfnqbrmsJTmub/luqYnLCBgJHtyb3cuZW52LmFpckh1bWlkaXR5fSVSSCAvICR7cm93LmJvdW5kcy5haXJIdW1pZGl0eS5qb2luKCcgLSAnKX1gXSxcbiAgICAgICAgICBbJ+Wcn+WjpOa5v+W6picsIGAke3Jvdy5lbnYuc29pbEh1bWlkaXR5fSUgLyAke3Jvdy5ib3VuZHMuc29pbEh1bWlkaXR5LmpvaW4oJyAtICcpfWBdLFxuICAgICAgICAgIFsn5YWJ54Wn5by65bqmJywgYCR7cm93LmVudi5saWdodH0gbHV4IC8gJHtyb3cuYm91bmRzLmxpZ2h0LmpvaW4oJyAtICcpfWBdLFxuICAgICAgICAgIFsnQ0/igoInLCBgJHtyb3cuZW52LmNvMn0gcHBtIC8gJHtyb3cuYm91bmRzLmNvMi5qb2luKCcgLSAnKX1gXVxuICAgICAgICBdfVxuICAgICAgLz5cbiAgICAgIDxQYW5lbEJsb2NrIHRpdGxlPVwi6L+RIDI0IOWwj+aXtui2i+WKv1wiPlxuICAgICAgICA8VHJlbmRDaGFydCBkYXRhPXtyb3cudHJlbmR9IGNvbXBhY3QgLz5cbiAgICAgIDwvUGFuZWxCbG9jaz5cbiAgICAgIDxQYW5lbEJsb2NrIHRpdGxlPVwi6K6+5aSH6IGU5Yqo5bu66K6uXCI+XG4gICAgICAgIDxCdWxsZXRzIGl0ZW1zPXtyb3cuZGV2aWNlQWR2aWNlfSAvPlxuICAgICAgPC9QYW5lbEJsb2NrPlxuICAgICAgPFBhbmVsQmxvY2sgdGl0bGU9XCJBSSDnp43mpI3lu7rorq5cIj5cbiAgICAgICAgPEJ1bGxldHMgaXRlbXM9e3Jvdy5haUFkdmljZX0gaWNvbj17PEJvdCBjbGFzc05hbWU9XCJoLTMuNSB3LTMuNSB0ZXh0LWxlYWYtMzAwXCIgLz59IC8+XG4gICAgICA8L1BhbmVsQmxvY2s+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFNlbnNvckRldGFpbCh7IGlkIH06IHsgaWQ6IHN0cmluZyB9KSB7XG4gIGNvbnN0IHNlbnNvciA9IHNlbnNvcnMuZmluZCgoaXRlbSkgPT4gaXRlbS5pZCA9PT0gaWQpID8/IHNlbnNvcnNbMF07XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgPEhlYWRlckNhcmRcbiAgICAgICAgdGl0bGU9e3NlbnNvci5uYW1lfVxuICAgICAgICBzdWJ0aXRsZT1cIuWunuaXtuS8oOaEn+WZqOeCueS9jVwiXG4gICAgICAgIHN0YXR1cz17c2Vuc29yLnN0YXR1c31cbiAgICAgIC8+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTIgZ2FwLTJcIj5cbiAgICAgICAgPEtwaSBsYWJlbD1cIuWunuaXtuaVsOWAvFwiIHZhbHVlPXtzZW5zb3IudmFsdWV9IHVuaXQ9e3NlbnNvci51bml0fSAvPlxuICAgICAgICA8S3BpIGxhYmVsPVwi54q25oCBXCIgdmFsdWU9e3N0YXR1c1RleHRbc2Vuc29yLnN0YXR1c119IC8+XG4gICAgICAgIDxLcGkgbGFiZWw9XCLkuIvpmZBcIiB2YWx1ZT17c2Vuc29yLm1pbn0gdW5pdD17c2Vuc29yLnVuaXR9IC8+XG4gICAgICAgIDxLcGkgbGFiZWw9XCLkuIrpmZBcIiB2YWx1ZT17c2Vuc29yLm1heH0gdW5pdD17c2Vuc29yLnVuaXR9IC8+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxQYW5lbEJsb2NrIHRpdGxlPVwi54K55L2N6K+05piOXCI+XG4gICAgICAgIDxwIGNsYXNzTmFtZT1cInRleHQtc20gbGVhZGluZy02IHRleHQtc2xhdGUtNDAwXCI+XG4gICAgICAgICAg6K+l54K55L2N5ZCO57ut5Y+v5o6l5YWl55yf5a6e5Lyg5oSf5Zmo6YGl5rWL77yM5pSv5oyBIE1RVFQgdG9waWPjgIHorr7lpIflvbHlrZDlkozlkYrorabpmIjlgLzogZTliqjjgIJcbiAgICAgICAgPC9wPlxuICAgICAgPC9QYW5lbEJsb2NrPlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBEZXZpY2VEZXRhaWwoeyBpZCB9OiB7IGlkOiBzdHJpbmcgfSkge1xuICBjb25zdCBiYXNlRGV2aWNlID0gY29udHJvbERldmljZXMuZmluZCgoaXRlbSkgPT4gaXRlbS5pZCA9PT0gaWQpID8/IGNvbnRyb2xEZXZpY2VzWzBdO1xuICBjb25zdCBvdmVycmlkZXMgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLmRldmljZU92ZXJyaWRlc1tpZF0pO1xuICBjb25zdCB1cGRhdGVEZXZpY2UgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLnVwZGF0ZURldmljZSk7XG4gIGNvbnN0IGRldmljZTogQ29udHJvbERldmljZSA9IHsgLi4uYmFzZURldmljZSwgLi4ub3ZlcnJpZGVzIH07XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgPEhlYWRlckNhcmQgdGl0bGU9e2RldmljZS5uYW1lfSBzdWJ0aXRsZT1cIuaOp+WItuiuvuWkh1wiIHN0YXR1cz17ZGV2aWNlLnN0YXR1c30gLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtMlwiPlxuICAgICAgICA8S3BpIGxhYmVsPVwi5byA5YWz54q25oCBXCIgdmFsdWU9e2RldmljZS5lbmFibGVkID8gJ+W8gOWQrycgOiAn5YWz6ZetJ30gLz5cbiAgICAgICAgPEtwaSBsYWJlbD1cIui/kOihjOaooeW8j1wiIHZhbHVlPXtkZXZpY2UubW9kZSA9PT0gJ2F1dG8nID8gJ+iHquWKqCcgOiAn5omL5YqoJ30gLz5cbiAgICAgICAgPEtwaSBsYWJlbD1cIuWunuaXtuWKn+eOh1wiIHZhbHVlPXtkZXZpY2UucG93ZXJ9IHVuaXQ9XCJrV1wiIC8+XG4gICAgICAgIDxLcGkgbGFiZWw9XCLnm67moIflgLxcIiB2YWx1ZT17ZGV2aWNlLnRhcmdldFZhbHVlfSB1bml0PXtkZXZpY2UudW5pdH0gLz5cbiAgICAgIDwvZGl2PlxuICAgICAgPFBhbmVsQmxvY2sgdGl0bGU9XCLmqKHmi5/mjqfliLZcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTNcIj5cbiAgICAgICAgICA8YnV0dG9uXG4gICAgICAgICAgICBjbGFzc05hbWU9XCJmbGV4IHctZnVsbCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBiZy13aGl0ZS9bMC4wNF0gcHgtMyBweS0yIHRleHQtc20gdHJhbnNpdGlvbiBob3Zlcjpib3JkZXItbGVhZi0zMDAvNDBcIlxuICAgICAgICAgICAgb25DbGljaz17KCkgPT4gdXBkYXRlRGV2aWNlKGRldmljZS5pZCwgeyBlbmFibGVkOiAhZGV2aWNlLmVuYWJsZWQgfSl9XG4gICAgICAgICAgPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTJcIj5cbiAgICAgICAgICAgICAgPENpcmNsZVBvd2VyIGNsYXNzTmFtZT1cImgtNCB3LTQgdGV4dC1sZWFmLTMwMFwiIC8+XG4gICAgICAgICAgICAgIOaJi+WKqOW8gOWFs1xuICAgICAgICAgICAgPC9zcGFuPlxuICAgICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPXtkZXZpY2UuZW5hYmxlZCA/ICd0ZXh0LWxlYWYtMzAwJyA6ICd0ZXh0LXNsYXRlLTUwMCd9PlxuICAgICAgICAgICAgICB7ZGV2aWNlLmVuYWJsZWQgPyAnT04nIDogJ09GRid9XG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPGJ1dHRvblxuICAgICAgICAgICAgY2xhc3NOYW1lPVwiZmxleCB3LWZ1bGwgaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlbiByb3VuZGVkLW1kIGJvcmRlciBib3JkZXItd2hpdGUvMTAgYmctd2hpdGUvWzAuMDRdIHB4LTMgcHktMiB0ZXh0LXNtIHRyYW5zaXRpb24gaG92ZXI6Ym9yZGVyLWxlYWYtMzAwLzQwXCJcbiAgICAgICAgICAgIG9uQ2xpY2s9eygpID0+IHVwZGF0ZURldmljZShkZXZpY2UuaWQsIHsgbW9kZTogZGV2aWNlLm1vZGUgPT09ICdhdXRvJyA/ICdtYW51YWwnIDogJ2F1dG8nIH0pfVxuICAgICAgICAgID5cbiAgICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yXCI+XG4gICAgICAgICAgICAgIDxTZXR0aW5nczIgY2xhc3NOYW1lPVwiaC00IHctNCB0ZXh0LXNreXRlY2gtNDAwXCIgLz5cbiAgICAgICAgICAgICAg6Ieq5YqoIC8g5omL5Yqo5qih5byPXG4gICAgICAgICAgICA8L3NwYW4+XG4gICAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXNreXRlY2gtNDAwXCI+e2RldmljZS5tb2RlID09PSAnYXV0bycgPyAnQVVUTycgOiAnTUFOVUFMJ308L3NwYW4+XG4gICAgICAgICAgPC9idXR0b24+XG4gICAgICAgICAgPE51bWJlckNvbnRyb2xcbiAgICAgICAgICAgIGxhYmVsPVwi55uu5qCH5YC8XCJcbiAgICAgICAgICAgIHVuaXQ9e2RldmljZS51bml0fVxuICAgICAgICAgICAgdmFsdWU9e2RldmljZS50YXJnZXRWYWx1ZX1cbiAgICAgICAgICAgIG9uQ2hhbmdlPXsodmFsdWUpID0+IHVwZGF0ZURldmljZShkZXZpY2UuaWQsIHsgdGFyZ2V0VmFsdWU6IHZhbHVlIH0pfVxuICAgICAgICAgIC8+XG4gICAgICAgICAgPE51bWJlckNvbnRyb2xcbiAgICAgICAgICAgIGxhYmVsPVwi5LiL6ZmQXCJcbiAgICAgICAgICAgIHVuaXQ9e2RldmljZS51bml0fVxuICAgICAgICAgICAgdmFsdWU9e2RldmljZS5sb3dlckxpbWl0fVxuICAgICAgICAgICAgb25DaGFuZ2U9eyh2YWx1ZSkgPT4gdXBkYXRlRGV2aWNlKGRldmljZS5pZCwgeyBsb3dlckxpbWl0OiB2YWx1ZSB9KX1cbiAgICAgICAgICAvPlxuICAgICAgICAgIDxOdW1iZXJDb250cm9sXG4gICAgICAgICAgICBsYWJlbD1cIuS4iumZkFwiXG4gICAgICAgICAgICB1bml0PXtkZXZpY2UudW5pdH1cbiAgICAgICAgICAgIHZhbHVlPXtkZXZpY2UudXBwZXJMaW1pdH1cbiAgICAgICAgICAgIG9uQ2hhbmdlPXsodmFsdWUpID0+IHVwZGF0ZURldmljZShkZXZpY2UuaWQsIHsgdXBwZXJMaW1pdDogdmFsdWUgfSl9XG4gICAgICAgICAgLz5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L1BhbmVsQmxvY2s+XG4gICAgICA8UGFuZWxCbG9jayB0aXRsZT1cIuiBlOWKqOinhOWImVwiPlxuICAgICAgICA8cCBjbGFzc05hbWU9XCJ0ZXh0LXNtIGxlYWRpbmctNiB0ZXh0LXNsYXRlLTQwMFwiPntkZXZpY2UubGlua2VkUnVsZX08L3A+XG4gICAgICA8L1BhbmVsQmxvY2s+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEVuZXJneURldGFpbCh7IGlkIH06IHsgaWQ6IHN0cmluZyB9KSB7XG4gIGNvbnN0IGRldmljZSA9IGVuZXJneURldmljZXMuZmluZCgoaXRlbSkgPT4gaXRlbS5pZCA9PT0gaWQpID8/IGVuZXJneURldmljZXNbMF07XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgPEhlYWRlckNhcmQgdGl0bGU9e2RldmljZS5uYW1lfSBzdWJ0aXRsZT1cIuiDvea6kOiuvuWkh1wiIHN0YXR1cz17ZGV2aWNlLnN0YXR1c30gLz5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtMiBnYXAtMlwiPlxuICAgICAgICA8S3BpIGxhYmVsPVwi5a6e5pe25Y+R55S16YePXCIgdmFsdWU9e2RldmljZS5nZW5lcmF0aW9uS3d9IHVuaXQ9XCJrV1wiIC8+XG4gICAgICAgIDxLcGkgbGFiZWw9XCLku4rml6Xog73ogJcv5rWB6L2sXCIgdmFsdWU9e2RldmljZS50b2RheUVuZXJneUt3aH0gdW5pdD1cImtXaFwiIC8+XG4gICAgICAgIDxLcGkgbGFiZWw9XCLlgqjog73nirbmgIFcIiB2YWx1ZT17ZGV2aWNlLnN0b3JhZ2VQZXJjZW50ID8/ICctLSd9IHVuaXQ9e2RldmljZS5zdG9yYWdlUGVyY2VudCA/ICclJyA6ICcnfSAvPlxuICAgICAgICA8S3BpIGxhYmVsPVwi6K6+5aSH54q25oCBXCIgdmFsdWU9e3N0YXR1c1RleHRbZGV2aWNlLnN0YXR1c119IC8+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gUGVyc29ubmVsRGV0YWlsKHsgaWQgfTogeyBpZDogc3RyaW5nIH0pIHtcbiAgY29uc3QgcGVyc29uID0gcGVyc29ubmVscy5maW5kKChpdGVtKSA9PiBpdGVtLmlkID09PSBpZCkgPz8gcGVyc29ubmVsc1swXTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICA8SGVhZGVyQ2FyZCB0aXRsZT17cGVyc29uLm5hbWV9IHN1YnRpdGxlPXtwZXJzb24ucm9sZX0gc3RhdHVzPXtwZXJzb24ub25saW5lID8gJ25vcm1hbCcgOiAnb2ZmbGluZSd9IC8+XG4gICAgICA8RGV0YWlsR3JpZFxuICAgICAgICBpdGVtcz17W1xuICAgICAgICAgIFsn5aeT5ZCNJywgcGVyc29uLm5hbWVdLFxuICAgICAgICAgIFsn6KeS6ImyJywgcGVyc29uLnJvbGVdLFxuICAgICAgICAgIFsn5b2T5YmN5L2N572uJywgcGVyc29uLnBvc2l0aW9uTmFtZV0sXG4gICAgICAgICAgWyfku7vliqHnirbmgIEnLCBwZXJzb24udGFza1N0YXR1c10sXG4gICAgICAgICAgWyflnKjnur/nirbmgIEnLCBwZXJzb24ub25saW5lID8gJ+WcqOe6vycgOiAn56a757q/J11cbiAgICAgICAgXX1cbiAgICAgIC8+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFZlaGljbGVEZXRhaWwoKSB7XG4gIGNvbnN0IHZlaGljbGUgPSBoYXJ2ZXN0VmVoaWNsZTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS00XCI+XG4gICAgICA8SGVhZGVyQ2FyZCB0aXRsZT17dmVoaWNsZS5uYW1lfSBzdWJ0aXRsZT1cIuacuuaisOiHguiNieiOk+mHh+aRmOWwj+i9plwiIHN0YXR1cz1cIm5vcm1hbFwiIC8+XG4gICAgICA8RGV0YWlsR3JpZFxuICAgICAgICBpdGVtcz17W1xuICAgICAgICAgIFsnU0xBTSDlrprkvY0nLCB2ZWhpY2xlLnNsYW1TdGF0dXNdLFxuICAgICAgICAgIFsn6Lev5b6E6KeE5YiSJywgdmVoaWNsZS5wYXRoUGxhbl0sXG4gICAgICAgICAgWyfor4bliKvlh4bnoa7njocnLCBgJHt2ZWhpY2xlLnJlY29nbml0aW9uQWNjdXJhY3l9JWBdLFxuICAgICAgICAgIFsn6YeH5pGY5pWI546HJywgYCR7dmVoaWNsZS5waWNraW5nRWZmaWNpZW5jeX0g6aKXL+Wwj+aXtmBdLFxuICAgICAgICAgIFsn5py65qKw6IeC54q25oCBJywgdmVoaWNsZS5hcm1TdGF0dXNdXG4gICAgICAgIF19XG4gICAgICAvPlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBBbGFybURldGFpbCh7IGlkIH06IHsgaWQ6IHN0cmluZyB9KSB7XG4gIGNvbnN0IGFsYXJtID0gYWxhcm1zLmZpbmQoKGl0ZW0pID0+IGl0ZW0uaWQgPT09IGlkKSA/PyBhbGFybXNbMF07XG4gIGNvbnN0IHJlc29sdmVkID0gdXNlQXBwU3RvcmUoKHN0YXRlKSA9PiBzdGF0ZS5yZXNvbHZlZEFsYXJtc1tpZF0pO1xuICBjb25zdCByZXNvbHZlQWxhcm0gPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLnJlc29sdmVBbGFybSk7XG5cbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktNFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJzb2Z0LXBhbmVsIHJvdW5kZWQtbWQgcC00XCI+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZmxleCBpdGVtcy1jZW50ZXIgZ2FwLTIgdGV4dC1iZXJyeS00MDBcIj5cbiAgICAgICAgICA8QmVsbFJpbmcgY2xhc3NOYW1lPVwiaC00IHctNFwiIC8+XG4gICAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LXNlbWlib2xkXCI+e2FsYXJtLmxldmVsfSDCtyB7YWxhcm0udHlwZX08L3NwYW4+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTIgdGV4dC14bCBmb250LWJsYWNrIHRleHQtd2hpdGVcIj57YWxhcm0udGFyZ2V0fTwvZGl2PlxuICAgICAgPC9kaXY+XG4gICAgICA8RGV0YWlsR3JpZFxuICAgICAgICBpdGVtcz17W1xuICAgICAgICAgIFsn5ZGK6K2m5L2N572uJywgYWxhcm0ubG9jYXRpb25dLFxuICAgICAgICAgIFsn5b2T5YmN5YC8JywgYWxhcm0uY3VycmVudFZhbHVlXSxcbiAgICAgICAgICBbJ+mYiOWAvOiMg+WbtCcsIGFsYXJtLnRocmVzaG9sZF0sXG4gICAgICAgICAgWyflj5HnlJ/ml7bpl7QnLCBhbGFybS5vY2N1cnJlZEF0XSxcbiAgICAgICAgICBbJ+WkhOeQhueKtuaAgScsIHJlc29sdmVkIHx8IGFsYXJtLmhhbmRsZWQgPyAn5bey5aSE55CGJyA6ICflvoXlpITnkIYnXVxuICAgICAgICBdfVxuICAgICAgLz5cbiAgICAgIDxidXR0b25cbiAgICAgICAgY2xhc3NOYW1lPVwiZmxleCB3LWZ1bGwgaXRlbXMtY2VudGVyIGp1c3RpZnktY2VudGVyIGdhcC0yIHJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci1sZWFmLTMwMC8zMCBiZy1sZWFmLTQwMC8xMCBweC0zIHB5LTIgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtbGVhZi0zMDAgdHJhbnNpdGlvbiBob3ZlcjpiZy1sZWFmLTQwMC8yMFwiXG4gICAgICAgIG9uQ2xpY2s9eygpID0+IHJlc29sdmVBbGFybShhbGFybS5pZCl9XG4gICAgICA+XG4gICAgICAgIDxDaGVja0NpcmNsZTIgY2xhc3NOYW1lPVwiaC00IHctNFwiIC8+XG4gICAgICAgIOagh+iusOS4uuW3suWkhOeQhlxuICAgICAgPC9idXR0b24+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEhlYWRlckNhcmQoe1xuICB0aXRsZSxcbiAgc3VidGl0bGUsXG4gIHN0YXR1c1xufToge1xuICB0aXRsZTogc3RyaW5nO1xuICBzdWJ0aXRsZTogc3RyaW5nO1xuICBzdGF0dXM6IFN0YXR1c0xldmVsO1xufSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic29mdC1wYW5lbCByb3VuZGVkLW1kIHAtNFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLXN0YXJ0IGp1c3RpZnktYmV0d2VlbiBnYXAtM1wiPlxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC14bCBmb250LWJsYWNrIHRleHQtd2hpdGVcIj57dGl0bGV9PC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIGZsZXggaXRlbXMtY2VudGVyIGdhcC0xLjUgdGV4dC1zbSB0ZXh0LXNsYXRlLTQwMFwiPlxuICAgICAgICAgICAgPE1hcFBpbiBjbGFzc05hbWU9XCJoLTMuNSB3LTMuNVwiIC8+XG4gICAgICAgICAgICB7c3VidGl0bGV9XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8QmFkZ2Ugc3RhdHVzPXtzdGF0dXN9IGxhYmVsPXtzdGF0dXNUZXh0W3N0YXR1c119IC8+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gQmFkZ2UoeyBzdGF0dXMsIGxhYmVsIH06IHsgc3RhdHVzOiBTdGF0dXNMZXZlbDsgbGFiZWw6IHN0cmluZyB9KSB7XG4gIHJldHVybiA8c3BhbiBjbGFzc05hbWU9e2Byb3VuZGVkIGJvcmRlciBweC0yIHB5LTEgdGV4dC1bMTFweF0gJHtzdGF0dXNDbGFzc1tzdGF0dXNdfWB9PntsYWJlbH08L3NwYW4+O1xufVxuXG5mdW5jdGlvbiBLcGkoeyBsYWJlbCwgdmFsdWUsIHVuaXQgfTogeyBsYWJlbDogc3RyaW5nOyB2YWx1ZTogbnVtYmVyIHwgc3RyaW5nOyB1bml0Pzogc3RyaW5nIH0pIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBiZy13aGl0ZS9bMC4wMzVdIHAtM1wiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJ0ZXh0LVsxMXB4XSB0ZXh0LXNsYXRlLTUwMFwiPntsYWJlbH08L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMSBmbGV4IGl0ZW1zLWVuZCBnYXAtMVwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWxnIGZvbnQtYmxhY2sgdGV4dC13aGl0ZVwiPnt2YWx1ZX08L3NwYW4+XG4gICAgICAgIHt1bml0ID8gPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1bMTFweF0gdGV4dC1zbGF0ZS01MDBcIj57dW5pdH08L3NwYW4+IDogbnVsbH1cbiAgICAgIDwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBEZXRhaWxHcmlkKHsgaXRlbXMgfTogeyBpdGVtczogQXJyYXk8W3N0cmluZywgc3RyaW5nXT4gfSkge1xuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yXCI+XG4gICAgICB7aXRlbXMubWFwKChbbGFiZWwsIHZhbHVlXSkgPT4gKFxuICAgICAgICA8ZGl2IGtleT17bGFiZWx9IGNsYXNzTmFtZT1cInJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBiZy13aGl0ZS9bMC4wMzVdIHB4LTMgcHktMlwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1bMTFweF0gdGV4dC1zbGF0ZS01MDBcIj57bGFiZWx9PC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtdC0xIHRleHQtc20gbGVhZGluZy01IHRleHQtc2xhdGUtMjAwXCI+e3ZhbHVlfTwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgICkpfVxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBQYW5lbEJsb2NrKHtcbiAgdGl0bGUsXG4gIGNoaWxkcmVuXG59OiB7XG4gIHRpdGxlOiBzdHJpbmc7XG4gIGNoaWxkcmVuOiBSZWFjdE5vZGU7XG59KSB7XG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwicm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIGJnLXdoaXRlL1swLjAzNV0gcC0zXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTIgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtc2xhdGUtMTAwXCI+e3RpdGxlfTwvZGl2PlxuICAgICAge2NoaWxkcmVufVxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gQnVsbGV0cyh7IGl0ZW1zLCBpY29uIH06IHsgaXRlbXM6IHN0cmluZ1tdOyBpY29uPzogUmVhY3ROb2RlIH0pIHtcbiAgcmV0dXJuIChcbiAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAge2l0ZW1zLm1hcCgoaXRlbSkgPT4gKFxuICAgICAgICA8ZGl2IGtleT17aXRlbX0gY2xhc3NOYW1lPVwiZmxleCBnYXAtMiB0ZXh0LXNtIGxlYWRpbmctNiB0ZXh0LXNsYXRlLTQwMFwiPlxuICAgICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cIm10LTEuNSBoLTEuNSB3LTEuNSBzaHJpbmstMCByb3VuZGVkLWZ1bGwgYmctbGVhZi0zMDBcIiAvPlxuICAgICAgICAgIHtpY29ufVxuICAgICAgICAgIDxzcGFuPntpdGVtfTwvc3Bhbj5cbiAgICAgICAgPC9kaXY+XG4gICAgICApKX1cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gTnVtYmVyQ29udHJvbCh7XG4gIGxhYmVsLFxuICB2YWx1ZSxcbiAgdW5pdCxcbiAgb25DaGFuZ2Vcbn06IHtcbiAgbGFiZWw6IHN0cmluZztcbiAgdmFsdWU6IG51bWJlcjtcbiAgdW5pdDogc3RyaW5nO1xuICBvbkNoYW5nZTogKHZhbHVlOiBudW1iZXIpID0+IHZvaWQ7XG59KSB7XG4gIHJldHVybiAoXG4gICAgPGxhYmVsIGNsYXNzTmFtZT1cImJsb2NrIHJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBiZy13aGl0ZS9bMC4wM10gcC0zXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTIgZmxleCBpdGVtcy1jZW50ZXIganVzdGlmeS1iZXR3ZWVuIHRleHQteHNcIj5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwidGV4dC1zbGF0ZS00MDBcIj57bGFiZWx9PC9zcGFuPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LWxlYWYtMzAwXCI+XG4gICAgICAgICAge3ZhbHVlfSB7dW5pdH1cbiAgICAgICAgPC9zcGFuPlxuICAgICAgPC9kaXY+XG4gICAgICA8aW5wdXRcbiAgICAgICAgY2xhc3NOYW1lPVwidy1mdWxsIGFjY2VudC1lbWVyYWxkLTMwMFwiXG4gICAgICAgIHR5cGU9XCJyYW5nZVwiXG4gICAgICAgIG1pbj17MH1cbiAgICAgICAgbWF4PXt1bml0ID09PSAnbHV4JyA/IDUwMDAwIDogMTAwfVxuICAgICAgICBzdGVwPXt1bml0ID09PSAnbHV4JyA/IDUwMCA6IDF9XG4gICAgICAgIHZhbHVlPXt2YWx1ZX1cbiAgICAgICAgb25DaGFuZ2U9eyhldmVudCkgPT4gb25DaGFuZ2UoTnVtYmVyKGV2ZW50LnRhcmdldC52YWx1ZSkpfVxuICAgICAgLz5cbiAgICA8L2xhYmVsPlxuICApO1xufVxuIl0sImZpbGUiOiJEOi9wcm9qZWN0L+iOk+iOk+S4juWFsS3ojYnojpPlpKfmo5rmlbDlrZflrarnlJ/kuqTkupLmk43kvZzlubPlj7Avc3JjL2NvbXBvbmVudHMvcGFuZWxzL0luZm9QYW5lbC50c3gifQ==
