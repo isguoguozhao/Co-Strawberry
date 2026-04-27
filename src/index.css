@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-family:
+    'Bahnschrift',
+    'DIN Alternate',
+    'Microsoft YaHei UI',
+    'PingFang SC',
+    sans-serif;
+  background: #031111;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 1180px;
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 13% 8%, rgba(68, 209, 125, 0.16), transparent 29%),
+    radial-gradient(circle at 88% 12%, rgba(81, 214, 255, 0.12), transparent 24%),
+    linear-gradient(135deg, #031111 0%, #061a17 48%, #0a151b 100%);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-leaf-300/20 bg-field-900/70 shadow-panel backdrop-blur-xl;
+  }
+
+  .soft-panel {
+    @apply border border-white/10 bg-white/[0.045] backdrop-blur-md;
+  }
+
+  .tech-chip {
+    @apply rounded border border-leaf-300/20 bg-leaf-500/10 px-2 py-1 text-[11px] font-semibold text-leaf-300;
+  }
+
+  .icon-button {
+    @apply inline-flex h-8 w-8 items-center justify-center rounded border border-white/10 bg-white/[0.05] text-slate-200 transition hover:border-leaf-300/40 hover:bg-leaf-400/10 hover:text-leaf-300;
+  }
+
+  .small-label {
+    @apply text-[11px] uppercase tracking-[0.18em] text-slate-500;
+  }
+
+  .section-title {
+    @apply text-sm font-semibold text-slate-100;
+  }
+}
+
+.scene-label {
+  pointer-events: none;
+  white-space: nowrap;
+  border: 1px solid rgba(169, 255, 208, 0.28);
+  border-radius: 4px;
+  background: rgba(3, 17, 17, 0.78);
+  padding: 3px 6px;
+  color: #dfffee;
+  font-size: 10px;
+  box-shadow: 0 0 18px rgba(68, 209, 125, 0.18);
+}
+
+.scene-label.warning {
+  border-color: rgba(245, 206, 91, 0.56);
+  color: #ffe9a4;
+}
+
+.scene-label.alarm {
+  border-color: rgba(255, 78, 114, 0.58);
+  color: #ffb3c0;
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(112, 242, 161, 0.3) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(112, 242, 161, 0.28);
+  border-radius: 999px;
+}

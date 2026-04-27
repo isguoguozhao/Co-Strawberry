@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.vite-dev.log
+.vite-dev.err
+.screenshots/
+.chrome-profile-*/
+.npm-cache/
+*.local
