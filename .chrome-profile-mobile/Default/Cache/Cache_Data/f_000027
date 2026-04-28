@@ -1,0 +1,174 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/panels/AIAdvicePanel.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=f0ba2c05"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import { Bot, BrainCircuit, Leaf, TriangleAlert, Zap } from "/node_modules/.vite/deps/lucide-react.js?v=f0ba2c05";
+import { alarms } from "/src/data/mockData.ts?t=1777261599234";
+import { useAppStore } from "/src/store/useAppStore.ts?t=1777261599234";
+import { cx } from "/src/utils/format.ts";
+export function AIAdvicePanel() {
+  _s();
+  const env = useAppStore((state) => state.liveEnvironment);
+  const rows = useAppStore((state) => state.liveRows);
+  const devices = useAppStore((state) => state.liveDevices);
+  const energy = useAppStore((state) => state.liveEnergySummary);
+  const resolvedAlarms = useAppStore((state) => state.resolvedAlarms);
+  const abnormalRows = rows.filter((row) => row.abnormal);
+  const activeAlarms = alarms.filter((alarm) => !alarm.handled && !resolvedAlarms[alarm.id]);
+  const runningDevices = devices.filter((device) => device.enabled);
+  const advice = [
+    {
+      title: "冠层湿度控制",
+      level: env.airHumidity > 76 ? "优先" : "观察",
+      icon: Leaf,
+      body: env.airHumidity > 76 ? "空气湿度接近上限，建议保持除湿器自动模式，并提高循环风机 10% 输出。" : "空气湿度处于可控区间，可维持当前通风策略。"
+    },
+    {
+      title: "分排种植策略",
+      level: abnormalRows.length ? "处理" : "稳定",
+      icon: BrainCircuit,
+      body: abnormalRows.length > 0 ? `${abnormalRows.map((row) => row.code).join("、")} 存在轻微偏离，建议优先复核滴灌支路与局部传感器。` : "各草莓排生长状态稳定，后续重点观察成熟采摘窗口。"
+    },
+    {
+      title: "设备联动策略",
+      level: runningDevices.length ? "运行" : "待命",
+      icon: Zap,
+      body: runningDevices.length > 0 ? `${runningDevices.length} 台设备正在运行，建议自动模式下保留阈值联动，避免频繁手动干预。` : "当前无高负荷设备运行，可进入低功耗巡航策略。"
+    },
+    {
+      title: "告警处置顺序",
+      level: activeAlarms.length ? "风险" : "清洁",
+      icon: TriangleAlert,
+      body: activeAlarms.length > 0 ? `当前仍有 ${activeAlarms.length} 条告警，建议按“严重 > 一般 > 普通”的顺序处理。` : "告警已处于清洁状态，可继续观察热力图和能耗趋势。"
+    }
+  ];
+  return /* @__PURE__ */ jsxDEV("section", { className: "rounded-md border border-leaf-300/20 bg-leaf-400/10 p-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "mb-3 flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-2 text-sm font-semibold text-white", children: [
+        /* @__PURE__ */ jsxDEV(Bot, { className: "h-4 w-4 text-leaf-300" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+          lineNumber: 77,
+          columnNumber: 11
+        }, this),
+        "AI 建议面板"
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+        lineNumber: 76,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "rounded border border-leaf-300/25 bg-field-950/60 px-2 py-1 text-[11px] text-leaf-300", children: "mock inference" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+        lineNumber: 80,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+      lineNumber: 75,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "space-y-2", children: advice.map((item) => {
+      const Icon = item.icon;
+      return /* @__PURE__ */ jsxDEV("div", { className: "rounded border border-white/10 bg-white/[0.035] p-3", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between gap-2", children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "flex items-center gap-2 text-sm font-semibold text-white", children: [
+            /* @__PURE__ */ jsxDEV(Icon, { className: "h-4 w-4 text-leaf-300" }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+              lineNumber: 92,
+              columnNumber: 19
+            }, this),
+            item.title
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+            lineNumber: 91,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(
+            "span",
+            {
+              className: cx(
+                "rounded border px-2 py-0.5 text-[10px]",
+                item.level === "优先" || item.level === "处理" || item.level === "风险" ? "border-pollen-400/30 bg-pollen-400/10 text-pollen-400" : "border-leaf-300/25 bg-leaf-400/10 text-leaf-300"
+              ),
+              children: item.level
+            },
+            void 0,
+            false,
+            {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+              lineNumber: 95,
+              columnNumber: 17
+            },
+            this
+          )
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+          lineNumber: 90,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV("p", { className: "mt-2 text-xs leading-5 text-slate-400", children: item.body }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+          lineNumber: 106,
+          columnNumber: 15
+        }, this)
+      ] }, item.title, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+        lineNumber: 89,
+        columnNumber: 13
+      }, this);
+    }) }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+      lineNumber: 84,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mt-3 rounded border border-white/10 bg-field-950/55 p-2 text-[11px] leading-5 text-slate-500", children: [
+      "能源侧建议：当前实时功率 ",
+      energy.realTimePower,
+      " kW，电池 SOC ",
+      energy.batterySoc,
+      "%。 可在光伏输出高峰前后调整补光与除湿策略。"
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+      lineNumber: 111,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx",
+    lineNumber: 74,
+    columnNumber: 5
+  }, this);
+}
+_s(AIAdvicePanel, "Jp46V5lWVJ5u3mYCyqNMKQWvOPI=", false, function() {
+  return [useAppStore, useAppStore, useAppStore, useAppStore, useAppStore];
+});
+_c = AIAdvicePanel;
+var _c;
+$RefreshReg$(_c, "AIAdvicePanel");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/AIAdvicePanel.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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O0FBQUE7QUFBQSxpQkFHQTtBQUFBLFVBQ0E7QUFBQSxZQUFDO0FBQUE7QUFBQSxjQUNDLFdBQVd6QjtBQUFBQSxnQkFDVDtBQUFBLGdCQUNBa0MsS0FBS1IsVUFBVSxRQUFRUSxLQUFLUixVQUFVLFFBQVFRLEtBQUtSLFVBQVUsT0FDekQsMERBQ0E7QUFBQSxjQUNOO0FBQUEsY0FFQ1EsZUFBS1I7QUFBQUE7QUFBQUEsWUFSUjtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsVUFTQTtBQUFBLGFBZEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQWVBO0FBQUEsUUFDQSx1QkFBQyxPQUFFLFdBQVUseUNBQXlDUSxlQUFLTCxRQUEzRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQWdFO0FBQUEsV0FqQnhESyxLQUFLVCxPQUFmO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFrQkE7QUFBQSxJQUVKLENBQUMsS0F6Qkg7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQTBCQTtBQUFBLElBQ0EsdUJBQUMsU0FBSSxXQUFVLGdHQUE4RjtBQUFBO0FBQUEsTUFDN0ZmLE9BQU8wQjtBQUFBQSxNQUFjO0FBQUEsTUFBWTFCLE9BQU8yQjtBQUFBQSxNQUFXO0FBQUEsU0FEbkU7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUdBO0FBQUEsT0F4Q0Y7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQXlDQTtBQUVKO0FBQUNuQyxHQTVGZUQsZUFBYTtBQUFBLFVBQ2ZGLGFBQ0NBLGFBQ0dBLGFBQ0RBLGFBQ1FBLFdBQVc7QUFBQTtBQUFBLEtBTHBCRTtBQUFhLElBQUFxQztBQUFBLGFBQUFBLElBQUEiLCJuYW1lcyI6WyJCb3QiLCJCcmFpbkNpcmN1aXQiLCJMZWFmIiwiVHJpYW5nbGVBbGVydCIsIlphcCIsImFsYXJtcyIsInVzZUFwcFN0b3JlIiwiY3giLCJBSUFkdmljZVBhbmVsIiwiX3MiLCJlbnYiLCJzdGF0ZSIsImxpdmVFbnZpcm9ubWVudCIsInJvd3MiLCJsaXZlUm93cyIsImRldmljZXMiLCJsaXZlRGV2aWNlcyIsImVuZXJneSIsImxpdmVFbmVyZ3lTdW1tYXJ5IiwicmVzb2x2ZWRBbGFybXMiLCJhYm5vcm1hbFJvd3MiLCJmaWx0ZXIiLCJyb3ciLCJhYm5vcm1hbCIsImFjdGl2ZUFsYXJtcyIsImFsYXJtIiwiaGFuZGxlZCIsImlkIiwicnVubmluZ0RldmljZXMiLCJkZXZpY2UiLCJlbmFibGVkIiwiYWR2aWNlIiwidGl0bGUiLCJsZXZlbCIsImFpckh1bWlkaXR5IiwiaWNvbiIsImJvZHkiLCJsZW5ndGgiLCJtYXAiLCJjb2RlIiwiam9pbiIsIml0ZW0iLCJJY29uIiwicmVhbFRpbWVQb3dlciIsImJhdHRlcnlTb2MiLCJfYyJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJBSUFkdmljZVBhbmVsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBCb3QsIEJyYWluQ2lyY3VpdCwgTGVhZiwgVHJpYW5nbGVBbGVydCwgWmFwIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IGFsYXJtcyB9IGZyb20gJy4uLy4uL2RhdGEvbW9ja0RhdGEnO1xuaW1wb3J0IHsgdXNlQXBwU3RvcmUgfSBmcm9tICcuLi8uLi9zdG9yZS91c2VBcHBTdG9yZSc7XG5pbXBvcnQgeyBjeCB9IGZyb20gJy4uLy4uL3V0aWxzL2Zvcm1hdCc7XG5cbmV4cG9ydCBmdW5jdGlvbiBBSUFkdmljZVBhbmVsKCkge1xuICBjb25zdCBlbnYgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLmxpdmVFbnZpcm9ubWVudCk7XG4gIGNvbnN0IHJvd3MgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLmxpdmVSb3dzKTtcbiAgY29uc3QgZGV2aWNlcyA9IHVzZUFwcFN0b3JlKChzdGF0ZSkgPT4gc3RhdGUubGl2ZURldmljZXMpO1xuICBjb25zdCBlbmVyZ3kgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLmxpdmVFbmVyZ3lTdW1tYXJ5KTtcbiAgY29uc3QgcmVzb2x2ZWRBbGFybXMgPSB1c2VBcHBTdG9yZSgoc3RhdGUpID0+IHN0YXRlLnJlc29sdmVkQWxhcm1zKTtcbiAgY29uc3QgYWJub3JtYWxSb3dzID0gcm93cy5maWx0ZXIoKHJvdykgPT4gcm93LmFibm9ybWFsKTtcbiAgY29uc3QgYWN0aXZlQWxhcm1zID0gYWxhcm1zLmZpbHRlcigoYWxhcm0pID0+ICFhbGFybS5oYW5kbGVkICYmICFyZXNvbHZlZEFsYXJtc1thbGFybS5pZF0pO1xuICBjb25zdCBydW5uaW5nRGV2aWNlcyA9IGRldmljZXMuZmlsdGVyKChkZXZpY2UpID0+IGRldmljZS5lbmFibGVkKTtcbiAgY29uc3QgYWR2aWNlID0gW1xuICAgIHtcbiAgICAgIHRpdGxlOiAn5Yag5bGC5rm/5bqm5o6n5Yi2JyxcbiAgICAgIGxldmVsOiBlbnYuYWlySHVtaWRpdHkgPiA3NiA/ICfkvJjlhYgnIDogJ+inguWvnycsXG4gICAgICBpY29uOiBMZWFmLFxuICAgICAgYm9keTpcbiAgICAgICAgZW52LmFpckh1bWlkaXR5ID4gNzZcbiAgICAgICAgICA/ICfnqbrmsJTmub/luqbmjqXov5HkuIrpmZDvvIzlu7rorq7kv53mjIHpmaTmub/lmajoh6rliqjmqKHlvI/vvIzlubbmj5Dpq5jlvqrnjq/po47mnLogMTAlIOi+k+WHuuOAgidcbiAgICAgICAgICA6ICfnqbrmsJTmub/luqblpITkuo7lj6/mjqfljLrpl7TvvIzlj6/nu7TmjIHlvZPliY3pgJrpo47nrZbnlaXjgIInXG4gICAgfSxcbiAgICB7XG4gICAgICB0aXRsZTogJ+WIhuaOkuenjeakjeetlueVpScsXG4gICAgICBsZXZlbDogYWJub3JtYWxSb3dzLmxlbmd0aCA/ICflpITnkIYnIDogJ+eos+WumicsXG4gICAgICBpY29uOiBCcmFpbkNpcmN1aXQsXG4gICAgICBib2R5OlxuICAgICAgICBhYm5vcm1hbFJvd3MubGVuZ3RoID4gMFxuICAgICAgICAgID8gYCR7YWJub3JtYWxSb3dzLm1hcCgocm93KSA9PiByb3cuY29kZSkuam9pbign44CBJyl9IOWtmOWcqOi9u+W+ruWBj+emu++8jOW7uuiuruS8mOWFiOWkjeaguOa7tOeBjOaUr+i3r+S4juWxgOmDqOS8oOaEn+WZqOOAgmBcbiAgICAgICAgICA6ICflkITojYnojpPmjpLnlJ/plb/nirbmgIHnqLPlrprvvIzlkI7nu63ph43ngrnop4Llr5/miJDnhp/ph4fmkZjnqpflj6PjgIInXG4gICAgfSxcbiAgICB7XG4gICAgICB0aXRsZTogJ+iuvuWkh+iBlOWKqOetlueVpScsXG4gICAgICBsZXZlbDogcnVubmluZ0RldmljZXMubGVuZ3RoID8gJ+i/kOihjCcgOiAn5b6F5ZG9JyxcbiAgICAgIGljb246IFphcCxcbiAgICAgIGJvZHk6XG4gICAgICAgIHJ1bm5pbmdEZXZpY2VzLmxlbmd0aCA+IDBcbiAgICAgICAgICA/IGAke3J1bm5pbmdEZXZpY2VzLmxlbmd0aH0g5Y+w6K6+5aSH5q2j5Zyo6L+Q6KGM77yM5bu66K6u6Ieq5Yqo5qih5byP5LiL5L+d55WZ6ZiI5YC86IGU5Yqo77yM6YG/5YWN6aKR57mB5omL5Yqo5bmy6aKE44CCYFxuICAgICAgICAgIDogJ+W9k+WJjeaXoOmrmOi0n+iNt+iuvuWkh+i/kOihjO+8jOWPr+i/m+WFpeS9juWKn+iAl+W3oeiIquetlueVpeOAgidcbiAgICB9LFxuICAgIHtcbiAgICAgIHRpdGxlOiAn5ZGK6K2m5aSE572u6aG65bqPJyxcbiAgICAgIGxldmVsOiBhY3RpdmVBbGFybXMubGVuZ3RoID8gJ+mjjumZqScgOiAn5riF5rSBJyxcbiAgICAgIGljb246IFRyaWFuZ2xlQWxlcnQsXG4gICAgICBib2R5OlxuICAgICAgICBhY3RpdmVBbGFybXMubGVuZ3RoID4gMFxuICAgICAgICAgID8gYOW9k+WJjeS7jeaciSAke2FjdGl2ZUFsYXJtcy5sZW5ndGh9IOadoeWRiuitpu+8jOW7uuiuruaMieKAnOS4pemHjSA+IOS4gOiIrCA+IOaZrumAmuKAneeahOmhuuW6j+WkhOeQhuOAgmBcbiAgICAgICAgICA6ICflkYrorablt7LlpITkuo7muIXmtIHnirbmgIHvvIzlj6/nu6fnu63op4Llr5/ng63lipvlm77lkozog73ogJfotovlir/jgIInXG4gICAgfVxuICBdO1xuXG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwicm91bmRlZC1tZCBib3JkZXIgYm9yZGVyLWxlYWYtMzAwLzIwIGJnLWxlYWYtNDAwLzEwIHAtM1wiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYi0zIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgPEJvdCBjbGFzc05hbWU9XCJoLTQgdy00IHRleHQtbGVhZi0zMDBcIiAvPlxuICAgICAgICAgIEFJIOW7uuiurumdouadv1xuICAgICAgICA8L2Rpdj5cbiAgICAgICAgPHNwYW4gY2xhc3NOYW1lPVwicm91bmRlZCBib3JkZXIgYm9yZGVyLWxlYWYtMzAwLzI1IGJnLWZpZWxkLTk1MC82MCBweC0yIHB5LTEgdGV4dC1bMTFweF0gdGV4dC1sZWFmLTMwMFwiPlxuICAgICAgICAgIG1vY2sgaW5mZXJlbmNlXG4gICAgICAgIDwvc3Bhbj5cbiAgICAgIDwvZGl2PlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJzcGFjZS15LTJcIj5cbiAgICAgICAge2FkdmljZS5tYXAoKGl0ZW0pID0+IHtcbiAgICAgICAgICBjb25zdCBJY29uID0gaXRlbS5pY29uO1xuXG4gICAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICAgIDxkaXYga2V5PXtpdGVtLnRpdGxlfSBjbGFzc05hbWU9XCJyb3VuZGVkIGJvcmRlciBib3JkZXItd2hpdGUvMTAgYmctd2hpdGUvWzAuMDM1XSBwLTNcIj5cbiAgICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gZ2FwLTJcIj5cbiAgICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+XG4gICAgICAgICAgICAgICAgICA8SWNvbiBjbGFzc05hbWU9XCJoLTQgdy00IHRleHQtbGVhZi0zMDBcIiAvPlxuICAgICAgICAgICAgICAgICAge2l0ZW0udGl0bGV9XG4gICAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgICAgPHNwYW5cbiAgICAgICAgICAgICAgICAgIGNsYXNzTmFtZT17Y3goXG4gICAgICAgICAgICAgICAgICAgICdyb3VuZGVkIGJvcmRlciBweC0yIHB5LTAuNSB0ZXh0LVsxMHB4XScsXG4gICAgICAgICAgICAgICAgICAgIGl0ZW0ubGV2ZWwgPT09ICfkvJjlhYgnIHx8IGl0ZW0ubGV2ZWwgPT09ICflpITnkIYnIHx8IGl0ZW0ubGV2ZWwgPT09ICfpo47pmaknXG4gICAgICAgICAgICAgICAgICAgICAgPyAnYm9yZGVyLXBvbGxlbi00MDAvMzAgYmctcG9sbGVuLTQwMC8xMCB0ZXh0LXBvbGxlbi00MDAnXG4gICAgICAgICAgICAgICAgICAgICAgOiAnYm9yZGVyLWxlYWYtMzAwLzI1IGJnLWxlYWYtNDAwLzEwIHRleHQtbGVhZi0zMDAnXG4gICAgICAgICAgICAgICAgICApfVxuICAgICAgICAgICAgICAgID5cbiAgICAgICAgICAgICAgICAgIHtpdGVtLmxldmVsfVxuICAgICAgICAgICAgICAgIDwvc3Bhbj5cbiAgICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgICAgIDxwIGNsYXNzTmFtZT1cIm10LTIgdGV4dC14cyBsZWFkaW5nLTUgdGV4dC1zbGF0ZS00MDBcIj57aXRlbS5ib2R5fTwvcD5cbiAgICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgICk7XG4gICAgICAgIH0pfVxuICAgICAgPC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm10LTMgcm91bmRlZCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIGJnLWZpZWxkLTk1MC81NSBwLTIgdGV4dC1bMTFweF0gbGVhZGluZy01IHRleHQtc2xhdGUtNTAwXCI+XG4gICAgICAgIOiDvea6kOS+p+W7uuiuru+8muW9k+WJjeWunuaXtuWKn+eOhyB7ZW5lcmd5LnJlYWxUaW1lUG93ZXJ9IGtX77yM55S15rGgIFNPQyB7ZW5lcmd5LmJhdHRlcnlTb2N9JeOAglxuICAgICAgICDlj6/lnKjlhYnkvI/ovpPlh7rpq5jls7DliY3lkI7osIPmlbTooaXlhYnkuI7pmaTmub/nrZbnlaXjgIJcbiAgICAgIDwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiRDovcHJvamVjdC/ojpPojpPkuI7lhbEt6I2J6I6T5aSn5qOa5pWw5a2X5a2q55Sf5Lqk5LqS5pON5L2c5bmz5Y+wL3NyYy9jb21wb25lbnRzL3BhbmVscy9BSUFkdmljZVBhbmVsLnRzeCJ9

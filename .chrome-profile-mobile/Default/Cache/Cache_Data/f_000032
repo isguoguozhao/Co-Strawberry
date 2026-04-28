@@ -1,0 +1,916 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/greenhouse/MultiArmHarvesterMesh.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=f0ba2c05"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$(), _s2 = $RefreshSig$(), _s3 = $RefreshSig$(), _s4 = $RefreshSig$(), _s5 = $RefreshSig$(), _s6 = $RefreshSig$();
+import { Html, Line } from "/node_modules/.vite/deps/@react-three_drei.js?v=f0ba2c05";
+import { useFrame } from "/node_modules/.vite/deps/@react-three_fiber.js?v=f0ba2c05";
+import __vite__cjsImport5_react from "/node_modules/.vite/deps/react.js?v=f0ba2c05"; const useMemo = __vite__cjsImport5_react["useMemo"]; const useRef = __vite__cjsImport5_react["useRef"];
+import * as THREE from "/node_modules/.vite/deps/three.js?v=f0ba2c05";
+const WHITE = "#f2f6f4";
+const PANEL = "#141b1f";
+const CARBON = "#070a0c";
+const METAL = "#aeb8bd";
+const CYAN = "#51d6ff";
+const LEAF = "#70f2a1";
+const BERRY = "#ff4e72";
+export function MultiArmHarvesterMesh({ vehicle, onSelect }) {
+  _s();
+  const lidarRef = useRef(null);
+  const screenRef = useRef(null);
+  useFrame(({ clock }, delta) => {
+    if (lidarRef.current) {
+      lidarRef.current.rotation.y += delta * 1.8;
+    }
+    if (screenRef.current) {
+      const material = screenRef.current.material;
+      material.emissiveIntensity = 0.28 + Math.sin(clock.elapsedTime * 2.1) * 0.12;
+    }
+  });
+  return /* @__PURE__ */ jsxDEV("group", { children: [
+    /* @__PURE__ */ jsxDEV(Line, { points: vehicle.route, color: BERRY, lineWidth: 2.5, dashed: true, dashScale: 0.72 }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 56,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("group", { position: vehicle.position, onClick: onSelect, children: [
+      /* @__PURE__ */ jsxDEV("mesh", { "rotation-x": -Math.PI / 2, position: [0, -0.2, 0], children: [
+        /* @__PURE__ */ jsxDEV("circleGeometry", { args: [1.62, 42] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 59,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshBasicMaterial", { color: "#000000", transparent: true, opacity: 0.22, depthWrite: false }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 60,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 58,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(TrackModule, { side: -1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 63,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(TrackModule, { side: 1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 64,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, position: [0, 0.28, 0], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [1.68, 0.34, 2.26] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 67,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#20272b", metalness: 0.28, roughness: 0.42 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 68,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 66,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, position: [0, 0.57, -0.2], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [1.46, 0.42, 1.82] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 71,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#dce2de", metalness: 0.22, roughness: 0.34 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 72,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 70,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, position: [0, 1.1, -0.18], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [1.26, 1.05, 1.42] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 75,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: WHITE, metalness: 0.18, roughness: 0.28 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 76,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 74,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, position: [0, 1.72, -0.12], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [1.05, 0.24, 1.1] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 79,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#e8efec", metalness: 0.2, roughness: 0.26 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 80,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 78,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: [0, 1.1, -0.91], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.92, 0.74, 0.045] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 84,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: PANEL, metalness: 0.26, roughness: 0.2 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 85,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 83,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { ref: screenRef, position: [0, 1.1, -0.938], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.62, 0.42, 0.025] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 88,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#06131a", emissive: CYAN, emissiveIntensity: 0.34, roughness: 0.2 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 89,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 87,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ScreenTelemetry, {}, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 91,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: [0, 0.59, -1.14], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [1.34, 0.24, 0.2] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 94,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#11181b", metalness: 0.3, roughness: 0.38 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 95,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 93,
+        columnNumber: 9
+      }, this),
+      [-0.47, 0.47].map(
+        (x) => /* @__PURE__ */ jsxDEV("mesh", { position: [x, 0.7, -1.27], children: [
+          /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.36, 0.13, 0.06] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 99,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#d8fff1", emissive: CYAN, emissiveIntensity: 0.55 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 100,
+            columnNumber: 13
+          }, this)
+        ] }, x, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 98,
+          columnNumber: 9
+        }, this)
+      ),
+      /* @__PURE__ */ jsxDEV("group", { ref: lidarRef, position: [0, 1.98, -0.35], children: [
+        /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, children: [
+          /* @__PURE__ */ jsxDEV("cylinderGeometry", { args: [0.22, 0.18, 0.12, 24] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 106,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: CARBON, metalness: 0.45, roughness: 0.25 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 107,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 105,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("mesh", { position: [0, 0.09, 0], children: [
+          /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.42, 0.12, 0.32] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 110,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#11181b", emissive: CYAN, emissiveIntensity: 0.18 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 111,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 109,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("mesh", { position: [0, 0.18, 0], "rotation-x": Math.PI / 2, children: [
+          /* @__PURE__ */ jsxDEV("torusGeometry", { args: [0.19, 0.016, 8, 32] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 114,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: CYAN, emissive: CYAN, emissiveIntensity: 0.5 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 115,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 113,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 104,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(StorageRack, { side: -1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 119,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(StorageRack, { side: 1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 120,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ArmAssembly, { side: -1, zBase: -0.62, zSpread: -1, phase: 0.2 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 122,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ArmAssembly, { side: 1, zBase: -0.62, zSpread: -1, phase: 1.1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 123,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ArmAssembly, { side: -1, zBase: 0.64, zSpread: 1, phase: 2.4 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 124,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(ArmAssembly, { side: 1, zBase: 0.64, zSpread: 1, phase: 3.1 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 125,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Html, { position: [0, 2.38, 0], center: true, children: /* @__PURE__ */ jsxDEV("div", { className: "scene-label alarm", children: "大型多机械臂草莓采摘车" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 128,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 127,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 57,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 55,
+    columnNumber: 5
+  }, this);
+}
+_s(MultiArmHarvesterMesh, "JoT7Q/+Uh8FM2IxyMvnITk4l9nU=", false, function() {
+  return [useFrame];
+});
+_c = MultiArmHarvesterMesh;
+function ScreenTelemetry() {
+  return /* @__PURE__ */ jsxDEV("group", { position: [-0.3, 0.96, -0.956], children: [
+    [0, 1, 2].map(
+      (index) => /* @__PURE__ */ jsxDEV("mesh", { position: [0.18, index * 0.09, 0], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.3 - index * 0.05, 0.012, 0.01] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 140,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshBasicMaterial", { color: index === 1 ? LEAF : CYAN }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 141,
+          columnNumber: 11
+        }, this)
+      ] }, `line-${index}`, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 139,
+        columnNumber: 7
+      }, this)
+    ),
+    /* @__PURE__ */ jsxDEV(
+      Line,
+      {
+        points: [
+          [0.02, -0.02, 6e-3],
+          [0.1, 0.08, 6e-3],
+          [0.22, 0.02, 6e-3],
+          [0.35, 0.16, 6e-3],
+          [0.5, 0.08, 6e-3]
+        ],
+        color: LEAF,
+        lineWidth: 1
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 144,
+        columnNumber: 7
+      },
+      this
+    ),
+    /* @__PURE__ */ jsxDEV("mesh", { position: [0.52, -0.04, 0], children: [
+      /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.09, 0.026, 0.01] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 156,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshBasicMaterial", { color: BERRY }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 157,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 155,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 137,
+    columnNumber: 5
+  }, this);
+}
+_c2 = ScreenTelemetry;
+function TrackModule({ side }) {
+  return /* @__PURE__ */ jsxDEV("group", { position: [side * 0.72, 0.06, 0], children: [
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, children: [
+      /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.42, 0.36, 2.36] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 167,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: CARBON, metalness: 0.18, roughness: 0.68 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 168,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 166,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("mesh", { position: [0, 0.04, 0], children: [
+      /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.46, 0.18, 2.5] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 171,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#13191b", metalness: 0.12, roughness: 0.75 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 172,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 170,
+      columnNumber: 7
+    }, this),
+    [-0.84, -0.34, 0.34, 0.84].map(
+      (z, index) => /* @__PURE__ */ jsxDEV(AnimatedWheel, { z, phase: index * 0.35 }, z, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 175,
+        columnNumber: 7
+      }, this)
+    ),
+    Array.from(
+      { length: 13 },
+      (_, index) => /* @__PURE__ */ jsxDEV("mesh", { position: [0, -0.16, -1.08 + index * 0.18], children: [
+        /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.5, 0.045, 0.1] }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 179,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#050708", roughness: 0.82 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 180,
+          columnNumber: 11
+        }, this)
+      ] }, index, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 178,
+        columnNumber: 7
+      }, this)
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 165,
+    columnNumber: 5
+  }, this);
+}
+_c3 = TrackModule;
+function AnimatedWheel({ z, phase }) {
+  _s2();
+  const ref = useRef(null);
+  useFrame((_, delta) => {
+    if (ref.current) {
+      ref.current.rotation.x += delta * (1.2 + phase * 0.08);
+    }
+  });
+  return /* @__PURE__ */ jsxDEV("mesh", { ref, castShadow: true, position: [0, 0.02, z], "rotation-z": Math.PI / 2, children: [
+    /* @__PURE__ */ jsxDEV("cylinderGeometry", { args: [0.24, 0.24, 0.18, 24] }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 198,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#2e3437", metalness: 0.42, roughness: 0.36 }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 199,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 197,
+    columnNumber: 5
+  }, this);
+}
+_s2(AnimatedWheel, "8QVLrcMdYxPUkj6ry5zpyt6J6X8=", false, function() {
+  return [useFrame];
+});
+_c4 = AnimatedWheel;
+function StorageRack({ side }) {
+  return /* @__PURE__ */ jsxDEV("group", { position: [side * 0.82, 1.08, 0.38], children: [
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: [0, 0, 0], children: [
+      /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.12, 1.02, 1.08] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 208,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#2a3235", metalness: 0.28, roughness: 0.42 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 209,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 207,
+      columnNumber: 7
+    }, this),
+    [0, 1, 2, 3].map(
+      (level) => /* @__PURE__ */ jsxDEV("group", { position: [side * 0.12, -0.38 + level * 0.25, 0], children: [
+        /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, receiveShadow: true, children: [
+          /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.48, 0.045, 1.02] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 214,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#cdd6d1", metalness: 0.24, roughness: 0.36 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 215,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 213,
+          columnNumber: 11
+        }, this),
+        [-0.34, 0, 0.34].map(
+          (z, index) => /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: [side * (0.08 + index * 0.035), 0.065, z], children: [
+            /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.055, 10, 8] }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+              lineNumber: 219,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: index === 1 ? "#ff7590" : BERRY, emissive: "#4a0715" }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+              lineNumber: 220,
+              columnNumber: 15
+            }, this)
+          ] }, z, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 218,
+            columnNumber: 9
+          }, this)
+        )
+      ] }, level, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 212,
+        columnNumber: 7
+      }, this)
+    ),
+    /* @__PURE__ */ jsxDEV(
+      Line,
+      {
+        points: [
+          [side * 0.34, -0.5, -0.58],
+          [side * 0.34, 0.55, -0.58],
+          [side * 0.34, 0.55, 0.58],
+          [side * 0.34, -0.5, 0.58]
+        ],
+        color: LEAF,
+        lineWidth: 1,
+        transparent: true,
+        opacity: 0.65
+      },
+      void 0,
+      false,
+      {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 225,
+        columnNumber: 7
+      },
+      this
+    )
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 206,
+    columnNumber: 5
+  }, this);
+}
+_c5 = StorageRack;
+function ArmAssembly({
+  side,
+  zBase,
+  zSpread,
+  phase
+}) {
+  _s3();
+  const ref = useRef(null);
+  const shoulder = [0, 0, 0];
+  const upper = [side * 0.48, -0.08, zSpread * 0.34];
+  const elbow = [side * 1.04, -0.34, zSpread * 0.72];
+  const wrist = [side * 1.36, -0.6, zSpread * 1.02];
+  useFrame(({ clock }) => {
+    if (!ref.current) {
+      return;
+    }
+    ref.current.rotation.y = Math.sin(clock.elapsedTime * 0.72 + phase) * 0.055 * side;
+    ref.current.rotation.z = Math.sin(clock.elapsedTime * 0.62 + phase) * 0.026;
+  });
+  return /* @__PURE__ */ jsxDEV("group", { ref, position: [side * 0.78, 1.42, zBase], children: [
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, children: [
+      /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.18, 18, 14] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 270,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#e7eeee", metalness: 0.38, roughness: 0.24 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 271,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 269,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("mesh", { "rotation-z": Math.PI / 2, children: [
+      /* @__PURE__ */ jsxDEV("cylinderGeometry", { args: [0.22, 0.22, 0.14, 24] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 274,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: PANEL, metalness: 0.42, roughness: 0.25 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 275,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 273,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(ArmSegment, { start: shoulder, end: upper, radius: 0.08, color: "#dce2de" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 277,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(ArmSegment, { start: upper, end: elbow, radius: 0.075, color: "#f3f7f5" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 278,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(ArmSegment, { start: elbow, end: wrist, radius: 0.058, color: "#cbd4d1" }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 279,
+      columnNumber: 7
+    }, this),
+    [upper, elbow, wrist].map(
+      (point, index) => /* @__PURE__ */ jsxDEV(Joint, { position: point, alert: index === 2 }, index, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 281,
+        columnNumber: 7
+      }, this)
+    ),
+    /* @__PURE__ */ jsxDEV(Cable, { points: [shoulder, [side * 0.36, 0.08, zSpread * 0.22], elbow, wrist] }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 283,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV(FlexibleClaw, { side, zSpread, position: wrist }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 284,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 268,
+    columnNumber: 5
+  }, this);
+}
+_s3(ArmAssembly, "8QVLrcMdYxPUkj6ry5zpyt6J6X8=", false, function() {
+  return [useFrame];
+});
+_c6 = ArmAssembly;
+function ArmSegment({
+  start,
+  end,
+  radius,
+  color
+}) {
+  _s4();
+  const transform = useMemo(() => {
+    const startVector = new THREE.Vector3(...start);
+    const endVector = new THREE.Vector3(...end);
+    const midpoint = startVector.clone().add(endVector).multiplyScalar(0.5);
+    const direction = endVector.clone().sub(startVector);
+    const length = direction.length();
+    const quaternion = new THREE.Quaternion().setFromUnitVectors(
+      new THREE.Vector3(0, 1, 0),
+      direction.clone().normalize()
+    );
+    return { midpoint, length, quaternion };
+  }, [start, end]);
+  return /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: transform.midpoint, quaternion: transform.quaternion, children: [
+    /* @__PURE__ */ jsxDEV("cylinderGeometry", { args: [radius, radius, transform.length, 18] }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 316,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color, metalness: 0.34, roughness: 0.25 }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 317,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 315,
+    columnNumber: 5
+  }, this);
+}
+_s4(ArmSegment, "NztJE/QJ6+ylxvHy4gPdqtQ6hIo=");
+_c7 = ArmSegment;
+function Joint({ position, alert = false }) {
+  return /* @__PURE__ */ jsxDEV("group", { position, children: [
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, children: [
+      /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.13, 16, 12] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 326,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(
+        "meshStandardMaterial",
+        {
+          color: alert ? CYAN : "#1b2326",
+          emissive: alert ? CYAN : "#000000",
+          emissiveIntensity: alert ? 0.24 : 0,
+          metalness: 0.38,
+          roughness: 0.28
+        },
+        void 0,
+        false,
+        {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 327,
+          columnNumber: 9
+        },
+        this
+      )
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 325,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("mesh", { "rotation-x": Math.PI / 2, children: [
+      /* @__PURE__ */ jsxDEV("torusGeometry", { args: [0.14, 0.018, 8, 24] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 336,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: METAL, metalness: 0.42, roughness: 0.22 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 337,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 335,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 324,
+    columnNumber: 5
+  }, this);
+}
+_c8 = Joint;
+function Cable({ points }) {
+  _s5();
+  const curve = useMemo(() => {
+    return new THREE.CatmullRomCurve3(points.map((point) => new THREE.Vector3(...point)));
+  }, [points]);
+  return /* @__PURE__ */ jsxDEV("mesh", { children: [
+    /* @__PURE__ */ jsxDEV("tubeGeometry", { args: [curve, 32, 0.018, 7, false] }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 350,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: CARBON, roughness: 0.65 }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 351,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 349,
+    columnNumber: 5
+  }, this);
+}
+_s5(Cable, "N6iySpP440gGdCyLu5MMP79ZPiE=");
+_c9 = Cable;
+function FlexibleClaw({
+  side,
+  zSpread,
+  position
+}) {
+  _s6();
+  const ref = useRef(null);
+  useFrame(({ clock }) => {
+    if (ref.current) {
+      ref.current.rotation.z = Math.sin(clock.elapsedTime * 1.8) * 0.05 * side;
+    }
+  });
+  return /* @__PURE__ */ jsxDEV("group", { ref, position, "rotation-y": side * 0.36, children: [
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, children: [
+      /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.08, 12, 10] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 376,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: CYAN, emissive: CYAN, emissiveIntensity: 0.38 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 377,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 375,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("mesh", { castShadow: true, position: [side * 0.1, -0.04, zSpread * 0.08], children: [
+      /* @__PURE__ */ jsxDEV("boxGeometry", { args: [0.16, 0.1, 0.12] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 380,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#11191c", metalness: 0.34, roughness: 0.32 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 381,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 379,
+      columnNumber: 7
+    }, this),
+    [-0.16, 0, 0.16].map(
+      (offset, index) => /* @__PURE__ */ jsxDEV("group", { position: [side * 0.2, -0.1, zSpread * (0.12 + offset)], children: [
+        /* @__PURE__ */ jsxDEV("mesh", { "rotation-z": side * 0.55, children: [
+          /* @__PURE__ */ jsxDEV("cylinderGeometry", { args: [0.018, 0.024, 0.24, 8] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 386,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: "#d9e3df", metalness: 0.24, roughness: 0.36 }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 387,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 385,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("mesh", { position: [side * 0.08, -0.11, 0], children: [
+          /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.026, 8, 6] }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 390,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: index === 1 ? LEAF : BERRY, emissive: index === 1 ? "#113f2b" : "#4a0715" }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+            lineNumber: 391,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+          lineNumber: 389,
+          columnNumber: 11
+        }, this)
+      ] }, offset, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 384,
+        columnNumber: 7
+      }, this)
+    ),
+    /* @__PURE__ */ jsxDEV("mesh", { position: [side * 0.25, -0.22, zSpread * 0.12], children: [
+      /* @__PURE__ */ jsxDEV("sphereGeometry", { args: [0.05, 10, 8] }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 396,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("meshStandardMaterial", { color: BERRY, emissive: "#5f0f1c", emissiveIntensity: 0.18 }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+        lineNumber: 397,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+      lineNumber: 395,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx",
+    lineNumber: 374,
+    columnNumber: 5
+  }, this);
+}
+_s6(FlexibleClaw, "8QVLrcMdYxPUkj6ry5zpyt6J6X8=", false, function() {
+  return [useFrame];
+});
+_c0 = FlexibleClaw;
+var _c, _c2, _c3, _c4, _c5, _c6, _c7, _c8, _c9, _c0;
+$RefreshReg$(_c, "MultiArmHarvesterMesh");
+$RefreshReg$(_c2, "ScreenTelemetry");
+$RefreshReg$(_c3, "TrackModule");
+$RefreshReg$(_c4, "AnimatedWheel");
+$RefreshReg$(_c5, "StorageRack");
+$RefreshReg$(_c6, "ArmAssembly");
+$RefreshReg$(_c7, "ArmSegment");
+$RefreshReg$(_c8, "Joint");
+$RefreshReg$(_c9, "Cable");
+$RefreshReg$(_c0, "FlexibleClaw");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/greenhouse/MultiArmHarvesterMesh.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBb0NNOzs7Ozs7Ozs7Ozs7Ozs7OztBQXBDTixTQUFTQSxNQUFNQyxZQUFZO0FBQzNCLFNBQXFCQyxnQkFBZ0I7QUFDckMsU0FBU0MsU0FBU0MsY0FBYztBQUNoQyxZQUFZQyxXQUFXO0FBUXZCLE1BQU1DLFFBQVE7QUFDZCxNQUFNQyxRQUFRO0FBQ2QsTUFBTUMsU0FBUztBQUNmLE1BQU1DLFFBQVE7QUFDZCxNQUFNQyxPQUFPO0FBQ2IsTUFBTUMsT0FBTztBQUNiLE1BQU1DLFFBQVE7QUFFUCxnQkFBU0Msc0JBQXNCLEVBQUVDLFNBQVNDLFNBQXFDLEdBQUc7QUFBQUMsS0FBQTtBQUN2RixRQUFNQyxXQUFXYixPQUFvQixJQUFJO0FBQ3pDLFFBQU1jLFlBQVlkLE9BQW1CLElBQUk7QUFFekNGLFdBQVMsQ0FBQyxFQUFFaUIsTUFBTSxHQUFHQyxVQUFVO0FBQzdCLFFBQUlILFNBQVNJLFNBQVM7QUFDcEJKLGVBQVNJLFFBQVFDLFNBQVNDLEtBQUtILFFBQVE7QUFBQSxJQUN6QztBQUVBLFFBQUlGLFVBQVVHLFNBQVM7QUFDckIsWUFBTUcsV0FBV04sVUFBVUcsUUFBUUc7QUFDbkNBLGVBQVNDLG9CQUFvQixPQUFPQyxLQUFLQyxJQUFJUixNQUFNUyxjQUFjLEdBQUcsSUFBSTtBQUFBLElBQzFFO0FBQUEsRUFDRixDQUFDO0FBRUQsU0FDRSx1QkFBQyxXQUNDO0FBQUEsMkJBQUMsUUFBSyxRQUFRZCxRQUFRZSxPQUFPLE9BQU9qQixPQUFPLFdBQVcsS0FBSyxRQUFNLE1BQUMsV0FBVyxRQUE3RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQWtGO0FBQUEsSUFDbEYsdUJBQUMsV0FBTSxVQUFVRSxRQUFRZ0IsVUFBVSxTQUFTZixVQUMxQztBQUFBLDZCQUFDLFVBQUssY0FBWSxDQUFDVyxLQUFLSyxLQUFLLEdBQUcsVUFBVSxDQUFDLEdBQUcsTUFBTSxDQUFDLEdBQ25EO0FBQUEsK0JBQUMsb0JBQWUsTUFBTSxDQUFDLE1BQU0sRUFBRSxLQUEvQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQWlDO0FBQUEsUUFDakMsdUJBQUMsdUJBQWtCLE9BQU0sV0FBVSxhQUFXLE1BQUMsU0FBUyxNQUFNLFlBQVksU0FBMUU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFnRjtBQUFBLFdBRmxGO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLE1BRUEsdUJBQUMsZUFBWSxNQUFNLE1BQW5CO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBc0I7QUFBQSxNQUN0Qix1QkFBQyxlQUFZLE1BQU0sS0FBbkI7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFxQjtBQUFBLE1BRXJCLHVCQUFDLFVBQUssWUFBVSxNQUFDLGVBQWEsTUFBQyxVQUFVLENBQUMsR0FBRyxNQUFNLENBQUMsR0FDbEQ7QUFBQSwrQkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLElBQUksS0FBcEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFzQztBQUFBLFFBQ3RDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxNQUFNLFdBQVcsUUFBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUF1RTtBQUFBLFdBRnpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLE1BQ0EsdUJBQUMsVUFBSyxZQUFVLE1BQUMsZUFBYSxNQUFDLFVBQVUsQ0FBQyxHQUFHLE1BQU0sSUFBSSxHQUNyRDtBQUFBLCtCQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE1BQU0sSUFBSSxLQUFwQztBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQXNDO0FBQUEsUUFDdEMsdUJBQUMsMEJBQXFCLE9BQU0sV0FBVSxXQUFXLE1BQU0sV0FBVyxRQUFsRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQXVFO0FBQUEsV0FGekU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUdBO0FBQUEsTUFDQSx1QkFBQyxVQUFLLFlBQVUsTUFBQyxlQUFhLE1BQUMsVUFBVSxDQUFDLEdBQUcsS0FBSyxLQUFLLEdBQ3JEO0FBQUEsK0JBQUMsaUJBQVksTUFBTSxDQUFDLE1BQU0sTUFBTSxJQUFJLEtBQXBDO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBc0M7QUFBQSxRQUN0Qyx1QkFBQywwQkFBcUIsT0FBT3pCLE9BQU8sV0FBVyxNQUFNLFdBQVcsUUFBaEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFxRTtBQUFBLFdBRnZFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLE1BQ0EsdUJBQUMsVUFBSyxZQUFVLE1BQUMsZUFBYSxNQUFDLFVBQVUsQ0FBQyxHQUFHLE1BQU0sS0FBSyxHQUN0RDtBQUFBLCtCQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE1BQU0sR0FBRyxLQUFuQztBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQXFDO0FBQUEsUUFDckMsdUJBQUMsMEJBQXFCLE9BQU0sV0FBVSxXQUFXLEtBQUssV0FBVyxRQUFqRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBQXNFO0FBQUEsV0FGeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUdBO0FBQUEsTUFFQSx1QkFBQyxVQUFLLFlBQVUsTUFBQyxVQUFVLENBQUMsR0FBRyxLQUFLLEtBQUssR0FDdkM7QUFBQSwrQkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLEtBQUssS0FBckM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUF1QztBQUFBLFFBQ3ZDLHVCQUFDLDBCQUFxQixPQUFPQyxPQUFPLFdBQVcsTUFBTSxXQUFXLE9BQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBb0U7QUFBQSxXQUZ0RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBR0E7QUFBQSxNQUNBLHVCQUFDLFVBQUssS0FBS1csV0FBVyxVQUFVLENBQUMsR0FBRyxLQUFLLE1BQU0sR0FDN0M7QUFBQSwrQkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLEtBQUssS0FBckM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUF1QztBQUFBLFFBQ3ZDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsVUFBVVIsTUFBTSxtQkFBbUIsTUFBTSxXQUFXLE9BQTFGO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBOEY7QUFBQSxXQUZoRztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBR0E7QUFBQSxNQUNBLHVCQUFDLHFCQUFEO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBZ0I7QUFBQSxNQUVoQix1QkFBQyxVQUFLLFlBQVUsTUFBQyxVQUFVLENBQUMsR0FBRyxNQUFNLEtBQUssR0FDeEM7QUFBQSwrQkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLEdBQUcsS0FBbkM7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFxQztBQUFBLFFBQ3JDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxLQUFLLFdBQVcsUUFBakU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFzRTtBQUFBLFdBRnhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLE1BQ0MsQ0FBQyxPQUFPLElBQUksRUFBRXNCO0FBQUFBLFFBQUksQ0FBQ0MsTUFDbEIsdUJBQUMsVUFBYSxVQUFVLENBQUNBLEdBQUcsS0FBSyxLQUFLLEdBQ3BDO0FBQUEsaUNBQUMsaUJBQVksTUFBTSxDQUFDLE1BQU0sTUFBTSxJQUFJLEtBQXBDO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXNDO0FBQUEsVUFDdEMsdUJBQUMsMEJBQXFCLE9BQU0sV0FBVSxVQUFVdkIsTUFBTSxtQkFBbUIsUUFBekU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBOEU7QUFBQSxhQUZyRXVCLEdBQVg7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUdBO0FBQUEsTUFDRDtBQUFBLE1BRUQsdUJBQUMsV0FBTSxLQUFLaEIsVUFBVSxVQUFVLENBQUMsR0FBRyxNQUFNLEtBQUssR0FDN0M7QUFBQSwrQkFBQyxVQUFLLFlBQVUsTUFDZDtBQUFBLGlDQUFDLHNCQUFpQixNQUFNLENBQUMsTUFBTSxNQUFNLE1BQU0sRUFBRSxLQUE3QztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUErQztBQUFBLFVBQy9DLHVCQUFDLDBCQUFxQixPQUFPVCxRQUFRLFdBQVcsTUFBTSxXQUFXLFFBQWpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXNFO0FBQUEsYUFGeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUdBO0FBQUEsUUFDQSx1QkFBQyxVQUFLLFVBQVUsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxHQUN6QjtBQUFBLGlDQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE1BQU0sSUFBSSxLQUFwQztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUFzQztBQUFBLFVBQ3RDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsVUFBVUUsTUFBTSxtQkFBbUIsUUFBekU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBOEU7QUFBQSxhQUZoRjtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBR0E7QUFBQSxRQUNBLHVCQUFDLFVBQUssVUFBVSxDQUFDLEdBQUcsTUFBTSxDQUFDLEdBQUcsY0FBWWdCLEtBQUtLLEtBQUssR0FDbEQ7QUFBQSxpQ0FBQyxtQkFBYyxNQUFNLENBQUMsTUFBTSxPQUFPLEdBQUcsRUFBRSxLQUF4QztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUEwQztBQUFBLFVBQzFDLHVCQUFDLDBCQUFxQixPQUFPckIsTUFBTSxVQUFVQSxNQUFNLG1CQUFtQixPQUF0RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUEwRTtBQUFBLGFBRjVFO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFHQTtBQUFBLFdBWkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQWFBO0FBQUEsTUFFQSx1QkFBQyxlQUFZLE1BQU0sTUFBbkI7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFzQjtBQUFBLE1BQ3RCLHVCQUFDLGVBQVksTUFBTSxLQUFuQjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXFCO0FBQUEsTUFFckIsdUJBQUMsZUFBWSxNQUFNLElBQUksT0FBTyxPQUFPLFNBQVMsSUFBSSxPQUFPLE9BQXpEO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBNkQ7QUFBQSxNQUM3RCx1QkFBQyxlQUFZLE1BQU0sR0FBRyxPQUFPLE9BQU8sU0FBUyxJQUFJLE9BQU8sT0FBeEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUE0RDtBQUFBLE1BQzVELHVCQUFDLGVBQVksTUFBTSxJQUFJLE9BQU8sTUFBTSxTQUFTLEdBQUcsT0FBTyxPQUF2RDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQTJEO0FBQUEsTUFDM0QsdUJBQUMsZUFBWSxNQUFNLEdBQUcsT0FBTyxNQUFNLFNBQVMsR0FBRyxPQUFPLE9BQXREO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBMEQ7QUFBQSxNQUUxRCx1QkFBQyxRQUFLLFVBQVUsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxHQUFHLFFBQU0sTUFDbEMsaUNBQUMsU0FBSSxXQUFVLHFCQUFvQiwyQkFBbkM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUE4QyxLQURoRDtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBRUE7QUFBQSxTQXhFRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBeUVBO0FBQUEsT0EzRUY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQTRFQTtBQUVKO0FBQUNNLEdBOUZlSCx1QkFBcUI7QUFBQSxVQUluQ1gsUUFBUTtBQUFBO0FBQUEsS0FKTVc7QUFnR2hCLFNBQVNxQixrQkFBa0I7QUFDekIsU0FDRSx1QkFBQyxXQUFNLFVBQVUsQ0FBQyxNQUFNLE1BQU0sTUFBTSxHQUNqQztBQUFBLEtBQUMsR0FBRyxHQUFHLENBQUMsRUFBRUY7QUFBQUEsTUFBSSxDQUFDRyxVQUNkLHVCQUFDLFVBQTJCLFVBQVUsQ0FBQyxNQUFNQSxRQUFRLE1BQU0sQ0FBQyxHQUMxRDtBQUFBLCtCQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNQSxRQUFRLE1BQU0sT0FBTyxJQUFJLEtBQW5EO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBcUQ7QUFBQSxRQUNyRCx1QkFBQyx1QkFBa0IsT0FBT0EsVUFBVSxJQUFJeEIsT0FBT0QsUUFBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFvRDtBQUFBLFdBRjNDLFFBQVF5QixLQUFLLElBQXhCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLElBQ0Q7QUFBQSxJQUNEO0FBQUEsTUFBQztBQUFBO0FBQUEsUUFDQyxRQUFRO0FBQUEsVUFDTixDQUFDLE1BQU0sT0FBTyxJQUFLO0FBQUEsVUFDbkIsQ0FBQyxLQUFLLE1BQU0sSUFBSztBQUFBLFVBQ2pCLENBQUMsTUFBTSxNQUFNLElBQUs7QUFBQSxVQUNsQixDQUFDLE1BQU0sTUFBTSxJQUFLO0FBQUEsVUFDbEIsQ0FBQyxLQUFLLE1BQU0sSUFBSztBQUFBLFFBQUM7QUFBQSxRQUVwQixPQUFPeEI7QUFBQUEsUUFDUCxXQUFXO0FBQUE7QUFBQSxNQVRiO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxJQVNlO0FBQUEsSUFFZix1QkFBQyxVQUFLLFVBQVUsQ0FBQyxNQUFNLE9BQU8sQ0FBQyxHQUM3QjtBQUFBLDZCQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE9BQU8sSUFBSSxLQUFyQztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXVDO0FBQUEsTUFDdkMsdUJBQUMsdUJBQWtCLE9BQU9DLFNBQTFCO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBZ0M7QUFBQSxTQUZsQztBQUFBO0FBQUE7QUFBQTtBQUFBLFdBR0E7QUFBQSxPQXJCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBc0JBO0FBRUo7QUFBQ3dCLE1BMUJRRjtBQTRCVCxTQUFTRyxZQUFZLEVBQUVDLEtBQXVCLEdBQUc7QUFDL0MsU0FDRSx1QkFBQyxXQUFNLFVBQVUsQ0FBQ0EsT0FBTyxNQUFNLE1BQU0sQ0FBQyxHQUNwQztBQUFBLDJCQUFDLFVBQUssWUFBVSxNQUFDLGVBQWEsTUFDNUI7QUFBQSw2QkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLElBQUksS0FBcEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFzQztBQUFBLE1BQ3RDLHVCQUFDLDBCQUFxQixPQUFPOUIsUUFBUSxXQUFXLE1BQU0sV0FBVyxRQUFqRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXNFO0FBQUEsU0FGeEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUdBO0FBQUEsSUFDQSx1QkFBQyxVQUFLLFVBQVUsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxHQUN6QjtBQUFBLDZCQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE1BQU0sR0FBRyxLQUFuQztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXFDO0FBQUEsTUFDckMsdUJBQUMsMEJBQXFCLE9BQU0sV0FBVSxXQUFXLE1BQU0sV0FBVyxRQUFsRTtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXVFO0FBQUEsU0FGekU7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUdBO0FBQUEsSUFDQyxDQUFDLE9BQU8sT0FBTyxNQUFNLElBQUksRUFBRXdCO0FBQUFBLE1BQUksQ0FBQ08sR0FBR0osVUFDbEMsdUJBQUMsaUJBQXNCLEdBQU0sT0FBT0EsUUFBUSxRQUF4QkksR0FBcEI7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFpRDtBQUFBLElBQ2xEO0FBQUEsSUFDQUMsTUFBTUM7QUFBQUEsTUFBSyxFQUFFQyxRQUFRLEdBQUc7QUFBQSxNQUFHLENBQUNDLEdBQUdSLFVBQzlCLHVCQUFDLFVBQWlCLFVBQVUsQ0FBQyxHQUFHLE9BQU8sUUFBUUEsUUFBUSxJQUFJLEdBQ3pEO0FBQUEsK0JBQUMsaUJBQVksTUFBTSxDQUFDLEtBQUssT0FBTyxHQUFHLEtBQW5DO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFBcUM7QUFBQSxRQUNyQyx1QkFBQywwQkFBcUIsT0FBTSxXQUFVLFdBQVcsUUFBakQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUFzRDtBQUFBLFdBRjdDQSxPQUFYO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFHQTtBQUFBLElBQ0Q7QUFBQSxPQWpCSDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBa0JBO0FBRUo7QUFBQ1MsTUF0QlFQO0FBd0JULFNBQVNRLGNBQWMsRUFBRU4sR0FBR08sTUFBb0MsR0FBRztBQUFBQyxNQUFBO0FBQ2pFLFFBQU1DLE1BQU01QyxPQUFtQixJQUFJO0FBRW5DRixXQUFTLENBQUN5QyxHQUFHdkIsVUFBVTtBQUNyQixRQUFJNEIsSUFBSTNCLFNBQVM7QUFDZjJCLFVBQUkzQixRQUFRQyxTQUFTVyxLQUFLYixTQUFTLE1BQU0wQixRQUFRO0FBQUEsSUFDbkQ7QUFBQSxFQUNGLENBQUM7QUFFRCxTQUNFLHVCQUFDLFVBQUssS0FBVSxZQUFVLE1BQUMsVUFBVSxDQUFDLEdBQUcsTUFBTVAsQ0FBQyxHQUFHLGNBQVliLEtBQUtLLEtBQUssR0FDdkU7QUFBQSwyQkFBQyxzQkFBaUIsTUFBTSxDQUFDLE1BQU0sTUFBTSxNQUFNLEVBQUUsS0FBN0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUErQztBQUFBLElBQy9DLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxNQUFNLFdBQVcsUUFBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUF1RTtBQUFBLE9BRnpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsU0FHQTtBQUVKO0FBQUNnQixJQWZRRixlQUFhO0FBQUEsVUFHcEIzQyxRQUFRO0FBQUE7QUFBQSxNQUhEMkM7QUFpQlQsU0FBU0ksWUFBWSxFQUFFWCxLQUF1QixHQUFHO0FBQy9DLFNBQ0UsdUJBQUMsV0FBTSxVQUFVLENBQUNBLE9BQU8sTUFBTSxNQUFNLElBQUksR0FDdkM7QUFBQSwyQkFBQyxVQUFLLFlBQVUsTUFBQyxVQUFVLENBQUMsR0FBRyxHQUFHLENBQUMsR0FDakM7QUFBQSw2QkFBQyxpQkFBWSxNQUFNLENBQUMsTUFBTSxNQUFNLElBQUksS0FBcEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFzQztBQUFBLE1BQ3RDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxNQUFNLFdBQVcsUUFBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUF1RTtBQUFBLFNBRnpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLElBQ0MsQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDLEVBQUVOO0FBQUFBLE1BQUksQ0FBQ2tCLFVBQ2pCLHVCQUFDLFdBQWtCLFVBQVUsQ0FBQ1osT0FBTyxNQUFNLFFBQVFZLFFBQVEsTUFBTSxDQUFDLEdBQ2hFO0FBQUEsK0JBQUMsVUFBSyxZQUFVLE1BQUMsZUFBYSxNQUM1QjtBQUFBLGlDQUFDLGlCQUFZLE1BQU0sQ0FBQyxNQUFNLE9BQU8sSUFBSSxLQUFyQztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUF1QztBQUFBLFVBQ3ZDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxNQUFNLFdBQVcsUUFBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBdUU7QUFBQSxhQUZ6RTtBQUFBO0FBQUE7QUFBQTtBQUFBLGVBR0E7QUFBQSxRQUNDLENBQUMsT0FBTyxHQUFHLElBQUksRUFBRWxCO0FBQUFBLFVBQUksQ0FBQ08sR0FBR0osVUFDeEIsdUJBQUMsVUFBYSxZQUFVLE1BQUMsVUFBVSxDQUFDRyxRQUFRLE9BQU9ILFFBQVEsUUFBUSxPQUFPSSxDQUFDLEdBQ3pFO0FBQUEsbUNBQUMsb0JBQWUsTUFBTSxDQUFDLE9BQU8sSUFBSSxDQUFDLEtBQW5DO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBQXFDO0FBQUEsWUFDckMsdUJBQUMsMEJBQXFCLE9BQU9KLFVBQVUsSUFBSSxZQUFZdkIsT0FBTyxVQUFTLGFBQXZFO0FBQUE7QUFBQTtBQUFBO0FBQUEsbUJBQWdGO0FBQUEsZUFGdkUyQixHQUFYO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBR0E7QUFBQSxRQUNEO0FBQUEsV0FWU1csT0FBWjtBQUFBO0FBQUE7QUFBQTtBQUFBLGFBV0E7QUFBQSxJQUNEO0FBQUEsSUFDRDtBQUFBLE1BQUM7QUFBQTtBQUFBLFFBQ0MsUUFBUTtBQUFBLFVBQ04sQ0FBQ1osT0FBTyxNQUFNLE1BQU0sS0FBSztBQUFBLFVBQ3pCLENBQUNBLE9BQU8sTUFBTSxNQUFNLEtBQUs7QUFBQSxVQUN6QixDQUFDQSxPQUFPLE1BQU0sTUFBTSxJQUFJO0FBQUEsVUFDeEIsQ0FBQ0EsT0FBTyxNQUFNLE1BQU0sSUFBSTtBQUFBLFFBQUM7QUFBQSxRQUUzQixPQUFPM0I7QUFBQUEsUUFDUCxXQUFXO0FBQUEsUUFDWDtBQUFBLFFBQ0EsU0FBUztBQUFBO0FBQUEsTUFWWDtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUEsSUFVZ0I7QUFBQSxPQTdCbEI7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQStCQTtBQUVKO0FBQUN3QyxNQW5DUUY7QUFxQ1QsU0FBU0csWUFBWTtBQUFBLEVBQ25CZDtBQUFBQSxFQUNBZTtBQUFBQSxFQUNBQztBQUFBQSxFQUNBUjtBQU1GLEdBQUc7QUFBQVMsTUFBQTtBQUNELFFBQU1QLE1BQU01QyxPQUFvQixJQUFJO0FBQ3BDLFFBQU1vRCxXQUF5QixDQUFDLEdBQUcsR0FBRyxDQUFDO0FBQ3ZDLFFBQU1DLFFBQXNCLENBQUNuQixPQUFPLE1BQU0sT0FBT2dCLFVBQVUsSUFBSTtBQUMvRCxRQUFNSSxRQUFzQixDQUFDcEIsT0FBTyxNQUFNLE9BQU9nQixVQUFVLElBQUk7QUFDL0QsUUFBTUssUUFBc0IsQ0FBQ3JCLE9BQU8sTUFBTSxNQUFNZ0IsVUFBVSxJQUFJO0FBRTlEcEQsV0FBUyxDQUFDLEVBQUVpQixNQUFNLE1BQU07QUFDdEIsUUFBSSxDQUFDNkIsSUFBSTNCLFNBQVM7QUFDaEI7QUFBQSxJQUNGO0FBRUEyQixRQUFJM0IsUUFBUUMsU0FBU0MsSUFBSUcsS0FBS0MsSUFBSVIsTUFBTVMsY0FBYyxPQUFPa0IsS0FBSyxJQUFJLFFBQVFSO0FBQzlFVSxRQUFJM0IsUUFBUUMsU0FBU2lCLElBQUliLEtBQUtDLElBQUlSLE1BQU1TLGNBQWMsT0FBT2tCLEtBQUssSUFBSTtBQUFBLEVBQ3hFLENBQUM7QUFFRCxTQUNFLHVCQUFDLFdBQU0sS0FBVSxVQUFVLENBQUNSLE9BQU8sTUFBTSxNQUFNZSxLQUFLLEdBQ2xEO0FBQUEsMkJBQUMsVUFBSyxZQUFVLE1BQ2Q7QUFBQSw2QkFBQyxvQkFBZSxNQUFNLENBQUMsTUFBTSxJQUFJLEVBQUUsS0FBbkM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFxQztBQUFBLE1BQ3JDLHVCQUFDLDBCQUFxQixPQUFNLFdBQVUsV0FBVyxNQUFNLFdBQVcsUUFBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUF1RTtBQUFBLFNBRnpFO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLElBQ0EsdUJBQUMsVUFBSyxjQUFZM0IsS0FBS0ssS0FBSyxHQUMxQjtBQUFBLDZCQUFDLHNCQUFpQixNQUFNLENBQUMsTUFBTSxNQUFNLE1BQU0sRUFBRSxLQUE3QztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQStDO0FBQUEsTUFDL0MsdUJBQUMsMEJBQXFCLE9BQU94QixPQUFPLFdBQVcsTUFBTSxXQUFXLFFBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBcUU7QUFBQSxTQUZ2RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBR0E7QUFBQSxJQUNBLHVCQUFDLGNBQVcsT0FBT2lELFVBQVUsS0FBS0MsT0FBTyxRQUFRLE1BQU0sT0FBTSxhQUE3RDtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQXNFO0FBQUEsSUFDdEUsdUJBQUMsY0FBVyxPQUFPQSxPQUFPLEtBQUtDLE9BQU8sUUFBUSxPQUFPLE9BQU0sYUFBM0Q7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUFvRTtBQUFBLElBQ3BFLHVCQUFDLGNBQVcsT0FBT0EsT0FBTyxLQUFLQyxPQUFPLFFBQVEsT0FBTyxPQUFNLGFBQTNEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FBb0U7QUFBQSxJQUNuRSxDQUFDRixPQUFPQyxPQUFPQyxLQUFLLEVBQUUzQjtBQUFBQSxNQUFJLENBQUM0QixPQUFPekIsVUFDakMsdUJBQUMsU0FBa0IsVUFBVXlCLE9BQU8sT0FBT3pCLFVBQVUsS0FBekNBLE9BQVo7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUF1RDtBQUFBLElBQ3hEO0FBQUEsSUFDRCx1QkFBQyxTQUFNLFFBQVEsQ0FBQ3FCLFVBQVUsQ0FBQ2xCLE9BQU8sTUFBTSxNQUFNZ0IsVUFBVSxJQUFJLEdBQUdJLE9BQU9DLEtBQUssS0FBM0U7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUE2RTtBQUFBLElBQzdFLHVCQUFDLGdCQUFhLE1BQVksU0FBa0IsVUFBVUEsU0FBdEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUE0RDtBQUFBLE9BaEI5RDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBaUJBO0FBRUo7QUFBQ0osSUE5Q1FILGFBQVc7QUFBQSxVQWlCbEJsRCxRQUFRO0FBQUE7QUFBQSxNQWpCRGtEO0FBZ0RULFNBQVNTLFdBQVc7QUFBQSxFQUNsQkM7QUFBQUEsRUFDQUM7QUFBQUEsRUFDQUM7QUFBQUEsRUFDQUM7QUFNRixHQUFHO0FBQUFDLE1BQUE7QUFDRCxRQUFNQyxZQUFZaEUsUUFBUSxNQUFNO0FBQzlCLFVBQU1pRSxjQUFjLElBQUkvRCxNQUFNZ0UsUUFBUSxHQUFHUCxLQUFLO0FBQzlDLFVBQU1RLFlBQVksSUFBSWpFLE1BQU1nRSxRQUFRLEdBQUdOLEdBQUc7QUFDMUMsVUFBTVEsV0FBV0gsWUFBWUksTUFBTSxFQUFFQyxJQUFJSCxTQUFTLEVBQUVJLGVBQWUsR0FBRztBQUN0RSxVQUFNQyxZQUFZTCxVQUFVRSxNQUFNLEVBQUVJLElBQUlSLFdBQVc7QUFDbkQsVUFBTTFCLFNBQVNpQyxVQUFVakMsT0FBTztBQUNoQyxVQUFNbUMsYUFBYSxJQUFJeEUsTUFBTXlFLFdBQVcsRUFBRUM7QUFBQUEsTUFDeEMsSUFBSTFFLE1BQU1nRSxRQUFRLEdBQUcsR0FBRyxDQUFDO0FBQUEsTUFDekJNLFVBQVVILE1BQU0sRUFBRVEsVUFBVTtBQUFBLElBQzlCO0FBRUEsV0FBTyxFQUFFVCxVQUFVN0IsUUFBUW1DLFdBQVc7QUFBQSxFQUN4QyxHQUFHLENBQUNmLE9BQU9DLEdBQUcsQ0FBQztBQUVmLFNBQ0UsdUJBQUMsVUFBSyxZQUFVLE1BQUMsVUFBVUksVUFBVUksVUFBVSxZQUFZSixVQUFVVSxZQUNuRTtBQUFBLDJCQUFDLHNCQUFpQixNQUFNLENBQUNiLFFBQVFBLFFBQVFHLFVBQVV6QixRQUFRLEVBQUUsS0FBN0Q7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUErRDtBQUFBLElBQy9ELHVCQUFDLDBCQUFxQixPQUFjLFdBQVcsTUFBTSxXQUFXLFFBQWhFO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FBcUU7QUFBQSxPQUZ2RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBR0E7QUFFSjtBQUFDd0IsSUEvQlFMLFlBQVU7QUFBQSxNQUFWQTtBQWlDVCxTQUFTb0IsTUFBTSxFQUFFbkQsVUFBVW9ELFFBQVEsTUFBbUQsR0FBRztBQUN2RixTQUNFLHVCQUFDLFdBQU0sVUFDTDtBQUFBLDJCQUFDLFVBQUssWUFBVSxNQUNkO0FBQUEsNkJBQUMsb0JBQWUsTUFBTSxDQUFDLE1BQU0sSUFBSSxFQUFFLEtBQW5DO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBcUM7QUFBQSxNQUNyQztBQUFBLFFBQUM7QUFBQTtBQUFBLFVBQ0MsT0FBT0EsUUFBUXhFLE9BQU87QUFBQSxVQUN0QixVQUFVd0UsUUFBUXhFLE9BQU87QUFBQSxVQUN6QixtQkFBbUJ3RSxRQUFRLE9BQU87QUFBQSxVQUNsQyxXQUFXO0FBQUEsVUFDWCxXQUFXO0FBQUE7QUFBQSxRQUxiO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQTtBQUFBO0FBQUE7QUFBQSxNQUtrQjtBQUFBLFNBUHBCO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FTQTtBQUFBLElBQ0EsdUJBQUMsVUFBSyxjQUFZeEQsS0FBS0ssS0FBSyxHQUMxQjtBQUFBLDZCQUFDLG1CQUFjLE1BQU0sQ0FBQyxNQUFNLE9BQU8sR0FBRyxFQUFFLEtBQXhDO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBMEM7QUFBQSxNQUMxQyx1QkFBQywwQkFBcUIsT0FBT3RCLE9BQU8sV0FBVyxNQUFNLFdBQVcsUUFBaEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFxRTtBQUFBLFNBRnZFO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLE9BZEY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQWVBO0FBRUo7QUFBQzBFLE1BbkJRRjtBQXFCVCxTQUFTRyxNQUFNLEVBQUVDLE9BQW1DLEdBQUc7QUFBQUMsTUFBQTtBQUNyRCxRQUFNQyxRQUFRcEYsUUFBUSxNQUFNO0FBQzFCLFdBQU8sSUFBSUUsTUFBTW1GLGlCQUFpQkgsT0FBT3JELElBQUksQ0FBQzRCLFVBQVUsSUFBSXZELE1BQU1nRSxRQUFRLEdBQUdULEtBQUssQ0FBQyxDQUFDO0FBQUEsRUFDdEYsR0FBRyxDQUFDeUIsTUFBTSxDQUFDO0FBRVgsU0FDRSx1QkFBQyxVQUNDO0FBQUEsMkJBQUMsa0JBQWEsTUFBTSxDQUFDRSxPQUFPLElBQUksT0FBTyxHQUFHLEtBQUssS0FBL0M7QUFBQTtBQUFBO0FBQUE7QUFBQSxXQUFpRDtBQUFBLElBQ2pELHVCQUFDLDBCQUFxQixPQUFPL0UsUUFBUSxXQUFXLFFBQWhEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FBcUQ7QUFBQSxPQUZ2RDtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBR0E7QUFFSjtBQUFDOEUsSUFYUUYsT0FBSztBQUFBLE1BQUxBO0FBYVQsU0FBU0ssYUFBYTtBQUFBLEVBQ3BCbkQ7QUFBQUEsRUFDQWdCO0FBQUFBLEVBQ0F4QjtBQUtGLEdBQUc7QUFBQTRELE1BQUE7QUFDRCxRQUFNMUMsTUFBTTVDLE9BQW9CLElBQUk7QUFFcENGLFdBQVMsQ0FBQyxFQUFFaUIsTUFBTSxNQUFNO0FBQ3RCLFFBQUk2QixJQUFJM0IsU0FBUztBQUNmMkIsVUFBSTNCLFFBQVFDLFNBQVNpQixJQUFJYixLQUFLQyxJQUFJUixNQUFNUyxjQUFjLEdBQUcsSUFBSSxPQUFPVTtBQUFBQSxJQUN0RTtBQUFBLEVBQ0YsQ0FBQztBQUVELFNBQ0UsdUJBQUMsV0FBTSxLQUFVLFVBQW9CLGNBQVlBLE9BQU8sTUFDdEQ7QUFBQSwyQkFBQyxVQUFLLFlBQVUsTUFDZDtBQUFBLDZCQUFDLG9CQUFlLE1BQU0sQ0FBQyxNQUFNLElBQUksRUFBRSxLQUFuQztBQUFBO0FBQUE7QUFBQTtBQUFBLGFBQXFDO0FBQUEsTUFDckMsdUJBQUMsMEJBQXFCLE9BQU81QixNQUFNLFVBQVVBLE1BQU0sbUJBQW1CLFFBQXRFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBMkU7QUFBQSxTQUY3RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBR0E7QUFBQSxJQUNBLHVCQUFDLFVBQUssWUFBVSxNQUFDLFVBQVUsQ0FBQzRCLE9BQU8sS0FBSyxPQUFPZ0IsVUFBVSxJQUFJLEdBQzNEO0FBQUEsNkJBQUMsaUJBQVksTUFBTSxDQUFDLE1BQU0sS0FBSyxJQUFJLEtBQW5DO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBcUM7QUFBQSxNQUNyQyx1QkFBQywwQkFBcUIsT0FBTSxXQUFVLFdBQVcsTUFBTSxXQUFXLFFBQWxFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBdUU7QUFBQSxTQUZ6RTtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBR0E7QUFBQSxJQUNDLENBQUMsT0FBTyxHQUFHLElBQUksRUFBRXRCO0FBQUFBLE1BQUksQ0FBQzJELFFBQVF4RCxVQUM3Qix1QkFBQyxXQUFtQixVQUFVLENBQUNHLE9BQU8sS0FBSyxNQUFNZ0IsV0FBVyxPQUFPcUMsT0FBTyxHQUN4RTtBQUFBLCtCQUFDLFVBQUssY0FBWXJELE9BQU8sTUFDdkI7QUFBQSxpQ0FBQyxzQkFBaUIsTUFBTSxDQUFDLE9BQU8sT0FBTyxNQUFNLENBQUMsS0FBOUM7QUFBQTtBQUFBO0FBQUE7QUFBQSxpQkFBZ0Q7QUFBQSxVQUNoRCx1QkFBQywwQkFBcUIsT0FBTSxXQUFVLFdBQVcsTUFBTSxXQUFXLFFBQWxFO0FBQUE7QUFBQTtBQUFBO0FBQUEsaUJBQXVFO0FBQUEsYUFGekU7QUFBQTtBQUFBO0FBQUE7QUFBQSxlQUdBO0FBQUEsUUFDQSx1QkFBQyxVQUFLLFVBQVUsQ0FBQ0EsT0FBTyxNQUFNLE9BQU8sQ0FBQyxHQUNwQztBQUFBLGlDQUFDLG9CQUFlLE1BQU0sQ0FBQyxPQUFPLEdBQUcsQ0FBQyxLQUFsQztBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUFvQztBQUFBLFVBQ3BDLHVCQUFDLDBCQUFxQixPQUFPSCxVQUFVLElBQUl4QixPQUFPQyxPQUFPLFVBQVV1QixVQUFVLElBQUksWUFBWSxhQUE3RjtBQUFBO0FBQUE7QUFBQTtBQUFBLGlCQUF1RztBQUFBLGFBRnpHO0FBQUE7QUFBQTtBQUFBO0FBQUEsZUFHQTtBQUFBLFdBUlV3RCxRQUFaO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFTQTtBQUFBLElBQ0Q7QUFBQSxJQUNELHVCQUFDLFVBQUssVUFBVSxDQUFDckQsT0FBTyxNQUFNLE9BQU9nQixVQUFVLElBQUksR0FDakQ7QUFBQSw2QkFBQyxvQkFBZSxNQUFNLENBQUMsTUFBTSxJQUFJLENBQUMsS0FBbEM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFvQztBQUFBLE1BQ3BDLHVCQUFDLDBCQUFxQixPQUFPMUMsT0FBTyxVQUFTLFdBQVUsbUJBQW1CLFFBQTFFO0FBQUE7QUFBQTtBQUFBO0FBQUEsYUFBK0U7QUFBQSxTQUZqRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFdBR0E7QUFBQSxPQXhCRjtBQUFBO0FBQUE7QUFBQTtBQUFBLFNBeUJBO0FBRUo7QUFBQzhFLElBN0NRRCxjQUFZO0FBQUEsVUFXbkJ2RixRQUFRO0FBQUE7QUFBQSxNQVhEdUY7QUFBWSxJQUFBRyxJQUFBeEQsS0FBQVEsS0FBQWlELEtBQUExQyxLQUFBMkMsS0FBQUMsS0FBQVosS0FBQWEsS0FBQUM7QUFBQSxhQUFBTCxJQUFBO0FBQUEsYUFBQXhELEtBQUE7QUFBQSxhQUFBUSxLQUFBO0FBQUEsYUFBQWlELEtBQUE7QUFBQSxhQUFBMUMsS0FBQTtBQUFBLGFBQUEyQyxLQUFBO0FBQUEsYUFBQUMsS0FBQTtBQUFBLGFBQUFaLEtBQUE7QUFBQSxhQUFBYSxLQUFBO0FBQUEsYUFBQUMsS0FBQSIsIm5hbWVzIjpbIkh0bWwiLCJMaW5lIiwidXNlRnJhbWUiLCJ1c2VNZW1vIiwidXNlUmVmIiwiVEhSRUUiLCJXSElURSIsIlBBTkVMIiwiQ0FSQk9OIiwiTUVUQUwiLCJDWUFOIiwiTEVBRiIsIkJFUlJZIiwiTXVsdGlBcm1IYXJ2ZXN0ZXJNZXNoIiwidmVoaWNsZSIsIm9uU2VsZWN0IiwiX3MiLCJsaWRhclJlZiIsInNjcmVlblJlZiIsImNsb2NrIiwiZGVsdGEiLCJjdXJyZW50Iiwicm90YXRpb24iLCJ5IiwibWF0ZXJpYWwiLCJlbWlzc2l2ZUludGVuc2l0eSIsIk1hdGgiLCJzaW4iLCJlbGFwc2VkVGltZSIsInJvdXRlIiwicG9zaXRpb24iLCJQSSIsIm1hcCIsIngiLCJTY3JlZW5UZWxlbWV0cnkiLCJpbmRleCIsIl9jMiIsIlRyYWNrTW9kdWxlIiwic2lkZSIsInoiLCJBcnJheSIsImZyb20iLCJsZW5ndGgiLCJfIiwiX2MzIiwiQW5pbWF0ZWRXaGVlbCIsInBoYXNlIiwiX3MyIiwicmVmIiwiU3RvcmFnZVJhY2siLCJsZXZlbCIsIl9jNSIsIkFybUFzc2VtYmx5IiwiekJhc2UiLCJ6U3ByZWFkIiwiX3MzIiwic2hvdWxkZXIiLCJ1cHBlciIsImVsYm93Iiwid3Jpc3QiLCJwb2ludCIsIkFybVNlZ21lbnQiLCJzdGFydCIsImVuZCIsInJhZGl1cyIsImNvbG9yIiwiX3M0IiwidHJhbnNmb3JtIiwic3RhcnRWZWN0b3IiLCJWZWN0b3IzIiwiZW5kVmVjdG9yIiwibWlkcG9pbnQiLCJjbG9uZSIsImFkZCIsIm11bHRpcGx5U2NhbGFyIiwiZGlyZWN0aW9uIiwic3ViIiwicXVhdGVybmlvbiIsIlF1YXRlcm5pb24iLCJzZXRGcm9tVW5pdFZlY3RvcnMiLCJub3JtYWxpemUiLCJKb2ludCIsImFsZXJ0IiwiX2M4IiwiQ2FibGUiLCJwb2ludHMiLCJfczUiLCJjdXJ2ZSIsIkNhdG11bGxSb21DdXJ2ZTMiLCJGbGV4aWJsZUNsYXciLCJfczYiLCJvZmZzZXQiLCJfYyIsIl9jNCIsIl9jNiIsIl9jNyIsIl9jOSIsIl9jMCJdLCJpZ25vcmVMaXN0IjpbXSwic291cmNlcyI6WyJNdWx0aUFybUhhcnZlc3Rlck1lc2gudHN4Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IEh0bWwsIExpbmUgfSBmcm9tICdAcmVhY3QtdGhyZWUvZHJlaSc7XG5pbXBvcnQgeyBUaHJlZUV2ZW50LCB1c2VGcmFtZSB9IGZyb20gJ0ByZWFjdC10aHJlZS9maWJlcic7XG5pbXBvcnQgeyB1c2VNZW1vLCB1c2VSZWYgfSBmcm9tICdyZWFjdCc7XG5pbXBvcnQgKiBhcyBUSFJFRSBmcm9tICd0aHJlZSc7XG5pbXBvcnQgdHlwZSB7IEhhcnZlc3RWZWhpY2xlLCBWZWN0b3IzVHVwbGUgfSBmcm9tICcuLi8uLi90eXBlcyc7XG5cbnR5cGUgTXVsdGlBcm1IYXJ2ZXN0ZXJNZXNoUHJvcHMgPSB7XG4gIHZlaGljbGU6IEhhcnZlc3RWZWhpY2xlO1xuICBvblNlbGVjdDogKGV2ZW50OiBUaHJlZUV2ZW50PE1vdXNlRXZlbnQ+KSA9PiB2b2lkO1xufTtcblxuY29uc3QgV0hJVEUgPSAnI2YyZjZmNCc7XG5jb25zdCBQQU5FTCA9ICcjMTQxYjFmJztcbmNvbnN0IENBUkJPTiA9ICcjMDcwYTBjJztcbmNvbnN0IE1FVEFMID0gJyNhZWI4YmQnO1xuY29uc3QgQ1lBTiA9ICcjNTFkNmZmJztcbmNvbnN0IExFQUYgPSAnIzcwZjJhMSc7XG5jb25zdCBCRVJSWSA9ICcjZmY0ZTcyJztcblxuZXhwb3J0IGZ1bmN0aW9uIE11bHRpQXJtSGFydmVzdGVyTWVzaCh7IHZlaGljbGUsIG9uU2VsZWN0IH06IE11bHRpQXJtSGFydmVzdGVyTWVzaFByb3BzKSB7XG4gIGNvbnN0IGxpZGFyUmVmID0gdXNlUmVmPFRIUkVFLkdyb3VwPihudWxsKTtcbiAgY29uc3Qgc2NyZWVuUmVmID0gdXNlUmVmPFRIUkVFLk1lc2g+KG51bGwpO1xuXG4gIHVzZUZyYW1lKCh7IGNsb2NrIH0sIGRlbHRhKSA9PiB7XG4gICAgaWYgKGxpZGFyUmVmLmN1cnJlbnQpIHtcbiAgICAgIGxpZGFyUmVmLmN1cnJlbnQucm90YXRpb24ueSArPSBkZWx0YSAqIDEuODtcbiAgICB9XG5cbiAgICBpZiAoc2NyZWVuUmVmLmN1cnJlbnQpIHtcbiAgICAgIGNvbnN0IG1hdGVyaWFsID0gc2NyZWVuUmVmLmN1cnJlbnQubWF0ZXJpYWwgYXMgVEhSRUUuTWVzaFN0YW5kYXJkTWF0ZXJpYWw7XG4gICAgICBtYXRlcmlhbC5lbWlzc2l2ZUludGVuc2l0eSA9IDAuMjggKyBNYXRoLnNpbihjbG9jay5lbGFwc2VkVGltZSAqIDIuMSkgKiAwLjEyO1xuICAgIH1cbiAgfSk7XG5cbiAgcmV0dXJuIChcbiAgICA8Z3JvdXA+XG4gICAgICA8TGluZSBwb2ludHM9e3ZlaGljbGUucm91dGV9IGNvbG9yPXtCRVJSWX0gbGluZVdpZHRoPXsyLjV9IGRhc2hlZCBkYXNoU2NhbGU9ezAuNzJ9IC8+XG4gICAgICA8Z3JvdXAgcG9zaXRpb249e3ZlaGljbGUucG9zaXRpb259IG9uQ2xpY2s9e29uU2VsZWN0fT5cbiAgICAgICAgPG1lc2ggcm90YXRpb24teD17LU1hdGguUEkgLyAyfSBwb3NpdGlvbj17WzAsIC0wLjIsIDBdfT5cbiAgICAgICAgICA8Y2lyY2xlR2VvbWV0cnkgYXJncz17WzEuNjIsIDQyXX0gLz5cbiAgICAgICAgICA8bWVzaEJhc2ljTWF0ZXJpYWwgY29sb3I9XCIjMDAwMDAwXCIgdHJhbnNwYXJlbnQgb3BhY2l0eT17MC4yMn0gZGVwdGhXcml0ZT17ZmFsc2V9IC8+XG4gICAgICAgIDwvbWVzaD5cblxuICAgICAgICA8VHJhY2tNb2R1bGUgc2lkZT17LTF9IC8+XG4gICAgICAgIDxUcmFja01vZHVsZSBzaWRlPXsxfSAvPlxuXG4gICAgICAgIDxtZXNoIGNhc3RTaGFkb3cgcmVjZWl2ZVNoYWRvdyBwb3NpdGlvbj17WzAsIDAuMjgsIDBdfT5cbiAgICAgICAgICA8Ym94R2VvbWV0cnkgYXJncz17WzEuNjgsIDAuMzQsIDIuMjZdfSAvPlxuICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMyMDI3MmJcIiBtZXRhbG5lc3M9ezAuMjh9IHJvdWdobmVzcz17MC40Mn0gLz5cbiAgICAgICAgPC9tZXNoPlxuICAgICAgICA8bWVzaCBjYXN0U2hhZG93IHJlY2VpdmVTaGFkb3cgcG9zaXRpb249e1swLCAwLjU3LCAtMC4yXX0+XG4gICAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1sxLjQ2LCAwLjQyLCAxLjgyXX0gLz5cbiAgICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9XCIjZGNlMmRlXCIgbWV0YWxuZXNzPXswLjIyfSByb3VnaG5lc3M9ezAuMzR9IC8+XG4gICAgICAgIDwvbWVzaD5cbiAgICAgICAgPG1lc2ggY2FzdFNoYWRvdyByZWNlaXZlU2hhZG93IHBvc2l0aW9uPXtbMCwgMS4xLCAtMC4xOF19PlxuICAgICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMS4yNiwgMS4wNSwgMS40Ml19IC8+XG4gICAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtXSElURX0gbWV0YWxuZXNzPXswLjE4fSByb3VnaG5lc3M9ezAuMjh9IC8+XG4gICAgICAgIDwvbWVzaD5cbiAgICAgICAgPG1lc2ggY2FzdFNoYWRvdyByZWNlaXZlU2hhZG93IHBvc2l0aW9uPXtbMCwgMS43MiwgLTAuMTJdfT5cbiAgICAgICAgICA8Ym94R2VvbWV0cnkgYXJncz17WzEuMDUsIDAuMjQsIDEuMV19IC8+XG4gICAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPVwiI2U4ZWZlY1wiIG1ldGFsbmVzcz17MC4yfSByb3VnaG5lc3M9ezAuMjZ9IC8+XG4gICAgICAgIDwvbWVzaD5cblxuICAgICAgICA8bWVzaCBjYXN0U2hhZG93IHBvc2l0aW9uPXtbMCwgMS4xLCAtMC45MV19PlxuICAgICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMC45MiwgMC43NCwgMC4wNDVdfSAvPlxuICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj17UEFORUx9IG1ldGFsbmVzcz17MC4yNn0gcm91Z2huZXNzPXswLjJ9IC8+XG4gICAgICAgIDwvbWVzaD5cbiAgICAgICAgPG1lc2ggcmVmPXtzY3JlZW5SZWZ9IHBvc2l0aW9uPXtbMCwgMS4xLCAtMC45MzhdfT5cbiAgICAgICAgICA8Ym94R2VvbWV0cnkgYXJncz17WzAuNjIsIDAuNDIsIDAuMDI1XX0gLz5cbiAgICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9XCIjMDYxMzFhXCIgZW1pc3NpdmU9e0NZQU59IGVtaXNzaXZlSW50ZW5zaXR5PXswLjM0fSByb3VnaG5lc3M9ezAuMn0gLz5cbiAgICAgICAgPC9tZXNoPlxuICAgICAgICA8U2NyZWVuVGVsZW1ldHJ5IC8+XG5cbiAgICAgICAgPG1lc2ggY2FzdFNoYWRvdyBwb3NpdGlvbj17WzAsIDAuNTksIC0xLjE0XX0+XG4gICAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1sxLjM0LCAwLjI0LCAwLjJdfSAvPlxuICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMxMTE4MWJcIiBtZXRhbG5lc3M9ezAuM30gcm91Z2huZXNzPXswLjM4fSAvPlxuICAgICAgICA8L21lc2g+XG4gICAgICAgIHtbLTAuNDcsIDAuNDddLm1hcCgoeCkgPT4gKFxuICAgICAgICAgIDxtZXNoIGtleT17eH0gcG9zaXRpb249e1t4LCAwLjcsIC0xLjI3XX0+XG4gICAgICAgICAgICA8Ym94R2VvbWV0cnkgYXJncz17WzAuMzYsIDAuMTMsIDAuMDZdfSAvPlxuICAgICAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPVwiI2Q4ZmZmMVwiIGVtaXNzaXZlPXtDWUFOfSBlbWlzc2l2ZUludGVuc2l0eT17MC41NX0gLz5cbiAgICAgICAgICA8L21lc2g+XG4gICAgICAgICkpfVxuXG4gICAgICAgIDxncm91cCByZWY9e2xpZGFyUmVmfSBwb3NpdGlvbj17WzAsIDEuOTgsIC0wLjM1XX0+XG4gICAgICAgICAgPG1lc2ggY2FzdFNoYWRvdz5cbiAgICAgICAgICAgIDxjeWxpbmRlckdlb21ldHJ5IGFyZ3M9e1swLjIyLCAwLjE4LCAwLjEyLCAyNF19IC8+XG4gICAgICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9e0NBUkJPTn0gbWV0YWxuZXNzPXswLjQ1fSByb3VnaG5lc3M9ezAuMjV9IC8+XG4gICAgICAgICAgPC9tZXNoPlxuICAgICAgICAgIDxtZXNoIHBvc2l0aW9uPXtbMCwgMC4wOSwgMF19PlxuICAgICAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1swLjQyLCAwLjEyLCAwLjMyXX0gLz5cbiAgICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMxMTE4MWJcIiBlbWlzc2l2ZT17Q1lBTn0gZW1pc3NpdmVJbnRlbnNpdHk9ezAuMTh9IC8+XG4gICAgICAgICAgPC9tZXNoPlxuICAgICAgICAgIDxtZXNoIHBvc2l0aW9uPXtbMCwgMC4xOCwgMF19IHJvdGF0aW9uLXg9e01hdGguUEkgLyAyfT5cbiAgICAgICAgICAgIDx0b3J1c0dlb21ldHJ5IGFyZ3M9e1swLjE5LCAwLjAxNiwgOCwgMzJdfSAvPlxuICAgICAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtDWUFOfSBlbWlzc2l2ZT17Q1lBTn0gZW1pc3NpdmVJbnRlbnNpdHk9ezAuNX0gLz5cbiAgICAgICAgICA8L21lc2g+XG4gICAgICAgIDwvZ3JvdXA+XG5cbiAgICAgICAgPFN0b3JhZ2VSYWNrIHNpZGU9ey0xfSAvPlxuICAgICAgICA8U3RvcmFnZVJhY2sgc2lkZT17MX0gLz5cblxuICAgICAgICA8QXJtQXNzZW1ibHkgc2lkZT17LTF9IHpCYXNlPXstMC42Mn0gelNwcmVhZD17LTF9IHBoYXNlPXswLjJ9IC8+XG4gICAgICAgIDxBcm1Bc3NlbWJseSBzaWRlPXsxfSB6QmFzZT17LTAuNjJ9IHpTcHJlYWQ9ey0xfSBwaGFzZT17MS4xfSAvPlxuICAgICAgICA8QXJtQXNzZW1ibHkgc2lkZT17LTF9IHpCYXNlPXswLjY0fSB6U3ByZWFkPXsxfSBwaGFzZT17Mi40fSAvPlxuICAgICAgICA8QXJtQXNzZW1ibHkgc2lkZT17MX0gekJhc2U9ezAuNjR9IHpTcHJlYWQ9ezF9IHBoYXNlPXszLjF9IC8+XG5cbiAgICAgICAgPEh0bWwgcG9zaXRpb249e1swLCAyLjM4LCAwXX0gY2VudGVyPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic2NlbmUtbGFiZWwgYWxhcm1cIj7lpKflnovlpJrmnLrmorDoh4LojYnojpPph4fmkZjovaY8L2Rpdj5cbiAgICAgICAgPC9IdG1sPlxuICAgICAgPC9ncm91cD5cbiAgICA8L2dyb3VwPlxuICApO1xufVxuXG5mdW5jdGlvbiBTY3JlZW5UZWxlbWV0cnkoKSB7XG4gIHJldHVybiAoXG4gICAgPGdyb3VwIHBvc2l0aW9uPXtbLTAuMywgMC45NiwgLTAuOTU2XX0+XG4gICAgICB7WzAsIDEsIDJdLm1hcCgoaW5kZXgpID0+IChcbiAgICAgICAgPG1lc2gga2V5PXtgbGluZS0ke2luZGV4fWB9IHBvc2l0aW9uPXtbMC4xOCwgaW5kZXggKiAwLjA5LCAwXX0+XG4gICAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1swLjMgLSBpbmRleCAqIDAuMDUsIDAuMDEyLCAwLjAxXX0gLz5cbiAgICAgICAgICA8bWVzaEJhc2ljTWF0ZXJpYWwgY29sb3I9e2luZGV4ID09PSAxID8gTEVBRiA6IENZQU59IC8+XG4gICAgICAgIDwvbWVzaD5cbiAgICAgICkpfVxuICAgICAgPExpbmVcbiAgICAgICAgcG9pbnRzPXtbXG4gICAgICAgICAgWzAuMDIsIC0wLjAyLCAwLjAwNl0sXG4gICAgICAgICAgWzAuMSwgMC4wOCwgMC4wMDZdLFxuICAgICAgICAgIFswLjIyLCAwLjAyLCAwLjAwNl0sXG4gICAgICAgICAgWzAuMzUsIDAuMTYsIDAuMDA2XSxcbiAgICAgICAgICBbMC41LCAwLjA4LCAwLjAwNl1cbiAgICAgICAgXX1cbiAgICAgICAgY29sb3I9e0xFQUZ9XG4gICAgICAgIGxpbmVXaWR0aD17MX1cbiAgICAgIC8+XG4gICAgICA8bWVzaCBwb3NpdGlvbj17WzAuNTIsIC0wLjA0LCAwXX0+XG4gICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMC4wOSwgMC4wMjYsIDAuMDFdfSAvPlxuICAgICAgICA8bWVzaEJhc2ljTWF0ZXJpYWwgY29sb3I9e0JFUlJZfSAvPlxuICAgICAgPC9tZXNoPlxuICAgIDwvZ3JvdXA+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFRyYWNrTW9kdWxlKHsgc2lkZSB9OiB7IHNpZGU6IC0xIHwgMSB9KSB7XG4gIHJldHVybiAoXG4gICAgPGdyb3VwIHBvc2l0aW9uPXtbc2lkZSAqIDAuNzIsIDAuMDYsIDBdfT5cbiAgICAgIDxtZXNoIGNhc3RTaGFkb3cgcmVjZWl2ZVNoYWRvdz5cbiAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1swLjQyLCAwLjM2LCAyLjM2XX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtDQVJCT059IG1ldGFsbmVzcz17MC4xOH0gcm91Z2huZXNzPXswLjY4fSAvPlxuICAgICAgPC9tZXNoPlxuICAgICAgPG1lc2ggcG9zaXRpb249e1swLCAwLjA0LCAwXX0+XG4gICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMC40NiwgMC4xOCwgMi41XX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPVwiIzEzMTkxYlwiIG1ldGFsbmVzcz17MC4xMn0gcm91Z2huZXNzPXswLjc1fSAvPlxuICAgICAgPC9tZXNoPlxuICAgICAge1stMC44NCwgLTAuMzQsIDAuMzQsIDAuODRdLm1hcCgoeiwgaW5kZXgpID0+IChcbiAgICAgICAgPEFuaW1hdGVkV2hlZWwga2V5PXt6fSB6PXt6fSBwaGFzZT17aW5kZXggKiAwLjM1fSAvPlxuICAgICAgKSl9XG4gICAgICB7QXJyYXkuZnJvbSh7IGxlbmd0aDogMTMgfSwgKF8sIGluZGV4KSA9PiAoXG4gICAgICAgIDxtZXNoIGtleT17aW5kZXh9IHBvc2l0aW9uPXtbMCwgLTAuMTYsIC0xLjA4ICsgaW5kZXggKiAwLjE4XX0+XG4gICAgICAgICAgPGJveEdlb21ldHJ5IGFyZ3M9e1swLjUsIDAuMDQ1LCAwLjFdfSAvPlxuICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMwNTA3MDhcIiByb3VnaG5lc3M9ezAuODJ9IC8+XG4gICAgICAgIDwvbWVzaD5cbiAgICAgICkpfVxuICAgIDwvZ3JvdXA+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEFuaW1hdGVkV2hlZWwoeyB6LCBwaGFzZSB9OiB7IHo6IG51bWJlcjsgcGhhc2U6IG51bWJlciB9KSB7XG4gIGNvbnN0IHJlZiA9IHVzZVJlZjxUSFJFRS5NZXNoPihudWxsKTtcblxuICB1c2VGcmFtZSgoXywgZGVsdGEpID0+IHtcbiAgICBpZiAocmVmLmN1cnJlbnQpIHtcbiAgICAgIHJlZi5jdXJyZW50LnJvdGF0aW9uLnggKz0gZGVsdGEgKiAoMS4yICsgcGhhc2UgKiAwLjA4KTtcbiAgICB9XG4gIH0pO1xuXG4gIHJldHVybiAoXG4gICAgPG1lc2ggcmVmPXtyZWZ9IGNhc3RTaGFkb3cgcG9zaXRpb249e1swLCAwLjAyLCB6XX0gcm90YXRpb24tej17TWF0aC5QSSAvIDJ9PlxuICAgICAgPGN5bGluZGVyR2VvbWV0cnkgYXJncz17WzAuMjQsIDAuMjQsIDAuMTgsIDI0XX0gLz5cbiAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMyZTM0MzdcIiBtZXRhbG5lc3M9ezAuNDJ9IHJvdWdobmVzcz17MC4zNn0gLz5cbiAgICA8L21lc2g+XG4gICk7XG59XG5cbmZ1bmN0aW9uIFN0b3JhZ2VSYWNrKHsgc2lkZSB9OiB7IHNpZGU6IC0xIHwgMSB9KSB7XG4gIHJldHVybiAoXG4gICAgPGdyb3VwIHBvc2l0aW9uPXtbc2lkZSAqIDAuODIsIDEuMDgsIDAuMzhdfT5cbiAgICAgIDxtZXNoIGNhc3RTaGFkb3cgcG9zaXRpb249e1swLCAwLCAwXX0+XG4gICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMC4xMiwgMS4wMiwgMS4wOF19IC8+XG4gICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiMyYTMyMzVcIiBtZXRhbG5lc3M9ezAuMjh9IHJvdWdobmVzcz17MC40Mn0gLz5cbiAgICAgIDwvbWVzaD5cbiAgICAgIHtbMCwgMSwgMiwgM10ubWFwKChsZXZlbCkgPT4gKFxuICAgICAgICA8Z3JvdXAga2V5PXtsZXZlbH0gcG9zaXRpb249e1tzaWRlICogMC4xMiwgLTAuMzggKyBsZXZlbCAqIDAuMjUsIDBdfT5cbiAgICAgICAgICA8bWVzaCBjYXN0U2hhZG93IHJlY2VpdmVTaGFkb3c+XG4gICAgICAgICAgICA8Ym94R2VvbWV0cnkgYXJncz17WzAuNDgsIDAuMDQ1LCAxLjAyXX0gLz5cbiAgICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj1cIiNjZGQ2ZDFcIiBtZXRhbG5lc3M9ezAuMjR9IHJvdWdobmVzcz17MC4zNn0gLz5cbiAgICAgICAgICA8L21lc2g+XG4gICAgICAgICAge1stMC4zNCwgMCwgMC4zNF0ubWFwKCh6LCBpbmRleCkgPT4gKFxuICAgICAgICAgICAgPG1lc2gga2V5PXt6fSBjYXN0U2hhZG93IHBvc2l0aW9uPXtbc2lkZSAqICgwLjA4ICsgaW5kZXggKiAwLjAzNSksIDAuMDY1LCB6XX0+XG4gICAgICAgICAgICAgIDxzcGhlcmVHZW9tZXRyeSBhcmdzPXtbMC4wNTUsIDEwLCA4XX0gLz5cbiAgICAgICAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtpbmRleCA9PT0gMSA/ICcjZmY3NTkwJyA6IEJFUlJZfSBlbWlzc2l2ZT1cIiM0YTA3MTVcIiAvPlxuICAgICAgICAgICAgPC9tZXNoPlxuICAgICAgICAgICkpfVxuICAgICAgICA8L2dyb3VwPlxuICAgICAgKSl9XG4gICAgICA8TGluZVxuICAgICAgICBwb2ludHM9e1tcbiAgICAgICAgICBbc2lkZSAqIDAuMzQsIC0wLjUsIC0wLjU4XSxcbiAgICAgICAgICBbc2lkZSAqIDAuMzQsIDAuNTUsIC0wLjU4XSxcbiAgICAgICAgICBbc2lkZSAqIDAuMzQsIDAuNTUsIDAuNThdLFxuICAgICAgICAgIFtzaWRlICogMC4zNCwgLTAuNSwgMC41OF1cbiAgICAgICAgXX1cbiAgICAgICAgY29sb3I9e0xFQUZ9XG4gICAgICAgIGxpbmVXaWR0aD17MX1cbiAgICAgICAgdHJhbnNwYXJlbnRcbiAgICAgICAgb3BhY2l0eT17MC42NX1cbiAgICAgIC8+XG4gICAgPC9ncm91cD5cbiAgKTtcbn1cblxuZnVuY3Rpb24gQXJtQXNzZW1ibHkoe1xuICBzaWRlLFxuICB6QmFzZSxcbiAgelNwcmVhZCxcbiAgcGhhc2Vcbn06IHtcbiAgc2lkZTogLTEgfCAxO1xuICB6QmFzZTogbnVtYmVyO1xuICB6U3ByZWFkOiAtMSB8IDE7XG4gIHBoYXNlOiBudW1iZXI7XG59KSB7XG4gIGNvbnN0IHJlZiA9IHVzZVJlZjxUSFJFRS5Hcm91cD4obnVsbCk7XG4gIGNvbnN0IHNob3VsZGVyOiBWZWN0b3IzVHVwbGUgPSBbMCwgMCwgMF07XG4gIGNvbnN0IHVwcGVyOiBWZWN0b3IzVHVwbGUgPSBbc2lkZSAqIDAuNDgsIC0wLjA4LCB6U3ByZWFkICogMC4zNF07XG4gIGNvbnN0IGVsYm93OiBWZWN0b3IzVHVwbGUgPSBbc2lkZSAqIDEuMDQsIC0wLjM0LCB6U3ByZWFkICogMC43Ml07XG4gIGNvbnN0IHdyaXN0OiBWZWN0b3IzVHVwbGUgPSBbc2lkZSAqIDEuMzYsIC0wLjYsIHpTcHJlYWQgKiAxLjAyXTtcblxuICB1c2VGcmFtZSgoeyBjbG9jayB9KSA9PiB7XG4gICAgaWYgKCFyZWYuY3VycmVudCkge1xuICAgICAgcmV0dXJuO1xuICAgIH1cblxuICAgIHJlZi5jdXJyZW50LnJvdGF0aW9uLnkgPSBNYXRoLnNpbihjbG9jay5lbGFwc2VkVGltZSAqIDAuNzIgKyBwaGFzZSkgKiAwLjA1NSAqIHNpZGU7XG4gICAgcmVmLmN1cnJlbnQucm90YXRpb24ueiA9IE1hdGguc2luKGNsb2NrLmVsYXBzZWRUaW1lICogMC42MiArIHBoYXNlKSAqIDAuMDI2O1xuICB9KTtcblxuICByZXR1cm4gKFxuICAgIDxncm91cCByZWY9e3JlZn0gcG9zaXRpb249e1tzaWRlICogMC43OCwgMS40MiwgekJhc2VdfT5cbiAgICAgIDxtZXNoIGNhc3RTaGFkb3c+XG4gICAgICAgIDxzcGhlcmVHZW9tZXRyeSBhcmdzPXtbMC4xOCwgMTgsIDE0XX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPVwiI2U3ZWVlZVwiIG1ldGFsbmVzcz17MC4zOH0gcm91Z2huZXNzPXswLjI0fSAvPlxuICAgICAgPC9tZXNoPlxuICAgICAgPG1lc2ggcm90YXRpb24tej17TWF0aC5QSSAvIDJ9PlxuICAgICAgICA8Y3lsaW5kZXJHZW9tZXRyeSBhcmdzPXtbMC4yMiwgMC4yMiwgMC4xNCwgMjRdfSAvPlxuICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9e1BBTkVMfSBtZXRhbG5lc3M9ezAuNDJ9IHJvdWdobmVzcz17MC4yNX0gLz5cbiAgICAgIDwvbWVzaD5cbiAgICAgIDxBcm1TZWdtZW50IHN0YXJ0PXtzaG91bGRlcn0gZW5kPXt1cHBlcn0gcmFkaXVzPXswLjA4fSBjb2xvcj1cIiNkY2UyZGVcIiAvPlxuICAgICAgPEFybVNlZ21lbnQgc3RhcnQ9e3VwcGVyfSBlbmQ9e2VsYm93fSByYWRpdXM9ezAuMDc1fSBjb2xvcj1cIiNmM2Y3ZjVcIiAvPlxuICAgICAgPEFybVNlZ21lbnQgc3RhcnQ9e2VsYm93fSBlbmQ9e3dyaXN0fSByYWRpdXM9ezAuMDU4fSBjb2xvcj1cIiNjYmQ0ZDFcIiAvPlxuICAgICAge1t1cHBlciwgZWxib3csIHdyaXN0XS5tYXAoKHBvaW50LCBpbmRleCkgPT4gKFxuICAgICAgICA8Sm9pbnQga2V5PXtpbmRleH0gcG9zaXRpb249e3BvaW50fSBhbGVydD17aW5kZXggPT09IDJ9IC8+XG4gICAgICApKX1cbiAgICAgIDxDYWJsZSBwb2ludHM9e1tzaG91bGRlciwgW3NpZGUgKiAwLjM2LCAwLjA4LCB6U3ByZWFkICogMC4yMl0sIGVsYm93LCB3cmlzdF19IC8+XG4gICAgICA8RmxleGlibGVDbGF3IHNpZGU9e3NpZGV9IHpTcHJlYWQ9e3pTcHJlYWR9IHBvc2l0aW9uPXt3cmlzdH0gLz5cbiAgICA8L2dyb3VwPlxuICApO1xufVxuXG5mdW5jdGlvbiBBcm1TZWdtZW50KHtcbiAgc3RhcnQsXG4gIGVuZCxcbiAgcmFkaXVzLFxuICBjb2xvclxufToge1xuICBzdGFydDogVmVjdG9yM1R1cGxlO1xuICBlbmQ6IFZlY3RvcjNUdXBsZTtcbiAgcmFkaXVzOiBudW1iZXI7XG4gIGNvbG9yOiBzdHJpbmc7XG59KSB7XG4gIGNvbnN0IHRyYW5zZm9ybSA9IHVzZU1lbW8oKCkgPT4ge1xuICAgIGNvbnN0IHN0YXJ0VmVjdG9yID0gbmV3IFRIUkVFLlZlY3RvcjMoLi4uc3RhcnQpO1xuICAgIGNvbnN0IGVuZFZlY3RvciA9IG5ldyBUSFJFRS5WZWN0b3IzKC4uLmVuZCk7XG4gICAgY29uc3QgbWlkcG9pbnQgPSBzdGFydFZlY3Rvci5jbG9uZSgpLmFkZChlbmRWZWN0b3IpLm11bHRpcGx5U2NhbGFyKDAuNSk7XG4gICAgY29uc3QgZGlyZWN0aW9uID0gZW5kVmVjdG9yLmNsb25lKCkuc3ViKHN0YXJ0VmVjdG9yKTtcbiAgICBjb25zdCBsZW5ndGggPSBkaXJlY3Rpb24ubGVuZ3RoKCk7XG4gICAgY29uc3QgcXVhdGVybmlvbiA9IG5ldyBUSFJFRS5RdWF0ZXJuaW9uKCkuc2V0RnJvbVVuaXRWZWN0b3JzKFxuICAgICAgbmV3IFRIUkVFLlZlY3RvcjMoMCwgMSwgMCksXG4gICAgICBkaXJlY3Rpb24uY2xvbmUoKS5ub3JtYWxpemUoKVxuICAgICk7XG5cbiAgICByZXR1cm4geyBtaWRwb2ludCwgbGVuZ3RoLCBxdWF0ZXJuaW9uIH07XG4gIH0sIFtzdGFydCwgZW5kXSk7XG5cbiAgcmV0dXJuIChcbiAgICA8bWVzaCBjYXN0U2hhZG93IHBvc2l0aW9uPXt0cmFuc2Zvcm0ubWlkcG9pbnR9IHF1YXRlcm5pb249e3RyYW5zZm9ybS5xdWF0ZXJuaW9ufT5cbiAgICAgIDxjeWxpbmRlckdlb21ldHJ5IGFyZ3M9e1tyYWRpdXMsIHJhZGl1cywgdHJhbnNmb3JtLmxlbmd0aCwgMThdfSAvPlxuICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtjb2xvcn0gbWV0YWxuZXNzPXswLjM0fSByb3VnaG5lc3M9ezAuMjV9IC8+XG4gICAgPC9tZXNoPlxuICApO1xufVxuXG5mdW5jdGlvbiBKb2ludCh7IHBvc2l0aW9uLCBhbGVydCA9IGZhbHNlIH06IHsgcG9zaXRpb246IFZlY3RvcjNUdXBsZTsgYWxlcnQ/OiBib29sZWFuIH0pIHtcbiAgcmV0dXJuIChcbiAgICA8Z3JvdXAgcG9zaXRpb249e3Bvc2l0aW9ufT5cbiAgICAgIDxtZXNoIGNhc3RTaGFkb3c+XG4gICAgICAgIDxzcGhlcmVHZW9tZXRyeSBhcmdzPXtbMC4xMywgMTYsIDEyXX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsXG4gICAgICAgICAgY29sb3I9e2FsZXJ0ID8gQ1lBTiA6ICcjMWIyMzI2J31cbiAgICAgICAgICBlbWlzc2l2ZT17YWxlcnQgPyBDWUFOIDogJyMwMDAwMDAnfVxuICAgICAgICAgIGVtaXNzaXZlSW50ZW5zaXR5PXthbGVydCA/IDAuMjQgOiAwfVxuICAgICAgICAgIG1ldGFsbmVzcz17MC4zOH1cbiAgICAgICAgICByb3VnaG5lc3M9ezAuMjh9XG4gICAgICAgIC8+XG4gICAgICA8L21lc2g+XG4gICAgICA8bWVzaCByb3RhdGlvbi14PXtNYXRoLlBJIC8gMn0+XG4gICAgICAgIDx0b3J1c0dlb21ldHJ5IGFyZ3M9e1swLjE0LCAwLjAxOCwgOCwgMjRdfSAvPlxuICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9e01FVEFMfSBtZXRhbG5lc3M9ezAuNDJ9IHJvdWdobmVzcz17MC4yMn0gLz5cbiAgICAgIDwvbWVzaD5cbiAgICA8L2dyb3VwPlxuICApO1xufVxuXG5mdW5jdGlvbiBDYWJsZSh7IHBvaW50cyB9OiB7IHBvaW50czogVmVjdG9yM1R1cGxlW10gfSkge1xuICBjb25zdCBjdXJ2ZSA9IHVzZU1lbW8oKCkgPT4ge1xuICAgIHJldHVybiBuZXcgVEhSRUUuQ2F0bXVsbFJvbUN1cnZlMyhwb2ludHMubWFwKChwb2ludCkgPT4gbmV3IFRIUkVFLlZlY3RvcjMoLi4ucG9pbnQpKSk7XG4gIH0sIFtwb2ludHNdKTtcblxuICByZXR1cm4gKFxuICAgIDxtZXNoPlxuICAgICAgPHR1YmVHZW9tZXRyeSBhcmdzPXtbY3VydmUsIDMyLCAwLjAxOCwgNywgZmFsc2VdfSAvPlxuICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtDQVJCT059IHJvdWdobmVzcz17MC42NX0gLz5cbiAgICA8L21lc2g+XG4gICk7XG59XG5cbmZ1bmN0aW9uIEZsZXhpYmxlQ2xhdyh7XG4gIHNpZGUsXG4gIHpTcHJlYWQsXG4gIHBvc2l0aW9uXG59OiB7XG4gIHNpZGU6IC0xIHwgMTtcbiAgelNwcmVhZDogLTEgfCAxO1xuICBwb3NpdGlvbjogVmVjdG9yM1R1cGxlO1xufSkge1xuICBjb25zdCByZWYgPSB1c2VSZWY8VEhSRUUuR3JvdXA+KG51bGwpO1xuXG4gIHVzZUZyYW1lKCh7IGNsb2NrIH0pID0+IHtcbiAgICBpZiAocmVmLmN1cnJlbnQpIHtcbiAgICAgIHJlZi5jdXJyZW50LnJvdGF0aW9uLnogPSBNYXRoLnNpbihjbG9jay5lbGFwc2VkVGltZSAqIDEuOCkgKiAwLjA1ICogc2lkZTtcbiAgICB9XG4gIH0pO1xuXG4gIHJldHVybiAoXG4gICAgPGdyb3VwIHJlZj17cmVmfSBwb3NpdGlvbj17cG9zaXRpb259IHJvdGF0aW9uLXk9e3NpZGUgKiAwLjM2fT5cbiAgICAgIDxtZXNoIGNhc3RTaGFkb3c+XG4gICAgICAgIDxzcGhlcmVHZW9tZXRyeSBhcmdzPXtbMC4wOCwgMTIsIDEwXX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtDWUFOfSBlbWlzc2l2ZT17Q1lBTn0gZW1pc3NpdmVJbnRlbnNpdHk9ezAuMzh9IC8+XG4gICAgICA8L21lc2g+XG4gICAgICA8bWVzaCBjYXN0U2hhZG93IHBvc2l0aW9uPXtbc2lkZSAqIDAuMSwgLTAuMDQsIHpTcHJlYWQgKiAwLjA4XX0+XG4gICAgICAgIDxib3hHZW9tZXRyeSBhcmdzPXtbMC4xNiwgMC4xLCAwLjEyXX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPVwiIzExMTkxY1wiIG1ldGFsbmVzcz17MC4zNH0gcm91Z2huZXNzPXswLjMyfSAvPlxuICAgICAgPC9tZXNoPlxuICAgICAge1stMC4xNiwgMCwgMC4xNl0ubWFwKChvZmZzZXQsIGluZGV4KSA9PiAoXG4gICAgICAgIDxncm91cCBrZXk9e29mZnNldH0gcG9zaXRpb249e1tzaWRlICogMC4yLCAtMC4xLCB6U3ByZWFkICogKDAuMTIgKyBvZmZzZXQpXX0+XG4gICAgICAgICAgPG1lc2ggcm90YXRpb24tej17c2lkZSAqIDAuNTV9PlxuICAgICAgICAgICAgPGN5bGluZGVyR2VvbWV0cnkgYXJncz17WzAuMDE4LCAwLjAyNCwgMC4yNCwgOF19IC8+XG4gICAgICAgICAgICA8bWVzaFN0YW5kYXJkTWF0ZXJpYWwgY29sb3I9XCIjZDllM2RmXCIgbWV0YWxuZXNzPXswLjI0fSByb3VnaG5lc3M9ezAuMzZ9IC8+XG4gICAgICAgICAgPC9tZXNoPlxuICAgICAgICAgIDxtZXNoIHBvc2l0aW9uPXtbc2lkZSAqIDAuMDgsIC0wLjExLCAwXX0+XG4gICAgICAgICAgICA8c3BoZXJlR2VvbWV0cnkgYXJncz17WzAuMDI2LCA4LCA2XX0gLz5cbiAgICAgICAgICAgIDxtZXNoU3RhbmRhcmRNYXRlcmlhbCBjb2xvcj17aW5kZXggPT09IDEgPyBMRUFGIDogQkVSUll9IGVtaXNzaXZlPXtpbmRleCA9PT0gMSA/ICcjMTEzZjJiJyA6ICcjNGEwNzE1J30gLz5cbiAgICAgICAgICA8L21lc2g+XG4gICAgICAgIDwvZ3JvdXA+XG4gICAgICApKX1cbiAgICAgIDxtZXNoIHBvc2l0aW9uPXtbc2lkZSAqIDAuMjUsIC0wLjIyLCB6U3ByZWFkICogMC4xMl19PlxuICAgICAgICA8c3BoZXJlR2VvbWV0cnkgYXJncz17WzAuMDUsIDEwLCA4XX0gLz5cbiAgICAgICAgPG1lc2hTdGFuZGFyZE1hdGVyaWFsIGNvbG9yPXtCRVJSWX0gZW1pc3NpdmU9XCIjNWYwZjFjXCIgZW1pc3NpdmVJbnRlbnNpdHk9ezAuMTh9IC8+XG4gICAgICA8L21lc2g+XG4gICAgPC9ncm91cD5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiRDovcHJvamVjdC/ojpPojpPkuI7lhbEt6I2J6I6T5aSn5qOa5pWw5a2X5a2q55Sf5Lqk5LqS5pON5L2c5bmz5Y+wL3NyYy9jb21wb25lbnRzL2dyZWVuaG91c2UvTXVsdGlBcm1IYXJ2ZXN0ZXJNZXNoLnRzeCJ9

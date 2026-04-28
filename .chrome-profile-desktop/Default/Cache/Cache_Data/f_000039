@@ -1,0 +1,491 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/panels/EnergyDashboardPanel.tsx");import __vite__cjsImport0_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=f0ba2c05"; const jsxDEV = __vite__cjsImport0_react_jsxDevRuntime["jsxDEV"];
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== "undefined" && self instanceof WorkerGlobalScope;
+let prevRefreshReg;
+let prevRefreshSig;
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+  prevRefreshReg = window.$RefreshReg$;
+  prevRefreshSig = window.$RefreshSig$;
+  window.$RefreshReg$ = RefreshRuntime.getRefreshReg("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx");
+  window.$RefreshSig$ = RefreshRuntime.createSignatureFunctionForTransform;
+}
+var _s = $RefreshSig$();
+import {
+  Area,
+  AreaChart,
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis
+} from "/node_modules/.vite/deps/recharts.js?v=f0ba2c05";
+import { BatteryCharging, Leaf, PlugZap, SunMedium, Wind } from "/node_modules/.vite/deps/lucide-react.js?v=f0ba2c05";
+import { useAppStore } from "/src/store/useAppStore.ts?t=1777261599234";
+const palette = ["#70f2a1", "#51d6ff", "#f5ce5b", "#ff7590", "#a9ffd0", "#d5f5ff"];
+export function EnergyDashboardPanel() {
+  _s();
+  const energy = useAppStore((state) => state.liveEnergySummary);
+  const sequence = useAppStore((state) => state.liveSequence);
+  const devices = useAppStore((state) => state.liveDevices);
+  const categoryData = [
+    { name: "照明", value: energy.lighting },
+    { name: "空调", value: energy.cooling },
+    { name: "风机", value: energy.fan },
+    { name: "灌溉", value: energy.irrigation },
+    { name: "除湿", value: energy.dehumidify },
+    { name: "网关", value: energy.sensorGateway }
+  ];
+  const flowData = Array.from({ length: 12 }, (_, index) => {
+    const phase = (sequence + index) / 4;
+    return {
+      time: `${String(index * 2 % 24).padStart(2, "0")}:00`,
+      consumption: Number((energy.realTimePower + Math.sin(phase) * 5 + 8).toFixed(1)),
+      solar: Number((energy.solarGeneration / 12 + Math.max(0, Math.sin(phase)) * 3).toFixed(1)),
+      wind: Number((energy.windGeneration / 12 + Math.max(0, Math.cos(phase)) * 1.2).toFixed(1))
+    };
+  });
+  const runningPower = devices.reduce((sum, device) => sum + (device.enabled ? device.power : 0), 0);
+  const cleanRatio = Math.round(
+    (energy.solarGeneration + energy.windGeneration) / Math.max(energy.todayConsumption + energy.solarGeneration + energy.windGeneration, 1) * 100
+  );
+  return /* @__PURE__ */ jsxDEV("div", { className: "space-y-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-2 gap-2", children: [
+      /* @__PURE__ */ jsxDEV(EnergyKpi, { icon: PlugZap, label: "实时功率", value: energy.realTimePower, unit: "kW" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 70,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(EnergyKpi, { icon: SunMedium, label: "今日发电", value: (energy.solarGeneration + energy.windGeneration).toFixed(1), unit: "kWh" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 71,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(EnergyKpi, { icon: BatteryCharging, label: "电池 SOC", value: energy.batterySoc, unit: "%" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 72,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(EnergyKpi, { icon: Leaf, label: "清洁占比", value: cleanRatio, unit: "%" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 73,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 69,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("section", { className: "rounded-md border border-white/10 bg-white/[0.035] p-3", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "mb-2 flex items-center justify-between", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "text-sm font-semibold text-white", children: "能耗 / 发电趋势" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 78,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("span", { className: "text-[11px] text-slate-500", children: "2 小时粒度 mock" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 79,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 77,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "h-44 w-full", children: /* @__PURE__ */ jsxDEV(ResponsiveContainer, { width: "100%", height: "100%", children: /* @__PURE__ */ jsxDEV(AreaChart, { data: flowData, margin: { left: -24, right: 8, top: 8, bottom: 0 }, children: [
+        /* @__PURE__ */ jsxDEV("defs", { children: [
+          /* @__PURE__ */ jsxDEV("linearGradient", { id: "consumptionFill", x1: "0", x2: "0", y1: "0", y2: "1", children: [
+            /* @__PURE__ */ jsxDEV("stop", { offset: "5%", stopColor: "#f5ce5b", stopOpacity: 0.34 }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 86,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV("stop", { offset: "95%", stopColor: "#f5ce5b", stopOpacity: 0.02 }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 87,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 85,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV("linearGradient", { id: "solarFill", x1: "0", x2: "0", y1: "0", y2: "1", children: [
+            /* @__PURE__ */ jsxDEV("stop", { offset: "5%", stopColor: "#70f2a1", stopOpacity: 0.32 }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 90,
+              columnNumber: 19
+            }, this),
+            /* @__PURE__ */ jsxDEV("stop", { offset: "95%", stopColor: "#70f2a1", stopOpacity: 0.02 }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 91,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 89,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 84,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(CartesianGrid, { stroke: "rgba(169,255,208,0.08)", vertical: false }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 94,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(XAxis, { dataKey: "time", tick: { fill: "#78968c", fontSize: 10 }, tickLine: false, axisLine: false }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 95,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(YAxis, { tick: { fill: "#78968c", fontSize: 10 }, tickLine: false, axisLine: false }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 96,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(Tooltip, { contentStyle: tooltipStyle, labelStyle: { color: "#a9ffd0" } }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 97,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(Area, { type: "monotone", dataKey: "consumption", name: "负荷", stroke: "#f5ce5b", fill: "url(#consumptionFill)", strokeWidth: 2 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 98,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(Area, { type: "monotone", dataKey: "solar", name: "太阳能", stroke: "#70f2a1", fill: "url(#solarFill)", strokeWidth: 2 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 99,
+          columnNumber: 15
+        }, this),
+        /* @__PURE__ */ jsxDEV(Area, { type: "monotone", dataKey: "wind", name: "风电", stroke: "#51d6ff", fill: "rgba(81,214,255,0.08)", strokeWidth: 2 }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 100,
+          columnNumber: 15
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 83,
+        columnNumber: 13
+      }, this) }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 82,
+        columnNumber: 11
+      }, this) }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 81,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 76,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("section", { className: "grid grid-cols-1 gap-3", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-white/10 bg-white/[0.035] p-3", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "mb-2 text-sm font-semibold text-white", children: "分项能耗" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 108,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "h-40", children: /* @__PURE__ */ jsxDEV(ResponsiveContainer, { width: "100%", height: "100%", children: /* @__PURE__ */ jsxDEV(BarChart, { data: categoryData, margin: { left: -24, right: 8, top: 8, bottom: 0 }, children: [
+          /* @__PURE__ */ jsxDEV(CartesianGrid, { stroke: "rgba(169,255,208,0.08)", vertical: false }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 112,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(XAxis, { dataKey: "name", tick: { fill: "#78968c", fontSize: 10 }, tickLine: false, axisLine: false }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 113,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(YAxis, { tick: { fill: "#78968c", fontSize: 10 }, tickLine: false, axisLine: false }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 114,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(Tooltip, { contentStyle: tooltipStyle }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 115,
+            columnNumber: 17
+          }, this),
+          /* @__PURE__ */ jsxDEV(Bar, { dataKey: "value", name: "kWh", radius: [4, 4, 0, 0], children: categoryData.map(
+            (entry, index) => /* @__PURE__ */ jsxDEV(Cell, { fill: palette[index % palette.length] }, entry.name, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 118,
+              columnNumber: 19
+            }, this)
+          ) }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 116,
+            columnNumber: 17
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 111,
+          columnNumber: 15
+        }, this) }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 110,
+          columnNumber: 13
+        }, this) }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 109,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 107,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-white/10 bg-white/[0.035] p-3", children: [
+        /* @__PURE__ */ jsxDEV("div", { className: "mb-2 text-sm font-semibold text-white", children: "能源结构" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 127,
+          columnNumber: 11
+        }, this),
+        /* @__PURE__ */ jsxDEV("div", { className: "grid grid-cols-[120px_minmax(0,1fr)] items-center gap-3", children: [
+          /* @__PURE__ */ jsxDEV("div", { className: "h-28", children: /* @__PURE__ */ jsxDEV(ResponsiveContainer, { width: "100%", height: "100%", children: /* @__PURE__ */ jsxDEV(PieChart, { children: [
+            /* @__PURE__ */ jsxDEV(
+              Pie,
+              {
+                data: [
+                  { name: "太阳能", value: energy.solarGeneration },
+                  { name: "风力", value: energy.windGeneration },
+                  { name: "电网负荷", value: Math.max(energy.todayConsumption - energy.solarGeneration, 12) }
+                ],
+                dataKey: "value",
+                innerRadius: 30,
+                outerRadius: 52,
+                paddingAngle: 3,
+                children: [
+                  /* @__PURE__ */ jsxDEV(Cell, { fill: "#70f2a1" }, void 0, false, {
+                    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+                    lineNumber: 143,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(Cell, { fill: "#51d6ff" }, void 0, false, {
+                    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+                    lineNumber: 144,
+                    columnNumber: 21
+                  }, this),
+                  /* @__PURE__ */ jsxDEV(Cell, { fill: "#f5ce5b" }, void 0, false, {
+                    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+                    lineNumber: 145,
+                    columnNumber: 21
+                  }, this)
+                ]
+              },
+              void 0,
+              true,
+              {
+                fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+                lineNumber: 132,
+                columnNumber: 19
+              },
+              this
+            ),
+            /* @__PURE__ */ jsxDEV(Tooltip, { contentStyle: tooltipStyle }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 147,
+              columnNumber: 19
+            }, this)
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 131,
+            columnNumber: 17
+          }, this) }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 130,
+            columnNumber: 15
+          }, this) }, void 0, false, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 129,
+            columnNumber: 13
+          }, this),
+          /* @__PURE__ */ jsxDEV("div", { className: "space-y-2 text-xs", children: [
+            /* @__PURE__ */ jsxDEV(LegendLine, { color: "#70f2a1", label: "太阳能发电", value: `${energy.solarGeneration} kWh` }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 152,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(LegendLine, { color: "#51d6ff", label: "风力发电", value: `${energy.windGeneration} kWh` }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 153,
+              columnNumber: 15
+            }, this),
+            /* @__PURE__ */ jsxDEV(LegendLine, { color: "#f5ce5b", label: "运行设备功率", value: `${runningPower.toFixed(1)} kW` }, void 0, false, {
+              fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+              lineNumber: 154,
+              columnNumber: 15
+            }, this)
+          ] }, void 0, true, {
+            fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+            lineNumber: 151,
+            columnNumber: 13
+          }, this)
+        ] }, void 0, true, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 128,
+          columnNumber: 11
+        }, this)
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 126,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 106,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-leaf-300/20 bg-leaf-400/10 p-3", children: [
+      /* @__PURE__ */ jsxDEV("div", { className: "mb-2 flex items-center gap-2 text-sm font-semibold text-leaf-300", children: [
+        /* @__PURE__ */ jsxDEV(Wind, { className: "h-4 w-4" }, void 0, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 162,
+          columnNumber: 11
+        }, this),
+        "节能建议"
+      ] }, void 0, true, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 161,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("div", { className: "space-y-2", children: energy.suggestions.map(
+        (item) => /* @__PURE__ */ jsxDEV("div", { className: "text-xs leading-5 text-slate-300", children: item }, item, false, {
+          fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+          lineNumber: 167,
+          columnNumber: 11
+        }, this)
+      ) }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 165,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 160,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+    lineNumber: 68,
+    columnNumber: 5
+  }, this);
+}
+_s(EnergyDashboardPanel, "dZsgOBDiAqeslWT39vI4e/3Fy8c=", false, function() {
+  return [useAppStore, useAppStore, useAppStore];
+});
+_c = EnergyDashboardPanel;
+const tooltipStyle = {
+  background: "rgba(3,17,17,0.92)",
+  border: "1px solid rgba(112,242,161,0.24)",
+  borderRadius: 6,
+  color: "#eafff5"
+};
+function EnergyKpi({
+  icon: Icon,
+  label,
+  value,
+  unit
+}) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "rounded-md border border-leaf-300/20 bg-leaf-400/10 p-3", children: [
+    /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "text-[11px] text-slate-500", children: label }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 198,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV(Icon, { className: "h-4 w-4 text-leaf-300" }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 199,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 197,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("div", { className: "mt-2 flex items-end gap-1", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "text-xl font-black text-white", children: value }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 202,
+        columnNumber: 9
+      }, this),
+      /* @__PURE__ */ jsxDEV("span", { className: "text-[11px] text-slate-500", children: unit }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 203,
+        columnNumber: 9
+      }, this)
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 201,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+    lineNumber: 196,
+    columnNumber: 5
+  }, this);
+}
+_c2 = EnergyKpi;
+function LegendLine({ color, label, value }) {
+  return /* @__PURE__ */ jsxDEV("div", { className: "flex items-center justify-between gap-2 rounded border border-white/10 bg-white/[0.035] px-2 py-1.5", children: [
+    /* @__PURE__ */ jsxDEV("span", { className: "flex items-center gap-2 text-slate-400", children: [
+      /* @__PURE__ */ jsxDEV("span", { className: "h-2 w-2 rounded-full", style: { background: color } }, void 0, false, {
+        fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+        lineNumber: 213,
+        columnNumber: 9
+      }, this),
+      label
+    ] }, void 0, true, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 212,
+      columnNumber: 7
+    }, this),
+    /* @__PURE__ */ jsxDEV("span", { className: "font-semibold text-white", children: value }, void 0, false, {
+      fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+      lineNumber: 216,
+      columnNumber: 7
+    }, this)
+  ] }, void 0, true, {
+    fileName: "D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx",
+    lineNumber: 211,
+    columnNumber: 5
+  }, this);
+}
+_c3 = LegendLine;
+var _c, _c2, _c3;
+$RefreshReg$(_c, "EnergyDashboardPanel");
+$RefreshReg$(_c2, "EnergyKpi");
+$RefreshReg$(_c3, "LegendLine");
+if (import.meta.hot && !inWebWorker) {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+if (import.meta.hot && !inWebWorker) {
+  RefreshRuntime.__hmr_import(import.meta.url).then((currentExports) => {
+    RefreshRuntime.registerExportsForReactRefresh("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("D:/project/莓莓与共-草莓大棚数字孪生交互操作平台/src/components/panels/EnergyDashboardPanel.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,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RDtBQUFBLE1BQ3ZELHVCQUFDLFVBQUssV0FBVSw4QkFBOEIwRCxrQkFBOUM7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFtRDtBQUFBLFNBRnJEO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLE9BUkY7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQVNBO0FBRUo7QUFBQ0MsTUF2QlFMO0FBeUJULFNBQVNNLFdBQVcsRUFBRWQsT0FBT1csT0FBT3pELE1BQXVELEdBQUc7QUFDNUYsU0FDRSx1QkFBQyxTQUFJLFdBQVUsdUdBQ2I7QUFBQSwyQkFBQyxVQUFLLFdBQVUsMENBQ2Q7QUFBQSw2QkFBQyxVQUFLLFdBQVUsd0JBQXVCLE9BQU8sRUFBRW1ELFlBQVlMLE1BQU0sS0FBbEU7QUFBQTtBQUFBO0FBQUE7QUFBQSxhQUFvRTtBQUFBLE1BQ25FVztBQUFBQSxTQUZIO0FBQUE7QUFBQTtBQUFBO0FBQUEsV0FHQTtBQUFBLElBQ0EsdUJBQUMsVUFBSyxXQUFVLDRCQUE0QnpELG1CQUE1QztBQUFBO0FBQUE7QUFBQTtBQUFBLFdBQWtEO0FBQUEsT0FMcEQ7QUFBQTtBQUFBO0FBQUE7QUFBQSxTQU1BO0FBRUo7QUFBQzZELE1BVlFEO0FBQVUsSUFBQUUsSUFBQUgsS0FBQUU7QUFBQSxhQUFBQyxJQUFBO0FBQUEsYUFBQUgsS0FBQTtBQUFBLGFBQUFFLEtBQUEiLCJuYW1lcyI6WyJBcmVhIiwiQXJlYUNoYXJ0IiwiQmFyIiwiQmFyQ2hhcnQiLCJDYXJ0ZXNpYW5HcmlkIiwiQ2VsbCIsIlBpZSIsIlBpZUNoYXJ0IiwiUmVzcG9uc2l2ZUNvbnRhaW5lciIsIlRvb2x0aXAiLCJYQXhpcyIsIllBeGlzIiwiQmF0dGVyeUNoYXJnaW5nIiwiTGVhZiIsIlBsdWdaYXAiLCJTdW5NZWRpdW0iLCJXaW5kIiwidXNlQXBwU3RvcmUiLCJwYWxldHRlIiwiRW5lcmd5RGFzaGJvYXJkUGFuZWwiLCJfcyIsImVuZXJneSIsInN0YXRlIiwibGl2ZUVuZXJneVN1bW1hcnkiLCJzZXF1ZW5jZSIsImxpdmVTZXF1ZW5jZSIsImRldmljZXMiLCJsaXZlRGV2aWNlcyIsImNhdGVnb3J5RGF0YSIsIm5hbWUiLCJ2YWx1ZSIsImxpZ2h0aW5nIiwiY29vbGluZyIsImZhbiIsImlycmlnYXRpb24iLCJkZWh1bWlkaWZ5Iiwic2Vuc29yR2F0ZXdheSIsImZsb3dEYXRhIiwiQXJyYXkiLCJmcm9tIiwibGVuZ3RoIiwiXyIsImluZGV4IiwicGhhc2UiLCJ0aW1lIiwiU3RyaW5nIiwicGFkU3RhcnQiLCJjb25zdW1wdGlvbiIsIk51bWJlciIsInJlYWxUaW1lUG93ZXIiLCJNYXRoIiwic2luIiwidG9GaXhlZCIsInNvbGFyIiwic29sYXJHZW5lcmF0aW9uIiwibWF4Iiwid2luZCIsIndpbmRHZW5lcmF0aW9uIiwiY29zIiwicnVubmluZ1Bvd2VyIiwicmVkdWNlIiwic3VtIiwiZGV2aWNlIiwiZW5hYmxlZCIsInBvd2VyIiwiY2xlYW5SYXRpbyIsInJvdW5kIiwidG9kYXlDb25zdW1wdGlvbiIsImJhdHRlcnlTb2MiLCJsZWZ0IiwicmlnaHQiLCJ0b3AiLCJib3R0b20iLCJmaWxsIiwiZm9udFNpemUiLCJ0b29sdGlwU3R5bGUiLCJjb2xvciIsIm1hcCIsImVudHJ5Iiwic3VnZ2VzdGlvbnMiLCJpdGVtIiwiYmFja2dyb3VuZCIsImJvcmRlciIsImJvcmRlclJhZGl1cyIsIkVuZXJneUtwaSIsImljb24iLCJJY29uIiwibGFiZWwiLCJ1bml0IiwiX2MyIiwiTGVnZW5kTGluZSIsIl9jMyIsIl9jIl0sImlnbm9yZUxpc3QiOltdLCJzb3VyY2VzIjpbIkVuZXJneURhc2hib2FyZFBhbmVsLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge1xuICBBcmVhLFxuICBBcmVhQ2hhcnQsXG4gIEJhcixcbiAgQmFyQ2hhcnQsXG4gIENhcnRlc2lhbkdyaWQsXG4gIENlbGwsXG4gIFBpZSxcbiAgUGllQ2hhcnQsXG4gIFJlc3BvbnNpdmVDb250YWluZXIsXG4gIFRvb2x0aXAsXG4gIFhBeGlzLFxuICBZQXhpc1xufSBmcm9tICdyZWNoYXJ0cyc7XG5pbXBvcnQgeyBCYXR0ZXJ5Q2hhcmdpbmcsIExlYWYsIFBsdWdaYXAsIFN1bk1lZGl1bSwgV2luZCwgdHlwZSBMdWNpZGVJY29uIH0gZnJvbSAnbHVjaWRlLXJlYWN0JztcbmltcG9ydCB7IHVzZUFwcFN0b3JlIH0gZnJvbSAnLi4vLi4vc3RvcmUvdXNlQXBwU3RvcmUnO1xuXG5jb25zdCBwYWxldHRlID0gWycjNzBmMmExJywgJyM1MWQ2ZmYnLCAnI2Y1Y2U1YicsICcjZmY3NTkwJywgJyNhOWZmZDAnLCAnI2Q1ZjVmZiddO1xuXG5leHBvcnQgZnVuY3Rpb24gRW5lcmd5RGFzaGJvYXJkUGFuZWwoKSB7XG4gIGNvbnN0IGVuZXJneSA9IHVzZUFwcFN0b3JlKChzdGF0ZSkgPT4gc3RhdGUubGl2ZUVuZXJneVN1bW1hcnkpO1xuICBjb25zdCBzZXF1ZW5jZSA9IHVzZUFwcFN0b3JlKChzdGF0ZSkgPT4gc3RhdGUubGl2ZVNlcXVlbmNlKTtcbiAgY29uc3QgZGV2aWNlcyA9IHVzZUFwcFN0b3JlKChzdGF0ZSkgPT4gc3RhdGUubGl2ZURldmljZXMpO1xuICBjb25zdCBjYXRlZ29yeURhdGEgPSBbXG4gICAgeyBuYW1lOiAn54Wn5piOJywgdmFsdWU6IGVuZXJneS5saWdodGluZyB9LFxuICAgIHsgbmFtZTogJ+epuuiwgycsIHZhbHVlOiBlbmVyZ3kuY29vbGluZyB9LFxuICAgIHsgbmFtZTogJ+mjjuacuicsIHZhbHVlOiBlbmVyZ3kuZmFuIH0sXG4gICAgeyBuYW1lOiAn54GM5rqJJywgdmFsdWU6IGVuZXJneS5pcnJpZ2F0aW9uIH0sXG4gICAgeyBuYW1lOiAn6Zmk5rm/JywgdmFsdWU6IGVuZXJneS5kZWh1bWlkaWZ5IH0sXG4gICAgeyBuYW1lOiAn572R5YWzJywgdmFsdWU6IGVuZXJneS5zZW5zb3JHYXRld2F5IH1cbiAgXTtcbiAgY29uc3QgZmxvd0RhdGEgPSBBcnJheS5mcm9tKHsgbGVuZ3RoOiAxMiB9LCAoXywgaW5kZXgpID0+IHtcbiAgICBjb25zdCBwaGFzZSA9IChzZXF1ZW5jZSArIGluZGV4KSAvIDQ7XG4gICAgcmV0dXJuIHtcbiAgICAgIHRpbWU6IGAke1N0cmluZygoaW5kZXggKiAyKSAlIDI0KS5wYWRTdGFydCgyLCAnMCcpfTowMGAsXG4gICAgICBjb25zdW1wdGlvbjogTnVtYmVyKChlbmVyZ3kucmVhbFRpbWVQb3dlciArIE1hdGguc2luKHBoYXNlKSAqIDUgKyA4KS50b0ZpeGVkKDEpKSxcbiAgICAgIHNvbGFyOiBOdW1iZXIoKGVuZXJneS5zb2xhckdlbmVyYXRpb24gLyAxMiArIE1hdGgubWF4KDAsIE1hdGguc2luKHBoYXNlKSkgKiAzKS50b0ZpeGVkKDEpKSxcbiAgICAgIHdpbmQ6IE51bWJlcigoZW5lcmd5LndpbmRHZW5lcmF0aW9uIC8gMTIgKyBNYXRoLm1heCgwLCBNYXRoLmNvcyhwaGFzZSkpICogMS4yKS50b0ZpeGVkKDEpKVxuICAgIH07XG4gIH0pO1xuICBjb25zdCBydW5uaW5nUG93ZXIgPSBkZXZpY2VzLnJlZHVjZSgoc3VtLCBkZXZpY2UpID0+IHN1bSArIChkZXZpY2UuZW5hYmxlZCA/IGRldmljZS5wb3dlciA6IDApLCAwKTtcbiAgY29uc3QgY2xlYW5SYXRpbyA9IE1hdGgucm91bmQoXG4gICAgKChlbmVyZ3kuc29sYXJHZW5lcmF0aW9uICsgZW5lcmd5LndpbmRHZW5lcmF0aW9uKSAvXG4gICAgICBNYXRoLm1heChlbmVyZ3kudG9kYXlDb25zdW1wdGlvbiArIGVuZXJneS5zb2xhckdlbmVyYXRpb24gKyBlbmVyZ3kud2luZEdlbmVyYXRpb24sIDEpKSAqXG4gICAgICAxMDBcbiAgKTtcblxuICByZXR1cm4gKFxuICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0zXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTIgZ2FwLTJcIj5cbiAgICAgICAgPEVuZXJneUtwaSBpY29uPXtQbHVnWmFwfSBsYWJlbD1cIuWunuaXtuWKn+eOh1wiIHZhbHVlPXtlbmVyZ3kucmVhbFRpbWVQb3dlcn0gdW5pdD1cImtXXCIgLz5cbiAgICAgICAgPEVuZXJneUtwaSBpY29uPXtTdW5NZWRpdW19IGxhYmVsPVwi5LuK5pel5Y+R55S1XCIgdmFsdWU9eyhlbmVyZ3kuc29sYXJHZW5lcmF0aW9uICsgZW5lcmd5LndpbmRHZW5lcmF0aW9uKS50b0ZpeGVkKDEpfSB1bml0PVwia1doXCIgLz5cbiAgICAgICAgPEVuZXJneUtwaSBpY29uPXtCYXR0ZXJ5Q2hhcmdpbmd9IGxhYmVsPVwi55S15rGgIFNPQ1wiIHZhbHVlPXtlbmVyZ3kuYmF0dGVyeVNvY30gdW5pdD1cIiVcIiAvPlxuICAgICAgICA8RW5lcmd5S3BpIGljb249e0xlYWZ9IGxhYmVsPVwi5riF5rSB5Y2g5q+UXCIgdmFsdWU9e2NsZWFuUmF0aW99IHVuaXQ9XCIlXCIgLz5cbiAgICAgIDwvZGl2PlxuXG4gICAgICA8c2VjdGlvbiBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIGJvcmRlciBib3JkZXItd2hpdGUvMTAgYmctd2hpdGUvWzAuMDM1XSBwLTNcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYi0yIGZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwidGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj7og73ogJcgLyDlj5HnlLXotovlir88L2Rpdj5cbiAgICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LVsxMXB4XSB0ZXh0LXNsYXRlLTUwMFwiPjIg5bCP5pe257KS5bqmIG1vY2s8L3NwYW4+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtNDQgdy1mdWxsXCI+XG4gICAgICAgICAgPFJlc3BvbnNpdmVDb250YWluZXIgd2lkdGg9XCIxMDAlXCIgaGVpZ2h0PVwiMTAwJVwiPlxuICAgICAgICAgICAgPEFyZWFDaGFydCBkYXRhPXtmbG93RGF0YX0gbWFyZ2luPXt7IGxlZnQ6IC0yNCwgcmlnaHQ6IDgsIHRvcDogOCwgYm90dG9tOiAwIH19PlxuICAgICAgICAgICAgICA8ZGVmcz5cbiAgICAgICAgICAgICAgICA8bGluZWFyR3JhZGllbnQgaWQ9XCJjb25zdW1wdGlvbkZpbGxcIiB4MT1cIjBcIiB4Mj1cIjBcIiB5MT1cIjBcIiB5Mj1cIjFcIj5cbiAgICAgICAgICAgICAgICAgIDxzdG9wIG9mZnNldD1cIjUlXCIgc3RvcENvbG9yPVwiI2Y1Y2U1YlwiIHN0b3BPcGFjaXR5PXswLjM0fSAvPlxuICAgICAgICAgICAgICAgICAgPHN0b3Agb2Zmc2V0PVwiOTUlXCIgc3RvcENvbG9yPVwiI2Y1Y2U1YlwiIHN0b3BPcGFjaXR5PXswLjAyfSAvPlxuICAgICAgICAgICAgICAgIDwvbGluZWFyR3JhZGllbnQ+XG4gICAgICAgICAgICAgICAgPGxpbmVhckdyYWRpZW50IGlkPVwic29sYXJGaWxsXCIgeDE9XCIwXCIgeDI9XCIwXCIgeTE9XCIwXCIgeTI9XCIxXCI+XG4gICAgICAgICAgICAgICAgICA8c3RvcCBvZmZzZXQ9XCI1JVwiIHN0b3BDb2xvcj1cIiM3MGYyYTFcIiBzdG9wT3BhY2l0eT17MC4zMn0gLz5cbiAgICAgICAgICAgICAgICAgIDxzdG9wIG9mZnNldD1cIjk1JVwiIHN0b3BDb2xvcj1cIiM3MGYyYTFcIiBzdG9wT3BhY2l0eT17MC4wMn0gLz5cbiAgICAgICAgICAgICAgICA8L2xpbmVhckdyYWRpZW50PlxuICAgICAgICAgICAgICA8L2RlZnM+XG4gICAgICAgICAgICAgIDxDYXJ0ZXNpYW5HcmlkIHN0cm9rZT1cInJnYmEoMTY5LDI1NSwyMDgsMC4wOClcIiB2ZXJ0aWNhbD17ZmFsc2V9IC8+XG4gICAgICAgICAgICAgIDxYQXhpcyBkYXRhS2V5PVwidGltZVwiIHRpY2s9e3sgZmlsbDogJyM3ODk2OGMnLCBmb250U2l6ZTogMTAgfX0gdGlja0xpbmU9e2ZhbHNlfSBheGlzTGluZT17ZmFsc2V9IC8+XG4gICAgICAgICAgICAgIDxZQXhpcyB0aWNrPXt7IGZpbGw6ICcjNzg5NjhjJywgZm9udFNpemU6IDEwIH19IHRpY2tMaW5lPXtmYWxzZX0gYXhpc0xpbmU9e2ZhbHNlfSAvPlxuICAgICAgICAgICAgICA8VG9vbHRpcCBjb250ZW50U3R5bGU9e3Rvb2x0aXBTdHlsZX0gbGFiZWxTdHlsZT17eyBjb2xvcjogJyNhOWZmZDAnIH19IC8+XG4gICAgICAgICAgICAgIDxBcmVhIHR5cGU9XCJtb25vdG9uZVwiIGRhdGFLZXk9XCJjb25zdW1wdGlvblwiIG5hbWU9XCLotJ/ojbdcIiBzdHJva2U9XCIjZjVjZTViXCIgZmlsbD1cInVybCgjY29uc3VtcHRpb25GaWxsKVwiIHN0cm9rZVdpZHRoPXsyfSAvPlxuICAgICAgICAgICAgICA8QXJlYSB0eXBlPVwibW9ub3RvbmVcIiBkYXRhS2V5PVwic29sYXJcIiBuYW1lPVwi5aSq6Ziz6IO9XCIgc3Ryb2tlPVwiIzcwZjJhMVwiIGZpbGw9XCJ1cmwoI3NvbGFyRmlsbClcIiBzdHJva2VXaWR0aD17Mn0gLz5cbiAgICAgICAgICAgICAgPEFyZWEgdHlwZT1cIm1vbm90b25lXCIgZGF0YUtleT1cIndpbmRcIiBuYW1lPVwi6aOO55S1XCIgc3Ryb2tlPVwiIzUxZDZmZlwiIGZpbGw9XCJyZ2JhKDgxLDIxNCwyNTUsMC4wOClcIiBzdHJva2VXaWR0aD17Mn0gLz5cbiAgICAgICAgICAgIDwvQXJlYUNoYXJ0PlxuICAgICAgICAgIDwvUmVzcG9uc2l2ZUNvbnRhaW5lcj5cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L3NlY3Rpb24+XG5cbiAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cImdyaWQgZ3JpZC1jb2xzLTEgZ2FwLTNcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIGJvcmRlciBib3JkZXItd2hpdGUvMTAgYmctd2hpdGUvWzAuMDM1XSBwLTNcIj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1iLTIgdGV4dC1zbSBmb250LXNlbWlib2xkIHRleHQtd2hpdGVcIj7liIbpobnog73ogJc8L2Rpdj5cbiAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cImgtNDBcIj5cbiAgICAgICAgICAgIDxSZXNwb25zaXZlQ29udGFpbmVyIHdpZHRoPVwiMTAwJVwiIGhlaWdodD1cIjEwMCVcIj5cbiAgICAgICAgICAgICAgPEJhckNoYXJ0IGRhdGE9e2NhdGVnb3J5RGF0YX0gbWFyZ2luPXt7IGxlZnQ6IC0yNCwgcmlnaHQ6IDgsIHRvcDogOCwgYm90dG9tOiAwIH19PlxuICAgICAgICAgICAgICAgIDxDYXJ0ZXNpYW5HcmlkIHN0cm9rZT1cInJnYmEoMTY5LDI1NSwyMDgsMC4wOClcIiB2ZXJ0aWNhbD17ZmFsc2V9IC8+XG4gICAgICAgICAgICAgICAgPFhBeGlzIGRhdGFLZXk9XCJuYW1lXCIgdGljaz17eyBmaWxsOiAnIzc4OTY4YycsIGZvbnRTaXplOiAxMCB9fSB0aWNrTGluZT17ZmFsc2V9IGF4aXNMaW5lPXtmYWxzZX0gLz5cbiAgICAgICAgICAgICAgICA8WUF4aXMgdGljaz17eyBmaWxsOiAnIzc4OTY4YycsIGZvbnRTaXplOiAxMCB9fSB0aWNrTGluZT17ZmFsc2V9IGF4aXNMaW5lPXtmYWxzZX0gLz5cbiAgICAgICAgICAgICAgICA8VG9vbHRpcCBjb250ZW50U3R5bGU9e3Rvb2x0aXBTdHlsZX0gLz5cbiAgICAgICAgICAgICAgICA8QmFyIGRhdGFLZXk9XCJ2YWx1ZVwiIG5hbWU9XCJrV2hcIiByYWRpdXM9e1s0LCA0LCAwLCAwXX0+XG4gICAgICAgICAgICAgICAgICB7Y2F0ZWdvcnlEYXRhLm1hcCgoZW50cnksIGluZGV4KSA9PiAoXG4gICAgICAgICAgICAgICAgICAgIDxDZWxsIGtleT17ZW50cnkubmFtZX0gZmlsbD17cGFsZXR0ZVtpbmRleCAlIHBhbGV0dGUubGVuZ3RoXX0gLz5cbiAgICAgICAgICAgICAgICAgICkpfVxuICAgICAgICAgICAgICAgIDwvQmFyPlxuICAgICAgICAgICAgICA8L0JhckNoYXJ0PlxuICAgICAgICAgICAgPC9SZXNwb25zaXZlQ29udGFpbmVyPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cblxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci13aGl0ZS8xMCBiZy13aGl0ZS9bMC4wMzVdIHAtM1wiPlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWItMiB0ZXh0LXNtIGZvbnQtc2VtaWJvbGQgdGV4dC13aGl0ZVwiPuiDvea6kOe7k+aehDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZ3JpZCBncmlkLWNvbHMtWzEyMHB4X21pbm1heCgwLDFmcildIGl0ZW1zLWNlbnRlciBnYXAtM1wiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJoLTI4XCI+XG4gICAgICAgICAgICAgIDxSZXNwb25zaXZlQ29udGFpbmVyIHdpZHRoPVwiMTAwJVwiIGhlaWdodD1cIjEwMCVcIj5cbiAgICAgICAgICAgICAgICA8UGllQ2hhcnQ+XG4gICAgICAgICAgICAgICAgICA8UGllXG4gICAgICAgICAgICAgICAgICAgIGRhdGE9e1tcbiAgICAgICAgICAgICAgICAgICAgICB7IG5hbWU6ICflpKrpmLPog70nLCB2YWx1ZTogZW5lcmd5LnNvbGFyR2VuZXJhdGlvbiB9LFxuICAgICAgICAgICAgICAgICAgICAgIHsgbmFtZTogJ+mjjuWKmycsIHZhbHVlOiBlbmVyZ3kud2luZEdlbmVyYXRpb24gfSxcbiAgICAgICAgICAgICAgICAgICAgICB7IG5hbWU6ICfnlLXnvZHotJ/ojbcnLCB2YWx1ZTogTWF0aC5tYXgoZW5lcmd5LnRvZGF5Q29uc3VtcHRpb24gLSBlbmVyZ3kuc29sYXJHZW5lcmF0aW9uLCAxMikgfVxuICAgICAgICAgICAgICAgICAgICBdfVxuICAgICAgICAgICAgICAgICAgICBkYXRhS2V5PVwidmFsdWVcIlxuICAgICAgICAgICAgICAgICAgICBpbm5lclJhZGl1cz17MzB9XG4gICAgICAgICAgICAgICAgICAgIG91dGVyUmFkaXVzPXs1Mn1cbiAgICAgICAgICAgICAgICAgICAgcGFkZGluZ0FuZ2xlPXszfVxuICAgICAgICAgICAgICAgICAgPlxuICAgICAgICAgICAgICAgICAgICA8Q2VsbCBmaWxsPVwiIzcwZjJhMVwiIC8+XG4gICAgICAgICAgICAgICAgICAgIDxDZWxsIGZpbGw9XCIjNTFkNmZmXCIgLz5cbiAgICAgICAgICAgICAgICAgICAgPENlbGwgZmlsbD1cIiNmNWNlNWJcIiAvPlxuICAgICAgICAgICAgICAgICAgPC9QaWU+XG4gICAgICAgICAgICAgICAgICA8VG9vbHRpcCBjb250ZW50U3R5bGU9e3Rvb2x0aXBTdHlsZX0gLz5cbiAgICAgICAgICAgICAgICA8L1BpZUNoYXJ0PlxuICAgICAgICAgICAgICA8L1Jlc3BvbnNpdmVDb250YWluZXI+XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3BhY2UteS0yIHRleHQteHNcIj5cbiAgICAgICAgICAgICAgPExlZ2VuZExpbmUgY29sb3I9XCIjNzBmMmExXCIgbGFiZWw9XCLlpKrpmLPog73lj5HnlLVcIiB2YWx1ZT17YCR7ZW5lcmd5LnNvbGFyR2VuZXJhdGlvbn0ga1doYH0gLz5cbiAgICAgICAgICAgICAgPExlZ2VuZExpbmUgY29sb3I9XCIjNTFkNmZmXCIgbGFiZWw9XCLpo47lipvlj5HnlLVcIiB2YWx1ZT17YCR7ZW5lcmd5LndpbmRHZW5lcmF0aW9ufSBrV2hgfSAvPlxuICAgICAgICAgICAgICA8TGVnZW5kTGluZSBjb2xvcj1cIiNmNWNlNWJcIiBsYWJlbD1cIui/kOihjOiuvuWkh+WKn+eOh1wiIHZhbHVlPXtgJHtydW5uaW5nUG93ZXIudG9GaXhlZCgxKX0ga1dgfSAvPlxuICAgICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cInJvdW5kZWQtbWQgYm9yZGVyIGJvcmRlci1sZWFmLTMwMC8yMCBiZy1sZWFmLTQwMC8xMCBwLTNcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtYi0yIGZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtc20gZm9udC1zZW1pYm9sZCB0ZXh0LWxlYWYtMzAwXCI+XG4gICAgICAgICAgPFdpbmQgY2xhc3NOYW1lPVwiaC00IHctNFwiIC8+XG4gICAgICAgICAg6IqC6IO95bu66K6uXG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInNwYWNlLXktMlwiPlxuICAgICAgICAgIHtlbmVyZ3kuc3VnZ2VzdGlvbnMubWFwKChpdGVtKSA9PiAoXG4gICAgICAgICAgICA8ZGl2IGtleT17aXRlbX0gY2xhc3NOYW1lPVwidGV4dC14cyBsZWFkaW5nLTUgdGV4dC1zbGF0ZS0zMDBcIj5cbiAgICAgICAgICAgICAge2l0ZW19XG4gICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICApKX1cbiAgICAgICAgPC9kaXY+XG4gICAgICA8L2Rpdj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cblxuY29uc3QgdG9vbHRpcFN0eWxlID0ge1xuICBiYWNrZ3JvdW5kOiAncmdiYSgzLDE3LDE3LDAuOTIpJyxcbiAgYm9yZGVyOiAnMXB4IHNvbGlkIHJnYmEoMTEyLDI0MiwxNjEsMC4yNCknLFxuICBib3JkZXJSYWRpdXM6IDYsXG4gIGNvbG9yOiAnI2VhZmZmNSdcbn07XG5cbmZ1bmN0aW9uIEVuZXJneUtwaSh7XG4gIGljb246IEljb24sXG4gIGxhYmVsLFxuICB2YWx1ZSxcbiAgdW5pdFxufToge1xuICBpY29uOiBMdWNpZGVJY29uO1xuICBsYWJlbDogc3RyaW5nO1xuICB2YWx1ZTogbnVtYmVyIHwgc3RyaW5nO1xuICB1bml0OiBzdHJpbmc7XG59KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJyb3VuZGVkLW1kIGJvcmRlciBib3JkZXItbGVhZi0zMDAvMjAgYmctbGVhZi00MDAvMTAgcC0zXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGp1c3RpZnktYmV0d2VlblwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LVsxMXB4XSB0ZXh0LXNsYXRlLTUwMFwiPntsYWJlbH08L3NwYW4+XG4gICAgICAgIDxJY29uIGNsYXNzTmFtZT1cImgtNCB3LTQgdGV4dC1sZWFmLTMwMFwiIC8+XG4gICAgICA8L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwibXQtMiBmbGV4IGl0ZW1zLWVuZCBnYXAtMVwiPlxuICAgICAgICA8c3BhbiBjbGFzc05hbWU9XCJ0ZXh0LXhsIGZvbnQtYmxhY2sgdGV4dC13aGl0ZVwiPnt2YWx1ZX08L3NwYW4+XG4gICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cInRleHQtWzExcHhdIHRleHQtc2xhdGUtNTAwXCI+e3VuaXR9PC9zcGFuPlxuICAgICAgPC9kaXY+XG4gICAgPC9kaXY+XG4gICk7XG59XG5cbmZ1bmN0aW9uIExlZ2VuZExpbmUoeyBjb2xvciwgbGFiZWwsIHZhbHVlIH06IHsgY29sb3I6IHN0cmluZzsgbGFiZWw6IHN0cmluZzsgdmFsdWU6IHN0cmluZyB9KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGl0ZW1zLWNlbnRlciBqdXN0aWZ5LWJldHdlZW4gZ2FwLTIgcm91bmRlZCBib3JkZXIgYm9yZGVyLXdoaXRlLzEwIGJnLXdoaXRlL1swLjAzNV0gcHgtMiBweS0xLjVcIj5cbiAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImZsZXggaXRlbXMtY2VudGVyIGdhcC0yIHRleHQtc2xhdGUtNDAwXCI+XG4gICAgICAgIDxzcGFuIGNsYXNzTmFtZT1cImgtMiB3LTIgcm91bmRlZC1mdWxsXCIgc3R5bGU9e3sgYmFja2dyb3VuZDogY29sb3IgfX0gLz5cbiAgICAgICAge2xhYmVsfVxuICAgICAgPC9zcGFuPlxuICAgICAgPHNwYW4gY2xhc3NOYW1lPVwiZm9udC1zZW1pYm9sZCB0ZXh0LXdoaXRlXCI+e3ZhbHVlfTwvc3Bhbj5cbiAgICA8L2Rpdj5cbiAgKTtcbn1cbiJdLCJmaWxlIjoiRDovcHJvamVjdC/ojpPojpPkuI7lhbEt6I2J6I6T5aSn5qOa5pWw5a2X5a2q55Sf5Lqk5LqS5pON5L2c5bmz5Y+wL3NyYy9jb21wb25lbnRzL3BhbmVscy9FbmVyZ3lEYXNoYm9hcmRQYW5lbC50c3gifQ==

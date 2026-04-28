@@ -348,7 +348,7 @@ export const personnels: Personnel[] = [
 
 export const harvestVehicle: HarvestVehicle = {
   id: 'vehicle-harvester-1',
-  name: '机械臂草莓采摘小车 AGV-01',
+  name: '大型多机械臂草莓采摘车 AGV-01',
   position: [1.3, 0.38, -1.6],
   route: [
     [1.3, 0.08, -10],
@@ -357,11 +357,11 @@ export const harvestVehicle: HarvestVehicle = {
     [2.9, 0.08, 5.5],
     [2.9, 0.08, 10]
   ],
-  slamStatus: '厘米级定位，置信度 97%',
-  pathPlan: '沿主通道巡航，下一目标 R-06',
-  recognitionAccuracy: 96.8,
-  pickingEfficiency: 142,
-  armStatus: '柔性采摘爪待命'
+  slamStatus: '厘米级定位，置信度 97%，四臂作业安全域已锁定',
+  pathPlan: '沿主通道巡航，左右机械臂覆盖 R-04 至 R-06',
+  recognitionAccuracy: 97.4,
+  pickingEfficiency: 268,
+  armStatus: '四组柔性采摘臂协同巡检，末端采摘爪待命'
 };
 
 export const alarms: Alarm[] = [
