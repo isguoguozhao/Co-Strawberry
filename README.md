@@ -562,6 +562,6 @@ export default {
 
 ---
 
-**🌐 在线演示**: 暂无
+**🌐 GitHub 仓库**: [https://github.com/isguoguozhao/Co-Strawberry](https://github.com/isguoguozhao/Co-Strawberry)
 
 **📧 联系方式**: 15234240469
